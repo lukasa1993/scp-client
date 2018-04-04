@@ -53,26 +53,11 @@ export default class App extends React.Component {
   _handleFinishLoading = () => {
     this.setState({ isLoadingComplete: true });
   };
->>>>>>>
-  master2;
 }
 
 const styles = StyleSheet.create({
   container: {
-<
-<
-<
-<
-<
-<< HEAD
-  flex:            1,
-backgroundColor: '#fff',
-alignItems:      'center',
-justifyContent:  'center'
-}
-=======
-flex: 1,
-backgroundColor: '#fff',
-},
->>>>>>> master2
+    flex:            1,
+    backgroundColor: '#fff'
+  }
 });

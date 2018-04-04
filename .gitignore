@@ -2,3 +2,4 @@ node_modules/**/*
 npm-debug.*
 .expo/**/*
 .idea/
+ios/Pods/

@@ -90,12 +90,15 @@ export default class HomeScreen extends React.Component {
   }
 
   _handleServerPress(host) {
-    this.single_dispatch(NavigationActions.navigate({
-      routeName: 'Server',
-      params:    {
-        server: host
-      }
-    }));
+    AsyncStorage.getItem(`@SSHServerStore:${host}`)
+                .then(ssh_server => {
+                  this.single_dispatch(NavigationActions.navigate({
+                    routeName: 'Server',
+                    params:    {
+                      server: _.isString(ssh_server) ? JSON.parse(ssh_server) : ssh_server
+                    }
+                  }));
+                });
   }
 
   _handleAddPress = () => {

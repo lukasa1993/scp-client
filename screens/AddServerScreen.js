@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import React from 'react';
 import { AsyncStorage, ScrollView } from 'react-native';
-import { Button, Divider, FormInput, FormLabel } from 'react-native-elements';
+import { Button, Divider, FormInput, FormLabel, Icon } from 'react-native-elements';
 
 export default class AddServerScreen extends React.Component {
   static navigationOptions = ({ navigation }) => {
