@@ -48,7 +48,7 @@ export default class ServerScreen extends React.Component {
     };
   }
 
-  componentWillMount() {
+  componentDidMount() {
     const serverConfig = {
       host:     this.props.navigation.state.params.server.host,
       port:     this.props.navigation.state.params.server.port,

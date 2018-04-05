@@ -1,14 +1,13 @@
 import React from 'react';
 import { StackNavigator } from 'react-navigation';
+import HomeScreen from '../screens/HomeScreen';
 import AddServerScreen from '../screens/AddServerScreen';
 import ServerScreen from '../screens/ServerScreen';
-
-import MainTabNavigator from './MainTabNavigator';
 
 const RootStackNavigator = StackNavigator(
   {
     Main:      {
-      screen: MainTabNavigator
+      screen: HomeScreen
     },
     AddServer: {
       screen: AddServerScreen
