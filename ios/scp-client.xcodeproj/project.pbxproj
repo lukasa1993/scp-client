@@ -216,7 +216,7 @@
 				TargetAttributes = {
 					B56386401DB9693800A0598C = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = CSZ8NC7U7R;
+						DevelopmentTeam = N43S8JF6JT;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -497,7 +497,7 @@
 			baseConfigurationReference = 2C1548D9E4CB1AEFA5CCAE6D /* Pods-scp-client.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = CSZ8NC7U7R;
+				DEVELOPMENT_TEAM = N43S8JF6JT;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"${PODS_ROOT}/Headers/Public\"",
@@ -541,7 +541,7 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.picktek.scp-client";
+				PRODUCT_BUNDLE_IDENTIFIER = com.picktek.sscpclient;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/../../../ios/Pods/Headers/Public/**/**";
@@ -553,7 +553,7 @@
 			baseConfigurationReference = A47FE4D7F70906B7DC8CE39B /* Pods-scp-client.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = CSZ8NC7U7R;
+				DEVELOPMENT_TEAM = N43S8JF6JT;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"${PODS_ROOT}/Headers/Public\"",
@@ -597,7 +597,7 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.picktek.scp-client";
+				PRODUCT_BUNDLE_IDENTIFIER = com.picktek.sscpclient;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/../../../ios/Pods/Headers/Public/**/**";

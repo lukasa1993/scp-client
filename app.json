@@ -14,7 +14,7 @@
     "icon": "./assets/icon.png",
     "splash": {
       "image": "./assets/splash.png",
-      "resizeMode": "contain",
+      "resizeMode": "stretch",
       "backgroundColor": "#ffffff"
     },
     "updates": {
@@ -25,7 +25,7 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.picktek.scp-client",
+      "bundleIdentifier": "com.picktek.scpclient",
       "publishBundlePath": "ios/scp-client/Supporting/shell-app.bundle",
       "publishManifestPath": "ios/scp-client/Supporting/shell-app-manifest.json"
     },
