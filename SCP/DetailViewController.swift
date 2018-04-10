@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DetailViewController: UIViewController {
+class DetailViewController: UIViewController,UIPopoverPresentationControllerDelegate {
     
     @IBOutlet var leftTable: UITableView?
     @IBOutlet var rightTable: UITableView?
@@ -53,6 +53,10 @@ class DetailViewController: UIViewController {
     }
     
     
+    func prepareForPopoverPresentation(_ popoverPresentationController: UIPopoverPresentationController) {
+        popoverPresentationController.sourceView = self.view
+    }
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
@@ -76,7 +80,7 @@ class DetailViewController: UIViewController {
         }
     }
     
-    private func presenter(_ viewControllerToPresent: UIViewController, animated flag: Bool, completion: (() -> Void)? = nil) {
+    private func presenter(_ viewControllerToPresent: UIAlertController, animated flag: Bool, completion: (() -> Void)? = nil) {
         self.present(viewControllerToPresent, animated: flag, completion: completion)
     }
     

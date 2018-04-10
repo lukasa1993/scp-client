@@ -10,5 +10,13 @@
             </PersistentString>
          </PersistentStrings>
       </ContextState>
+      <ContextState
+         contextName = "DetailViewController.presenter(_:animated:completion:):DetailViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "viewControllerToPresent.view.bounds.size.width">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
    </ContextStates>
 </VariablesViewState>

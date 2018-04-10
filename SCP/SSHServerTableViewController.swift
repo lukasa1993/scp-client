@@ -20,7 +20,7 @@ class SSHServerTableViewController: UIViewController, UITableViewDelegate, UITab
     var pwd:String = ""
     var sidePWD:String = ""
     var queries = [String]()
-    var presenter: ((_ viewControllerToPresent: UIViewController, _ flag: Bool, _ completion: (() -> Void)? ) -> ())?
+    var presenter: ((_ viewControllerToPresent: UIAlertController, _ flag: Bool, _ completion: (() -> Void)? ) -> ())?
     var sideListener: ((_ path:String) -> ())?
     var executionListener: (()->())?
     var sshQueue:DispatchQueue?
@@ -150,14 +150,11 @@ class SSHServerTableViewController: UIViewController, UITableViewDelegate, UITab
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let item = objects[indexPath.row];
-        if(item["name"] == "..") {
-            return
-        }
         
         if(item["type"] == "folder") {
             changeDir(path: item["name"]!)
         } else if(item["type"] == "file") {
-            handleAction(item)
+            handleAction(item, indexPath: indexPath)
         }
     }
     
@@ -165,16 +162,23 @@ class SSHServerTableViewController: UIViewController, UITableViewDelegate, UITab
         let point: CGPoint = sender.location(in: self.tableView);
         let indexPath: NSIndexPath = self.tableView!.indexPathForRow(at: point)! as NSIndexPath;
         let item = objects[indexPath.row];
-        handleAction(item);
+        handleAction(item, indexPath: indexPath as IndexPath);
     }
     
     
-    private func handleAction(_ item:[String:String]) {
-        
+    private func handleAction(_ item:[String:String], indexPath:IndexPath) {
+        if(item["name"] == "..") {
+            return
+        }
         
         let alert = UIAlertController(title: "Action On " + item["name"]!,
                                       message: "Move/Copy to: " + sidePWD,
                                       preferredStyle: .actionSheet)
+        
+        if let popoverController = alert.popoverPresentationController {
+            popoverController.sourceView = tableView?.cellForRow(at: indexPath)
+            popoverController.sourceRect = (popoverController.sourceView?.bounds)!
+        }
         
         if(item["type"] == "file") {
             alert.addAction(UIAlertAction(title: "Execute", style: .default, handler: { (action) in
