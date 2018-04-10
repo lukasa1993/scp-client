@@ -45,14 +45,23 @@ class AddServerViewController: FormViewController {
             <<< ButtonRow(){
                 $0.title = "Add Server"
                 }.onCellSelection {  cell, row in
-                    let valuesDictionary = self.serverForm?.values()
                     let keychain = Keychain()
                     do {
-                        let server = SSHServer(name: valuesDictionary!["name"] as! String,
-                                               host: valuesDictionary!["host"] as! String,
-                                               port: valuesDictionary!["port"] as! Int,
-                                               user: valuesDictionary!["user"] as! String,
-                                               pass: valuesDictionary!["pass"] as! String)
+                        let nameRow: TextRow? = self.serverForm?.rowBy(tag: "name")
+                        let portRow: IntRow? = self.serverForm?.rowBy(tag: "port")
+                        let userRow: TextRow? = self.serverForm?.rowBy(tag: "user")
+                        let hostRow: TextRow? = self.serverForm?.rowBy(tag: "host")
+                        let passRow: PasswordRow? = self.serverForm?.rowBy(tag: "pass")
+                        
+                        let name = nameRow?.value != nil ? nameRow?.value : "SSH Server"
+                        let port = portRow?.value != nil ? portRow?.value : 22
+                        let user = userRow?.value != nil ? userRow?.value : "root"
+                        
+                        let server = SSHServer(name: name!,
+                                               host: hostRow!.value!,
+                                               port: port!,
+                                               user: user!,
+                                               pass: passRow!.value!)
 
                         let jsonEncoder = JSONEncoder()
                         let jsonData = try jsonEncoder.encode(server)

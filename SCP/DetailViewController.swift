@@ -52,11 +52,6 @@ class DetailViewController: UIViewController,UIPopoverPresentationControllerDele
         }
     }
     
-    
-    func prepareForPopoverPresentation(_ popoverPresentationController: UIPopoverPresentationController) {
-        popoverPresentationController.sourceView = self.view
-    }
-    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
