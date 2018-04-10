@@ -47,7 +47,7 @@ class AddServerViewController: FormViewController {
                 }.onCellSelection {  cell, row in
                     let keychain = Keychain()
                     do {
-                        let nameRow: TextRow? = self.serverForm?.rowBy(tag: "name")
+                        let nameRow: NameRow? = self.serverForm?.rowBy(tag: "name")
                         let portRow: IntRow? = self.serverForm?.rowBy(tag: "port")
                         let userRow: TextRow? = self.serverForm?.rowBy(tag: "user")
                         let hostRow: TextRow? = self.serverForm?.rowBy(tag: "host")
