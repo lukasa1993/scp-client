@@ -1,0 +1,572 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6B24E8F820777084005B33A5 /* NMSSH.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B24E8F72077707F005B33A5 /* NMSSH.framework */; };
+		6B24E8F920777084005B33A5 /* NMSSH.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6B24E8F72077707F005B33A5 /* NMSSH.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6B24E90C20778093005B33A5 /* Icofont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6B24E90020778093005B33A5 /* Icofont.ttf */; };
+		6B24E90D20778093005B33A5 /* MapIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6B24E90120778093005B33A5 /* MapIcons.ttf */; };
+		6B24E90E20778093005B33A5 /* Dripicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6B24E90220778093005B33A5 /* Dripicons.ttf */; };
+		6B24E90F20778093005B33A5 /* OpenIconic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6B24E90320778093005B33A5 /* OpenIconic.ttf */; };
+		6B24E91020778093005B33A5 /* WeatherIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6B24E90420778093005B33A5 /* WeatherIcons.ttf */; };
+		6B24E91120778093005B33A5 /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6B24E90520778093005B33A5 /* Ionicons.ttf */; };
+		6B24E91220778093005B33A5 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6B24E90620778093005B33A5 /* FontAwesome.ttf */; };
+		6B24E91320778093005B33A5 /* Stateface.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6B24E90720778093005B33A5 /* Stateface.ttf */; };
+		6B24E91420778093005B33A5 /* Linearicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6B24E90820778093005B33A5 /* Linearicons.ttf */; };
+		6B24E91520778093005B33A5 /* SwiftIcons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B24E90920778093005B33A5 /* SwiftIcons.swift */; };
+		6B24E91620778093005B33A5 /* Emoji.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6B24E90A20778093005B33A5 /* Emoji.ttf */; };
+		6B24E91720778093005B33A5 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6B24E90B20778093005B33A5 /* MaterialIcons.ttf */; };
+		6BC17E5920774D6300E2A999 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC17E5820774D6300E2A999 /* AppDelegate.swift */; };
+		6BC17E5B20774D6300E2A999 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC17E5A20774D6300E2A999 /* MasterViewController.swift */; };
+		6BC17E5D20774D6300E2A999 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC17E5C20774D6300E2A999 /* DetailViewController.swift */; };
+		6BC17E6020774D6300E2A999 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6BC17E5E20774D6300E2A999 /* Main.storyboard */; };
+		6BC17E6220774D6300E2A999 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6BC17E6120774D6300E2A999 /* Assets.xcassets */; };
+		6BC17E6520774D6300E2A999 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6BC17E6320774D6300E2A999 /* LaunchScreen.storyboard */; };
+		6BC17E702077519C00E2A999 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC17E6F2077519C00E2A999 /* Keychain.swift */; };
+		6BC17E7A2077602000E2A999 /* Eureka.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BC17E7720775FF100E2A999 /* Eureka.framework */; };
+		6BC17E7B2077602000E2A999 /* Eureka.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6BC17E7720775FF100E2A999 /* Eureka.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6BC17E802077605300E2A999 /* AddServerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC17E7F2077605300E2A999 /* AddServerViewController.swift */; };
+		6BC17E83207766C400E2A999 /* SSHServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC17E82207766C400E2A999 /* SSHServer.swift */; };
+		6BC17E8920776B8E00E2A999 /* SSHServerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC17E8820776B8E00E2A999 /* SSHServerTableViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		6B24E8F42077707F005B33A5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6B24E8EE2077707F005B33A5 /* NMSSH-iOS.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 18A0964F17D6A8C4008B76FB;
+			remoteInfo = "NMSSH Static";
+		};
+		6B24E8F62077707F005B33A5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6B24E8EE2077707F005B33A5 /* NMSSH-iOS.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 186CC9581B69110500F674C4;
+			remoteInfo = NMSSH;
+		};
+		6B24E8FA20777084005B33A5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6B24E8EE2077707F005B33A5 /* NMSSH-iOS.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 186CC9571B69110500F674C4;
+			remoteInfo = NMSSH;
+		};
+		6BC17E7620775FF100E2A999 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6BC17E7120775FF100E2A999 /* Eureka.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 51729DEB1B9A4F5E004A00EB;
+			remoteInfo = Eureka;
+		};
+		6BC17E7820775FF100E2A999 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6BC17E7120775FF100E2A999 /* Eureka.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 51729DF51B9A4F5E004A00EB;
+			remoteInfo = EurekaTests;
+		};
+		6BC17E7C2077602000E2A999 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6BC17E7120775FF100E2A999 /* Eureka.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 51729DEA1B9A4F5E004A00EB;
+			remoteInfo = Eureka;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		6BC17E7E2077602000E2A999 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				6B24E8F920777084005B33A5 /* NMSSH.framework in Embed Frameworks */,
+				6BC17E7B2077602000E2A999 /* Eureka.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		6B24E8EE2077707F005B33A5 /* NMSSH-iOS.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "NMSSH-iOS.xcodeproj"; path = "NMSSH/NMSSH-iOS.xcodeproj"; sourceTree = SOURCE_ROOT; };
+		6B24E8FC207770AB005B33A5 /* SCP-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "SCP-Bridging-Header.h"; path = "../SCP-Bridging-Header.h"; sourceTree = "<group>"; };
+		6B24E90020778093005B33A5 /* Icofont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Icofont.ttf; sourceTree = "<group>"; };
+		6B24E90120778093005B33A5 /* MapIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MapIcons.ttf; sourceTree = "<group>"; };
+		6B24E90220778093005B33A5 /* Dripicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Dripicons.ttf; sourceTree = "<group>"; };
+		6B24E90320778093005B33A5 /* OpenIconic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = OpenIconic.ttf; sourceTree = "<group>"; };
+		6B24E90420778093005B33A5 /* WeatherIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = WeatherIcons.ttf; sourceTree = "<group>"; };
+		6B24E90520778093005B33A5 /* Ionicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Ionicons.ttf; sourceTree = "<group>"; };
+		6B24E90620778093005B33A5 /* FontAwesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.ttf; sourceTree = "<group>"; };
+		6B24E90720778093005B33A5 /* Stateface.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Stateface.ttf; sourceTree = "<group>"; };
+		6B24E90820778093005B33A5 /* Linearicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Linearicons.ttf; sourceTree = "<group>"; };
+		6B24E90920778093005B33A5 /* SwiftIcons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftIcons.swift; sourceTree = "<group>"; };
+		6B24E90A20778093005B33A5 /* Emoji.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Emoji.ttf; sourceTree = "<group>"; };
+		6B24E90B20778093005B33A5 /* MaterialIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MaterialIcons.ttf; sourceTree = "<group>"; };
+		6BC17E5520774D6300E2A999 /* SCP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SCP.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6BC17E5820774D6300E2A999 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		6BC17E5A20774D6300E2A999 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
+		6BC17E5C20774D6300E2A999 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		6BC17E5F20774D6300E2A999 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		6BC17E6120774D6300E2A999 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6BC17E6420774D6300E2A999 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		6BC17E6620774D6300E2A999 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6BC17E6F2077519C00E2A999 /* Keychain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
+		6BC17E7120775FF100E2A999 /* Eureka.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Eureka.xcodeproj; path = Eureka/Eureka.xcodeproj; sourceTree = SOURCE_ROOT; };
+		6BC17E7F2077605300E2A999 /* AddServerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddServerViewController.swift; sourceTree = "<group>"; };
+		6BC17E82207766C400E2A999 /* SSHServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSHServer.swift; sourceTree = "<group>"; };
+		6BC17E8820776B8E00E2A999 /* SSHServerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSHServerTableViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6BC17E5220774D6300E2A999 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6B24E8F820777084005B33A5 /* NMSSH.framework in Frameworks */,
+				6BC17E7A2077602000E2A999 /* Eureka.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6B24E8EF2077707F005B33A5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6B24E8F52077707F005B33A5 /* NMSSH Static.framework */,
+				6B24E8F72077707F005B33A5 /* NMSSH.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6B24E8FF20778093005B33A5 /* icons */ = {
+			isa = PBXGroup;
+			children = (
+				6B24E90020778093005B33A5 /* Icofont.ttf */,
+				6B24E90120778093005B33A5 /* MapIcons.ttf */,
+				6B24E90220778093005B33A5 /* Dripicons.ttf */,
+				6B24E90320778093005B33A5 /* OpenIconic.ttf */,
+				6B24E90420778093005B33A5 /* WeatherIcons.ttf */,
+				6B24E90520778093005B33A5 /* Ionicons.ttf */,
+				6B24E90620778093005B33A5 /* FontAwesome.ttf */,
+				6B24E90720778093005B33A5 /* Stateface.ttf */,
+				6B24E90820778093005B33A5 /* Linearicons.ttf */,
+				6B24E90920778093005B33A5 /* SwiftIcons.swift */,
+				6B24E90A20778093005B33A5 /* Emoji.ttf */,
+				6B24E90B20778093005B33A5 /* MaterialIcons.ttf */,
+			);
+			path = icons;
+			sourceTree = "<group>";
+		};
+		6BC17E4C20774D6300E2A999 = {
+			isa = PBXGroup;
+			children = (
+				6BC17E5720774D6300E2A999 /* SCP */,
+				6BC17E5620774D6300E2A999 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		6BC17E5620774D6300E2A999 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6BC17E5520774D6300E2A999 /* SCP.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6BC17E5720774D6300E2A999 /* SCP */ = {
+			isa = PBXGroup;
+			children = (
+				6BC17E82207766C400E2A999 /* SSHServer.swift */,
+				6BC17E6F2077519C00E2A999 /* Keychain.swift */,
+				6BC17E5820774D6300E2A999 /* AppDelegate.swift */,
+				6BC17E5A20774D6300E2A999 /* MasterViewController.swift */,
+				6BC17E7F2077605300E2A999 /* AddServerViewController.swift */,
+				6BC17E5C20774D6300E2A999 /* DetailViewController.swift */,
+				6BC17E8820776B8E00E2A999 /* SSHServerTableViewController.swift */,
+				6BC17E5E20774D6300E2A999 /* Main.storyboard */,
+				6BC17E6120774D6300E2A999 /* Assets.xcassets */,
+				6BC17E6320774D6300E2A999 /* LaunchScreen.storyboard */,
+				6B24E8FC207770AB005B33A5 /* SCP-Bridging-Header.h */,
+				6BC17E6620774D6300E2A999 /* Info.plist */,
+				6B24E8FF20778093005B33A5 /* icons */,
+				6B24E8EE2077707F005B33A5 /* NMSSH-iOS.xcodeproj */,
+				6BC17E7120775FF100E2A999 /* Eureka.xcodeproj */,
+			);
+			path = SCP;
+			sourceTree = "<group>";
+		};
+		6BC17E7220775FF100E2A999 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6BC17E7720775FF100E2A999 /* Eureka.framework */,
+				6BC17E7920775FF100E2A999 /* EurekaTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6BC17E5420774D6300E2A999 /* SCP */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6BC17E6920774D6300E2A999 /* Build configuration list for PBXNativeTarget "SCP" */;
+			buildPhases = (
+				6BC17E5120774D6300E2A999 /* Sources */,
+				6BC17E5220774D6300E2A999 /* Frameworks */,
+				6BC17E5320774D6300E2A999 /* Resources */,
+				6BC17E7E2077602000E2A999 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6BC17E7D2077602000E2A999 /* PBXTargetDependency */,
+				6B24E8FB20777084005B33A5 /* PBXTargetDependency */,
+			);
+			name = SCP;
+			productName = SCP;
+			productReference = 6BC17E5520774D6300E2A999 /* SCP.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6BC17E4D20774D6300E2A999 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0930;
+				LastUpgradeCheck = 0930;
+				ORGANIZATIONNAME = LD;
+				TargetAttributes = {
+					6BC17E5420774D6300E2A999 = {
+						CreatedOnToolsVersion = 9.3;
+						LastSwiftMigration = 0930;
+					};
+				};
+			};
+			buildConfigurationList = 6BC17E5020774D6300E2A999 /* Build configuration list for PBXProject "SCP" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 6BC17E4C20774D6300E2A999;
+			productRefGroup = 6BC17E5620774D6300E2A999 /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 6BC17E7220775FF100E2A999 /* Products */;
+					ProjectRef = 6BC17E7120775FF100E2A999 /* Eureka.xcodeproj */;
+				},
+				{
+					ProductGroup = 6B24E8EF2077707F005B33A5 /* Products */;
+					ProjectRef = 6B24E8EE2077707F005B33A5 /* NMSSH-iOS.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				6BC17E5420774D6300E2A999 /* SCP */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		6B24E8F52077707F005B33A5 /* NMSSH Static.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "NMSSH Static.framework";
+			remoteRef = 6B24E8F42077707F005B33A5 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		6B24E8F72077707F005B33A5 /* NMSSH.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = NMSSH.framework;
+			remoteRef = 6B24E8F62077707F005B33A5 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		6BC17E7720775FF100E2A999 /* Eureka.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Eureka.framework;
+			remoteRef = 6BC17E7620775FF100E2A999 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		6BC17E7920775FF100E2A999 /* EurekaTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = EurekaTests.xctest;
+			remoteRef = 6BC17E7820775FF100E2A999 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6BC17E5320774D6300E2A999 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6B24E91320778093005B33A5 /* Stateface.ttf in Resources */,
+				6B24E91020778093005B33A5 /* WeatherIcons.ttf in Resources */,
+				6B24E91220778093005B33A5 /* FontAwesome.ttf in Resources */,
+				6BC17E6520774D6300E2A999 /* LaunchScreen.storyboard in Resources */,
+				6B24E91120778093005B33A5 /* Ionicons.ttf in Resources */,
+				6B24E90C20778093005B33A5 /* Icofont.ttf in Resources */,
+				6B24E91720778093005B33A5 /* MaterialIcons.ttf in Resources */,
+				6B24E91420778093005B33A5 /* Linearicons.ttf in Resources */,
+				6B24E90D20778093005B33A5 /* MapIcons.ttf in Resources */,
+				6BC17E6220774D6300E2A999 /* Assets.xcassets in Resources */,
+				6B24E90E20778093005B33A5 /* Dripicons.ttf in Resources */,
+				6B24E90F20778093005B33A5 /* OpenIconic.ttf in Resources */,
+				6BC17E6020774D6300E2A999 /* Main.storyboard in Resources */,
+				6B24E91620778093005B33A5 /* Emoji.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6BC17E5120774D6300E2A999 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6BC17E5D20774D6300E2A999 /* DetailViewController.swift in Sources */,
+				6BC17E802077605300E2A999 /* AddServerViewController.swift in Sources */,
+				6BC17E702077519C00E2A999 /* Keychain.swift in Sources */,
+				6BC17E83207766C400E2A999 /* SSHServer.swift in Sources */,
+				6B24E91520778093005B33A5 /* SwiftIcons.swift in Sources */,
+				6BC17E8920776B8E00E2A999 /* SSHServerTableViewController.swift in Sources */,
+				6BC17E5B20774D6300E2A999 /* MasterViewController.swift in Sources */,
+				6BC17E5920774D6300E2A999 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6B24E8FB20777084005B33A5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = NMSSH;
+			targetProxy = 6B24E8FA20777084005B33A5 /* PBXContainerItemProxy */;
+		};
+		6BC17E7D2077602000E2A999 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Eureka;
+			targetProxy = 6BC17E7C2077602000E2A999 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		6BC17E5E20774D6300E2A999 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6BC17E5F20774D6300E2A999 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		6BC17E6320774D6300E2A999 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6BC17E6420774D6300E2A999 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		6BC17E6720774D6300E2A999 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		6BC17E6820774D6300E2A999 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		6BC17E6A20774D6300E2A999 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = N43S8JF6JT;
+				INFOPLIST_FILE = SCP/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.picktek.sscpclient;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SCP-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		6BC17E6B20774D6300E2A999 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = N43S8JF6JT;
+				INFOPLIST_FILE = SCP/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.picktek.sscpclient;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SCP-Bridging-Header.h";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6BC17E5020774D6300E2A999 /* Build configuration list for PBXProject "SCP" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6BC17E6720774D6300E2A999 /* Debug */,
+				6BC17E6820774D6300E2A999 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6BC17E6920774D6300E2A999 /* Build configuration list for PBXNativeTarget "SCP" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6BC17E6A20774D6300E2A999 /* Debug */,
+				6BC17E6B20774D6300E2A999 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6BC17E4D20774D6300E2A999 /* Project object */;
+}
