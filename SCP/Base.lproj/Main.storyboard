@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="H1p-Uh-vWS">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="RMx-3f-FxP">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -85,6 +85,7 @@
                                         </prototypes>
                                     </tableView>
                                 </subviews>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstItem="7GB-Gy-rlc" firstAttribute="leading" secondItem="Elt-Ps-0Gw" secondAttribute="trailing" id="44a-h5-Mat"/>
                                     <constraint firstItem="7GB-Gy-rlc" firstAttribute="leading" secondItem="Elt-Ps-0Gw" secondAttribute="trailing" id="CeC-Qv-nbv"/>
@@ -131,20 +132,6 @@
             </objects>
             <point key="canvasLocation" x="709" y="129"/>
         </scene>
-        <!--Split View Controller-->
-        <scene sceneID="Nki-YV-4Qg">
-            <objects>
-                <splitViewController id="H1p-Uh-vWS" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <connections>
-                        <segue destination="RMx-3f-FxP" kind="relationship" relationship="masterViewController" id="BlO-5A-QYV"/>
-                        <segue destination="vC3-pB-5Vb" kind="relationship" relationship="detailViewController" id="Tll-UG-LXB"/>
-                    </connections>
-                </splitViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="cZU-Oi-B1e" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-856" y="-330"/>
-        </scene>
         <!--Master-->
         <scene sceneID="smW-Zh-WAh">
             <objects>
@@ -178,9 +165,6 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <connections>
-                                    <segue destination="vC3-pB-5Vb" kind="showDetail" identifier="showDetail" id="o78-16-a9E"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <sections/>
@@ -194,6 +178,7 @@
                     </navigationItem>
                     <connections>
                         <segue destination="Med-nd-tev" kind="show" identifier="add_server" id="t5H-Yb-1Xp"/>
+                        <segue destination="vC3-pB-5Vb" kind="presentation" identifier="showDetail" id="j63-C1-9tT"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rux-fX-hf1" sceneMemberID="firstResponder"/>
@@ -232,7 +217,4 @@
             <point key="canvasLocation" x="-45" y="129"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="Tll-UG-LXB"/>
-    </inferredMetricsTieBreakers>
 </document>

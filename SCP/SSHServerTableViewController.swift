@@ -24,6 +24,7 @@ class SSHServerTableViewController: UIViewController, UITableViewDelegate, UITab
     var sideListener: ((_ path:String) -> ())?
     var executionListener: (()->())?
     var sshQueue:DispatchQueue?
+    var serverUUID:String!
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -39,10 +40,17 @@ class SSHServerTableViewController: UIViewController, UITableViewDelegate, UITab
         }
         self.title = SSHServer?.name
         
-        self.tableView?.dataSource = self;
-        self.tableView?.delegate = self;
-        self.tableView?.register(UITableViewCell.self, forCellReuseIdentifier: isLeft ? "LeftTableCell" : "RightTableCell")
+        DispatchQueue.main.async {
+            self.tableView?.dataSource = self;
+            self.tableView?.delegate = self;
+            self.tableView?.register(UITableViewCell.self, forCellReuseIdentifier: self.isLeft ? "LeftTableCell" : "RightTableCell")
+        }
         
+        if(isLeft) {
+            pwd = (UserDefaults.standard.object(forKey: self.serverUUID + "_last_path_left") as? String) ?? ""
+        } else {
+            pwd = (UserDefaults.standard.object(forKey: self.serverUUID + "_last_path_right") as? String) ?? ""
+        }
         
         SSHSession = NMSSHSession.connect(toHost: SSHServer?.host, port: (SSHServer?.port)!, withUsername: SSHServer?.user)
         if (SSHSession?.isConnected)! {
@@ -77,7 +85,9 @@ class SSHServerTableViewController: UIViewController, UITableViewDelegate, UITab
             let dirs = try SSHSession?.channel.execute("cd \"" + pwd + "\" && ls -d1 */")
             
             parseListing(all: list!, dirs: dirs!);
-            tableView?.reloadData()
+            DispatchQueue.main.async {
+                self.tableView?.reloadData()
+            }
         } catch let error {
             print("error: \(error)")
         }
@@ -110,7 +120,11 @@ class SSHServerTableViewController: UIViewController, UITableViewDelegate, UITab
         do {
             pwd = (try SSHSession?.channel.execute("cd \""  + pwd + "\" && cd \"" + path + "\" && pwd"))!
             pwd = pwd.trimmingCharacters(in: .whitespacesAndNewlines)
-            
+            if(isLeft) {
+                UserDefaults.standard.set(pwd, forKey: self.serverUUID + "_last_path_left")
+            } else {
+                UserDefaults.standard.set(pwd, forKey: self.serverUUID + "_last_path_right")
+            }
             sideListener!(pwd)
             
             objects = []
@@ -140,11 +154,12 @@ class SSHServerTableViewController: UIViewController, UITableViewDelegate, UITab
         cell.textLabel?.text = item["name"]
         if(item["type"] == "folder") {
             cell.imageView?.image = UIImage.init(icon: .fontAwesome(.folder), size: CGSize(width: 35, height: 35))
-            let holdForAction = UILongPressGestureRecognizer(target: self, action: #selector(SSHServerTableViewController.longPressFolder));
-            cell.addGestureRecognizer(holdForAction)
         } else if(item["type"] == "file") {
             cell.imageView?.image = UIImage.init(icon: .fontAwesome(.file), size: CGSize(width: 35, height: 35))
         }
+        let holdForAction = UILongPressGestureRecognizer(target: self, action: #selector(SSHServerTableViewController.longPressFolder));
+        cell.addGestureRecognizer(holdForAction)
+        
         return cell
     }
     
@@ -156,6 +171,8 @@ class SSHServerTableViewController: UIViewController, UITableViewDelegate, UITab
         } else if(item["type"] == "file") {
             handleAction(item, indexPath: indexPath)
         }
+        
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     @objc public func longPressFolder(sender: UILongPressGestureRecognizer) {
@@ -228,6 +245,10 @@ class SSHServerTableViewController: UIViewController, UITableViewDelegate, UITab
             self.handleView(path: self.pwd + "/" + item["name"]!)
         }))
         
+        alert.addAction(UIAlertAction(title: "Stats", style: .default, handler: { (action) in
+            self.handleStats(path: self.pwd + "/" + item["name"]!)
+        }))
+        
         alert.addAction(UIAlertAction(title: "Move", style: .destructive, handler: { (action) in
             self.handleMove(from: self.pwd + "/" + item["name"]!, to: self.sidePWD)
         }))
@@ -288,7 +309,21 @@ class SSHServerTableViewController: UIViewController, UITableViewDelegate, UITab
             
             let viewAlert = UIAlertController(title: "Viewing " + path, message: cat, preferredStyle: .alert)
             viewAlert.addAction(UIAlertAction(title: "Done", style: .default))
-
+            
+            self.presenter!(viewAlert, true, nil)
+        } catch let error {
+            print("error: \(error)")
+        }
+    }
+    
+    
+    private func handleStats(path: String) {
+        do {
+            let cat = try SSHSession?.channel.execute("ls -alh \"" + path + "\"")
+            
+            let viewAlert = UIAlertController(title: "Stats " + path, message: cat, preferredStyle: .alert)
+            viewAlert.addAction(UIAlertAction(title: "Done", style: .default))
+            
             self.presenter!(viewAlert, true, nil)
         } catch let error {
             print("error: \(error)")

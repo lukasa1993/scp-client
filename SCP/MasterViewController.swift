@@ -10,7 +10,6 @@ import UIKit
 
 class MasterViewController: UITableViewController {
     
-    var detailViewController: DetailViewController? = nil
     var keys = [String]()
     var keychain:Keychain? = nil;
     
@@ -21,17 +20,12 @@ class MasterViewController: UITableViewController {
         
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(insertNewObject(_:)))
         navigationItem.rightBarButtonItem = addButton
-        if let split = splitViewController {
-            let controllers = split.viewControllers
-            detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
-        }
         
         keychain = Keychain()
         keys = (keychain?.allKeys())!;
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        clearsSelectionOnViewWillAppear = splitViewController!.isCollapsed
         super.viewWillAppear(animated)
         if((keychain) != nil) {
             keys = (keychain?.allKeys())!;
@@ -59,16 +53,22 @@ class MasterViewController: UITableViewController {
                     let Key = keys[indexPath.row]
                     let Value = try keychain?.get(Key);
                     controller.detailItem = Value!
+                    controller.detailItemUUID = Key
                 } catch _ {
                     controller.detailItem = "Key Doesn't Exist"
                 }
-                controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
                 controller.navigationItem.leftItemsSupplementBackButton = true
+                
+                self.tableView.deselectRow(at: indexPath, animated: false)
             }
         }
     }
     
     // MARK: - Table View
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.performSegue(withIdentifier: "showDetail", sender: nil)
+    }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
