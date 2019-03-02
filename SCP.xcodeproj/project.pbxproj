@@ -155,9 +155,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0B4D325C222A68E000C0A8A5 /* GenericPasswordRow.framework in Frameworks */,
 				6B24E8F820777084005B33A5 /* NMSSH.framework in Frameworks */,
 				6BC17E7A2077602000E2A999 /* Eureka.framework in Frameworks */,
+				0B4D325C222A68E000C0A8A5 /* GenericPasswordRow.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

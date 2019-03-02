@@ -153,18 +153,14 @@ class AddServerViewController: FormViewController {
                         let pubkey: TextAreaRow? = self.serverForm?.rowBy(tag: "publickey")
                         let prase: GenericPasswordRow? = self.serverForm?.rowBy(tag: "passprase")
                         
-                        let name = nameRow?.value != nil ? nameRow?.value : "SSH Server"
-                        let port = portRow?.value != nil ? portRow?.value : 22
-                        let user = userRow?.value != nil ? userRow?.value : "root"
-                        
-                        let server = SSHServer(name: name!,
-                                               host: hostRow!.value!,
-                                               port: port!,
-                                               user: user!,
-                                               pass: passRow!.value!.trimmingCharacters(in: .whitespacesAndNewlines),
-                                               privkey: privkey!.value!.trimmingCharacters(in: .whitespacesAndNewlines),
-                                               pubkey: pubkey!.value!.trimmingCharacters(in: .whitespacesAndNewlines),
-                                               prase: prase!.value!.trimmingCharacters(in: .whitespacesAndNewlines)
+                        let server = SSHServer(name: nameRow?.value ?? "Unknown",
+                                               host: hostRow?.value ?? "example.com",
+                                               port: portRow?.value ?? 22,
+                                               user: userRow?.value ?? "root",
+                                               pass: passRow?.value?.trimmingCharacters(in: .whitespacesAndNewlines) ?? "",
+                                               privkey: privkey?.value?.trimmingCharacters(in: .whitespacesAndNewlines) ?? "",
+                                               pubkey: pubkey?.value?.trimmingCharacters(in: .whitespacesAndNewlines) ?? "",
+                                               prase: prase?.value?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
                                                )
                         
                         let jsonEncoder = JSONEncoder()
