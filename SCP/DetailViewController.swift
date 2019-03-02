@@ -19,8 +19,8 @@ class DetailViewController: UIViewController, UIPopoverPresentationControllerDel
     var inactiveTimer: Timer?
     
     func configureView() {
-        NotificationCenter.default.addObserver(self, selector: #selector(willResignActive), name: .UIApplicationWillResignActive, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(didBecomeActive),  name: .UIApplicationDidBecomeActive,  object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(willResignActive), name: UIApplication.willResignActiveNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(didBecomeActive),  name: UIApplication.didBecomeActiveNotification,  object: nil)
         
         if let viewState = UserDefaults.standard.object(forKey: detailItemUUID + "_selected_view") as? Int {
             DispatchQueue.main.async {

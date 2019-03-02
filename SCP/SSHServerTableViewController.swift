@@ -67,7 +67,7 @@ class SSHServerTableViewController: UIViewController, UITableViewDelegate, UITab
                     if self.self.isLeft {
                         print("Left Cant Connect")
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                            let alert = UIAlertController(title: "Error", message: "Can't Esatablish connection to server, please check credentials", preferredStyle: UIAlertControllerStyle.alert)
+                            let alert = UIAlertController(title: "Error", message: "Can't Esatablish connection to server, please check credentials", preferredStyle: UIAlertController.Style.alert)
                             alert.addAction(UIAlertAction(title: "Go Back", style: .default, handler: { action in
                                 self.exit!()
                             }))
