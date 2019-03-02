@@ -3,7 +3,7 @@
 #### Next version 1.5
 
 1. Remote File Edit
-  1. probably will be small files not sure how NMSSH file upload/download works yet
+    1. probably will be small files not sure how NMSSH file upload/download works yet
   
   
   
