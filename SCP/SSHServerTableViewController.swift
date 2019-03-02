@@ -97,7 +97,7 @@ class SSHServerTableViewController: UIViewController, UITableViewDelegate, UITab
         return false
     }
     
-    public func checkConnecting() -> Bool{
+    public func checkConnecting() -> Bool {
         return isConnecting
     }
     

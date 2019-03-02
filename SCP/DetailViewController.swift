@@ -16,7 +16,7 @@ class DetailViewController: UIViewController, UIPopoverPresentationControllerDel
     var leftServer: SSHServerTableViewController? = nil
     var rightServer: SSHServerTableViewController? = nil
     
-    var wentInactive = false
+    var inactiveTimer: Timer?
     
     func configureView() {
         NotificationCenter.default.addObserver(self, selector: #selector(willResignActive), name: .UIApplicationWillResignActive, object: nil)
@@ -115,22 +115,18 @@ class DetailViewController: UIViewController, UIPopoverPresentationControllerDel
     }
     
     @objc func willResignActive(_ notification: Notification) {
-        wentInactive  = true
+        inactiveTimer = Timer.scheduledTimer(timeInterval: 60 * 3, target: self, selector: #selector(self.exit), userInfo: nil, repeats: true)
     }
     
     @objc func didBecomeActive(_ notification: Notification) {
-        if wentInactive {
-            leftServer?.reconnect()
-            rightServer?.reconnect()
-            wentInactive = false
-        }
+        inactiveTimer?.invalidate()
     }
     
     @objc func dismissOnDone() {
         self.dismiss(animated: true, completion: nil)
     }
     
-    private func exit() {
+    @objc private func exit() {
         DispatchQueue.global().async {
             while (self.leftServer?.checkConnecting())! || (self.rightServer?.checkConnecting())! {
                 usleep(100)
