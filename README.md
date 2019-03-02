@@ -13,6 +13,6 @@
 
 
 
-### Appstore Link
+### App Store Link
 
 https://itunes.apple.com/us/app/scp-client/id1368363210?ls=1&mt=8
