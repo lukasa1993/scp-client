@@ -9,7 +9,7 @@
   
   
   
-### Test Flight Link
+### TestFlight Link
 
 
 
