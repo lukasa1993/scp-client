@@ -56,8 +56,8 @@ Made with ❤️ by [XMARTLABS](http://xmartlabs.com). This is the re-creation o
 
 ## Requirements
 
-* Xcode 9.2+
-* Swift 4+
+* Xcode 10.1+
+* Swift 4.2+
 
 ### Example project
 
@@ -486,6 +486,10 @@ Eureka automatically adds a button row when we create a insertable multivalued s
 
 There are some considerations we need to have in mind when creating insertable sections. Any row added to the insertable multivalued section should be placed above the row that Eureka automatically adds to insert new rows. This can be easily achieved by adding these additional rows to the section from inside the section's initializer closure (last parameter of section initializer) so then Eureka adds the adds insert button at the end of the section.
 
+#### Editing mode
+
+By default Eureka will set the tableView's `isEditing` to true only if there is a MultivaluedSection in the form. This will be done in `viewWillAppear` the first time a form is presented.
+
 For more information on how to use multivalued sections please take a look at Eureka example project which contains several usage examples.
 
 ### Validations
@@ -587,9 +591,7 @@ As expected, the Rules must use the same types as the Row object. Be extra caref
 
 ### Swipe Actions
 
-Eureka 4.1.0 introduces the swipe feature.
-
-You are now able to define multiple `leadingSwipe` and `trailingSwipe` actions per row. As swipe actions depend on iOS system features, `leadingSwipe` is available on iOS 11.0+ only.
+By using swipe actions we can define multiple `leadingSwipe` and `trailingSwipe` actions per row. As swipe actions depend on iOS system features, `leadingSwipe` is available on iOS 11.0+ only.
 
 Let's see how to define swipe actions.
 
@@ -624,6 +626,9 @@ let row = TextRow() {
             $0.leadingSwipe.performsFirstActionWithFullSwipe = true
         }
 ```
+
+Swipe Actions need `tableView.isEditing` be set to `false`. Eureka will set this to `true` if there is a MultivaluedSection in the form (in the `viewWillAppear`).
+If you have both MultivaluedSections and swipe actions in the same form you should set `isEditing` according to your needs.
 
 ## Custom rows
 
@@ -680,25 +685,53 @@ Just like the callbacks cellSetup and CellUpdate, the `Cell` has the setup and u
 
 ### Custom inline rows
 
-A inline row is a specific type of row that shows dynamically a row below it, normally an inline row changes between a expand and collapse mode whenever the row is tapped.
+An inline row is a specific type of row that shows dynamically a row below it, normally an inline row changes between an expanded and collapsed mode whenever the row is tapped.
 
-So to create a inline row we need 2 rows, the row that are "always" visible and the row that will expand/collapse.
+So to create an inline row we need 2 rows, the row that is "always" visible and the row that will expand/collapse.
 
-Another requirement is that the value type of these 2 rows must be the same.
+Another requirement is that the value type of these 2 rows must be the same. This means if one row holds a `String` value then the other must have a `String` value too.
 
-Once we have these 2 rows, we should make the top row type conforms to `InlineRowType` which will add some methods to the top row class type such as:
+Once we have these 2 rows, we should make the top row type conform to `InlineRowType`.
+This protocol requires you to define an `InlineRow` typealias and a `setupInlineRow` function.
+The `InlineRow` type will be the type of the row that will expand/collapse.
+Take this as an example:
+
+```swift
+class PickerInlineRow<T> : Row<PickerInlineCell<T>> where T: Equatable {
+
+    public typealias InlineRow = PickerRow<T>
+    open var options = [T]()
+
+    required public init(tag: String?) {
+        super.init(tag: tag)
+    }
+
+    public func setupInlineRow(_ inlineRow: InlineRow) {
+        inlineRow.options = self.options
+        inlineRow.displayValueFor = self.displayValueFor
+        inlineRow.cell.height = { UITableViewAutomaticDimension }
+    }
+}
+```
+
+The `InlineRowType` will also add some methods to your inline row:
 
 ```swift
 func expandInlineRow()
-func hideInlineRow()
+func collapseInlineRow()
 func toggleInlineRow()
 ```
 
-Finally we must invoke `toggleInlineRow()` when the row is selected, for example overriding the customDidSelect() row method.
+These methods should work fine but should you want to override them keep in mind that it is `toggleInlineRow` that has to call `expandInlineRow` and `collapseInlineRow`.
+
+Finally you must invoke `toggleInlineRow()` when the row is selected, for example overriding `customDidSelect`:
 
 ```swift
 public override func customDidSelect() {
-    toggleInlineRow()
+    super.customDidSelect()
+    if !isDisabled {
+        toggleInlineRow()
+    }
 }
 ```
 
@@ -711,9 +744,14 @@ To create a custom Presenter row you must create a class that conforms the `Pres
 The PresenterRowType protocol is defined as follows:
 ```swift
 public protocol PresenterRowType: TypedRowType {
-    typealias ProviderType : UIViewController, TypedRowControllerType
-    var presentationMode: PresentationMode<ProviderType>? { get set }
-    var onPresentCallback: ((FormViewController, ProviderType)->())? { get set }
+
+     associatedtype PresentedControllerType : UIViewController, TypedRowControllerType
+
+     /// Defines how the view controller will be presented, pushed, etc.
+     var presentationMode: PresentationMode<PresentedControllerType>? { get set }
+
+     /// Will be called before the presentation occurs.
+     var onPresentCallback: ((FormViewController, PresentedControllerType) -> Void)? { get set }
 }
 ```
 
@@ -721,8 +759,57 @@ The onPresentCallback will be called when the row is about to present another vi
 
 The `presentationMode` is what defines how the controller is presented and which controller is presented. This presentation can be using a Segue identifier, a segue class, presenting a controller modally or pushing to a specific view controller. For example a CustomPushRow can be defined like this:
 
+
+Let's see an example..
+
 ```swift
-public final class CustomPushRow<T: Equatable>: SelectorRow<PushSelectorCell<T>, SelectorViewController<T>>, RowType {
+
+/// Generic row type where a user must select a value among several options.
+open class SelectorRow<Cell: CellType>: OptionsRow<Cell>, PresenterRowType where Cell: BaseCell {
+
+
+    /// Defines how the view controller will be presented, pushed, etc.
+    open var presentationMode: PresentationMode<SelectorViewController<SelectorRow<Cell>>>?
+
+    /// Will be called before the presentation occurs.
+    open var onPresentCallback: ((FormViewController, SelectorViewController<SelectorRow<Cell>>) -> Void)?
+
+    required public init(tag: String?) {
+        super.init(tag: tag)
+    }
+
+    /**
+     Extends `didSelect` method
+     */
+    open override func customDidSelect() {
+        super.customDidSelect()
+        guard let presentationMode = presentationMode, !isDisabled else { return }
+        if let controller = presentationMode.makeController() {
+            controller.row = self
+            controller.title = selectorTitle ?? controller.title
+            onPresentCallback?(cell.formViewController()!, controller)
+            presentationMode.present(controller, row: self, presentingController: self.cell.formViewController()!)
+        } else {
+            presentationMode.present(nil, row: self, presentingController: self.cell.formViewController()!)
+        }
+    }
+
+    /**
+     Prepares the pushed row setting its title and completion callback.
+     */
+    open override func prepare(for segue: UIStoryboardSegue) {
+        super.prepare(for: segue)
+        guard let rowVC = segue.destination as Any as? SelectorViewController<SelectorRow<Cell>> else { return }
+        rowVC.title = selectorTitle ?? rowVC.title
+        rowVC.onDismissCallback = presentationMode?.onDismissCallback ?? rowVC.onDismissCallback
+        onPresentCallback?(cell.formViewController()!, rowVC)
+        rowVC.row = self
+    }
+}
+
+
+// SelectorRow conforms to PresenterRowType
+public final class CustomPushRow<T: Equatable>: SelectorRow<PushSelectorCell<T>>, RowType {
 
     public required init(tag: String?) {
         super.init(tag: tag)
@@ -735,7 +822,6 @@ public final class CustomPushRow<T: Equatable>: SelectorRow<PushSelectorCell<T>,
 }
 ```
 
-You can place your own UIViewController instead of `SelectorViewController<T>` and your own cell instead of `PushSelectorCell<T>`.
 
 ### Subclassing cells using the same row
 
@@ -973,7 +1059,7 @@ $ pod install
 Specify Eureka into your project's `Cartfile`:
 
 ```ogdl
-github "xmartlabs/Eureka" ~> 4.0
+github "xmartlabs/Eureka" ~> 4.3
 ```
 
 #### Manually as Embedded Framework
@@ -1009,6 +1095,19 @@ If you use **Eureka** in your app We would love to hear about it! Drop us a line
 * [Mathias Claassen](https://github.com/mats-claassen) ([@mClaassen26](https://twitter.com/mClaassen26))
 
 ## FAQ
+
+#### How to change the text representation of the row value shown in the  cell.
+
+Every row has the following property:
+
+```swift
+/// Block variable used to get the String that should be displayed for the value of this row.
+public var displayValueFor: ((T?) -> String?)? = {
+    return $0.map { String(describing: $0) }
+}
+```
+
+You can set `displayValueFor` according the string value you want to display.
 
 #### How to get a Row using its tag value
 
@@ -1086,7 +1185,7 @@ section.reload()
 
 #### How to customize Selector and MultipleSelector option cells
 
-`selectableRowCellUpdate` and `selectableRowCellSetup` properties are provided to be able to customize SelectorViewController and MultipleSelectorViewController selectable cells.
+`selectableRowSetup`, `selectableRowCellUpdate` and `selectableRowCellSetup` properties are provided to be able to customize SelectorViewController and MultipleSelectorViewController selectable cells.
 
 ```swift
 let row = PushRow<Emoji>() {
@@ -1097,6 +1196,9 @@ let row = PushRow<Emoji>() {
           }.onPresent { from, to in
               to.dismissOnSelection = false
               to.dismissOnChange = false
+              to.selectableRowSetup = { row in
+                  row.cellProvider = CellProvider<ListCheckCell<Emoji>>(nibName: "EmojiCell", bundle: Bundle.main)
+              }
               to.selectableRowCellUpdate = { cell, row in
                   cell.textLabel?.text = "Text " + row.selectableValue!  // customization
                   cell.detailTextLabel?.text = "Detail " +  row.selectableValue!

@@ -4,4 +4,8 @@ struct SSHServer: Codable {
     var port: Int
     var user: String
     var pass: String
+    
+    var privkey: String
+    var pubkey: String
+    var prase: String
 }

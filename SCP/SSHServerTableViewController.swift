@@ -16,11 +16,13 @@ class SSHServerTableViewController: UIViewController, UITableViewDelegate, UITab
     var SSHSession:NMSSHSession? = nil
     var isLeft = false
     var isStarted = false
+    var isConnecting = false
     var objects = [[String:String]]()
     var pwd:String = ""
     var sidePWD:String = ""
     var queries = [String]()
     var presenter: ((_ viewControllerToPresent: UIAlertController, _ flag: Bool, _ completion: (() -> Void)? ) -> ())?
+    var exit: (()->())?
     var sideListener: ((_ path:String) -> ())?
     var executionListener: (()->())?
     var sshQueue:DispatchQueue?
@@ -38,6 +40,7 @@ class SSHServerTableViewController: UIViewController, UITableViewDelegate, UITab
         if(isStarted) {
             return
         }
+        isConnecting = true
         self.title = SSHServer?.name
         
         DispatchQueue.main.async {
@@ -54,21 +57,59 @@ class SSHServerTableViewController: UIViewController, UITableViewDelegate, UITab
         
         SSHSession = NMSSHSession.connect(toHost: SSHServer?.host, port: (SSHServer?.port)!, withUsername: SSHServer?.user)
         if (SSHSession?.isConnected)! {
-            SSHSession?.authenticate(byPassword: SSHServer?.pass)
+            if (SSHServer?.pass.count)! > 0 {
+                SSHSession?.authenticate(byPassword: SSHServer?.pass)
+            }
             
-            if (SSHSession?.isAuthorized)! {
-                print("Authentication succeeded");
-                isStarted = true;
-                
-                changeDir(path: pwd)
+            if(checkAuth() == false) {
+                SSHSession?.authenticateBy(inMemoryPublicKey: SSHServer?.pubkey, privateKey: SSHServer?.privkey, andPassword: SSHServer?.prase)
+                if(checkAuth() == false) {
+                    if self.self.isLeft {
+                        print("Left Cant Connect")
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                            let alert = UIAlertController(title: "Error", message: "Can't Esatablish connection to server, please check credentials", preferredStyle: UIAlertControllerStyle.alert)
+                            alert.addAction(UIAlertAction(title: "Go Back", style: .default, handler: { action in
+                                self.exit!()
+                            }))
+                            self.presenter!(alert, true,  nil)
+                            
+                        }
+                    } else {
+                        print("Right Cant Connect")
+                    }
+                }
             }
         }
         
+        isConnecting = false
+    }
+    
+    func checkAuth() -> Bool {
+        if (SSHSession?.isAuthorized)! {
+            print("Authentication succeeded");
+            isStarted = true;
+            
+            changeDir(path: pwd)
+            
+            return true
+        }
+        
+        return false
+    }
+    
+    public func checkConnecting() -> Bool{
+        return isConnecting
     }
     
     public func stop() {
         SSHSession?.channel.closeShell()
         SSHSession?.disconnect()
+    }
+    
+    public func reconnect() {
+        stop()
+        isStarted = false
+        start()
     }
     
     public func sideReceived(path:String) {

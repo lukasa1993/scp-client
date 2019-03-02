@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "SSHServerTableViewController.start():SSHServerTableViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "SSHServer">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[NMSSHSession authenticateByInMemoryPublicKey:privateKey:andPassword:]:NMSSHSession.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.username">
+            </PersistentString>
+            <PersistentString
+               value = "publicKey">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

@@ -61,6 +61,18 @@ class MasterViewController: UITableViewController {
                 
                 self.tableView.deselectRow(at: indexPath, animated: false)
             }
+        } else if segue.identifier == "editServer" {
+            let controller = segue.destination as! AddServerViewController
+            do {
+                let Key = keys[segue.source.view.tag]
+                let Value = try keychain?.get(Key);
+                controller.editingItemJSON = Value!
+                controller.editingItemUUID = Key
+            } catch _ {
+                controller.editingItemJSON = "Key Doesn't Exist"
+            }
+            controller.navigationItem.leftItemsSupplementBackButton = true
+            
         }
     }
     
@@ -88,6 +100,7 @@ class MasterViewController: UITableViewController {
             let server = try jsonDecoder.decode(SSHServer.self, from: (Value?.data(using: .utf8))!)
             cell.textLabel!.text = server.name
             cell.detailTextLabel!.text = server.host + ":" + String(server.port)
+            cell.accessoryView?.tag = indexPath.row;
         } catch _ {
             cell.textLabel!.text = "Corrupted!"
             cell.detailTextLabel!.text = Key

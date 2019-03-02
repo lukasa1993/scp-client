@@ -1,0 +1,515 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1AC6DF6F1DF8684300FBDB88 /* Eureka.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 468C07921D7F27C000E6E0F1 /* Eureka.framework */; };
+		46A493EF1D7F0F2200C62EEC /* GenericPasswordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A493EE1D7F0F2200C62EEC /* GenericPasswordCell.swift */; };
+		46A493F11D7F0F7900C62EEC /* PasswordStrengthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A493F01D7F0F7800C62EEC /* PasswordStrengthView.swift */; };
+		46A493F31D7F0FA800C62EEC /* PasswordValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A493F21D7F0FA800C62EEC /* PasswordValidator.swift */; };
+		CFEB419A1D7E0C7A0091C10E /* DefaultPasswordValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFEB41961D7E0C7A0091C10E /* DefaultPasswordValidator.swift */; };
+		CFEB419B1D7E0C7A0091C10E /* GenericPasswordRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFEB41971D7E0C7A0091C10E /* GenericPasswordRow.swift */; };
+		CFEB419C1D7E0C7A0091C10E /* DefaultPasswordStrengthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFEB41981D7E0C7A0091C10E /* DefaultPasswordStrengthView.swift */; };
+		CFEB41AD1D7E15420091C10E /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFEB41AC1D7E15420091C10E /* Resources.swift */; };
+		CFEB41B51D7E16D40091C10E /* GenericPasswordCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CFEB41AE1D7E16D40091C10E /* GenericPasswordCell.xib */; };
+		CFEB41C21D7E28BB0091C10E /* visibility_off.png in Resources */ = {isa = PBXBuildFile; fileRef = CFEB41BC1D7E28BB0091C10E /* visibility_off.png */; };
+		CFEB41C31D7E28BB0091C10E /* visibility_off@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CFEB41BD1D7E28BB0091C10E /* visibility_off@2x.png */; };
+		CFEB41C41D7E28BB0091C10E /* visibility_off@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = CFEB41BE1D7E28BB0091C10E /* visibility_off@3x.png */; };
+		CFEB41C51D7E28BB0091C10E /* visibility.png in Resources */ = {isa = PBXBuildFile; fileRef = CFEB41BF1D7E28BB0091C10E /* visibility.png */; };
+		CFEB41C61D7E28BB0091C10E /* visibility@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CFEB41C01D7E28BB0091C10E /* visibility@2x.png */; };
+		CFEB41C71D7E28BB0091C10E /* visibility@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = CFEB41C11D7E28BB0091C10E /* visibility@3x.png */; };
+		CFFC76B81D7DFF2A006C3E55 /* GenericPasswordRow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFFC76AD1D7DFF29006C3E55 /* GenericPasswordRow.framework */; };
+		CFFC76BD1D7DFF2A006C3E55 /* GenericPasswordRowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFFC76BC1D7DFF2A006C3E55 /* GenericPasswordRowTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CFFC76B91D7DFF2A006C3E55 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CFFC76A41D7DFF29006C3E55 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CFFC76AC1D7DFF29006C3E55;
+			remoteInfo = GenericPasswordRow;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		468C07921D7F27C000E6E0F1 /* Eureka.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Eureka.framework; path = Carthage/Build/iOS/Eureka.framework; sourceTree = "<group>"; };
+		46A493EE1D7F0F2200C62EEC /* GenericPasswordCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GenericPasswordCell.swift; path = Sources/GenericPasswordCell.swift; sourceTree = "<group>"; };
+		46A493F01D7F0F7800C62EEC /* PasswordStrengthView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PasswordStrengthView.swift; path = Sources/PasswordStrengthView.swift; sourceTree = "<group>"; };
+		46A493F21D7F0FA800C62EEC /* PasswordValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PasswordValidator.swift; path = Sources/PasswordValidator.swift; sourceTree = "<group>"; };
+		CFEB41961D7E0C7A0091C10E /* DefaultPasswordValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DefaultPasswordValidator.swift; path = Sources/DefaultPasswordValidator.swift; sourceTree = "<group>"; };
+		CFEB41971D7E0C7A0091C10E /* GenericPasswordRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GenericPasswordRow.swift; path = Sources/GenericPasswordRow.swift; sourceTree = "<group>"; };
+		CFEB41981D7E0C7A0091C10E /* DefaultPasswordStrengthView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DefaultPasswordStrengthView.swift; path = Sources/DefaultPasswordStrengthView.swift; sourceTree = "<group>"; };
+		CFEB41AC1D7E15420091C10E /* Resources.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Resources.swift; path = Sources/Resources.swift; sourceTree = "<group>"; };
+		CFEB41AE1D7E16D40091C10E /* GenericPasswordCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GenericPasswordCell.xib; path = Resources/GenericPasswordCell.xib; sourceTree = "<group>"; };
+		CFEB41BC1D7E28BB0091C10E /* visibility_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = visibility_off.png; path = Resources/visibility_off.png; sourceTree = "<group>"; };
+		CFEB41BD1D7E28BB0091C10E /* visibility_off@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "visibility_off@2x.png"; path = "Resources/visibility_off@2x.png"; sourceTree = "<group>"; };
+		CFEB41BE1D7E28BB0091C10E /* visibility_off@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "visibility_off@3x.png"; path = "Resources/visibility_off@3x.png"; sourceTree = "<group>"; };
+		CFEB41BF1D7E28BB0091C10E /* visibility.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = visibility.png; path = Resources/visibility.png; sourceTree = "<group>"; };
+		CFEB41C01D7E28BB0091C10E /* visibility@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "visibility@2x.png"; path = "Resources/visibility@2x.png"; sourceTree = "<group>"; };
+		CFEB41C11D7E28BB0091C10E /* visibility@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "visibility@3x.png"; path = "Resources/visibility@3x.png"; sourceTree = "<group>"; };
+		CFFC76AD1D7DFF29006C3E55 /* GenericPasswordRow.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GenericPasswordRow.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CFFC76B21D7DFF2A006C3E55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CFFC76B71D7DFF2A006C3E55 /* GenericPasswordRowTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GenericPasswordRowTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CFFC76BC1D7DFF2A006C3E55 /* GenericPasswordRowTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericPasswordRowTests.swift; sourceTree = "<group>"; };
+		CFFC76BE1D7DFF2A006C3E55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CFFC76A91D7DFF29006C3E55 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1AC6DF6F1DF8684300FBDB88 /* Eureka.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CFFC76B41D7DFF2A006C3E55 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CFFC76B81D7DFF2A006C3E55 /* GenericPasswordRow.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CFEB41951D7E0C520091C10E /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				CFEB41AC1D7E15420091C10E /* Resources.swift */,
+				CFEB41961D7E0C7A0091C10E /* DefaultPasswordValidator.swift */,
+				CFEB41981D7E0C7A0091C10E /* DefaultPasswordStrengthView.swift */,
+				CFEB41971D7E0C7A0091C10E /* GenericPasswordRow.swift */,
+				46A493EE1D7F0F2200C62EEC /* GenericPasswordCell.swift */,
+				46A493F01D7F0F7800C62EEC /* PasswordStrengthView.swift */,
+				46A493F21D7F0FA800C62EEC /* PasswordValidator.swift */,
+			);
+			name = Sources;
+			sourceTree = "<group>";
+		};
+		CFEB419F1D7E11DB0091C10E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				CFEB41BC1D7E28BB0091C10E /* visibility_off.png */,
+				CFEB41BD1D7E28BB0091C10E /* visibility_off@2x.png */,
+				CFEB41BE1D7E28BB0091C10E /* visibility_off@3x.png */,
+				CFEB41BF1D7E28BB0091C10E /* visibility.png */,
+				CFEB41C01D7E28BB0091C10E /* visibility@2x.png */,
+				CFEB41C11D7E28BB0091C10E /* visibility@3x.png */,
+				CFEB41AE1D7E16D40091C10E /* GenericPasswordCell.xib */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		CFFC76A31D7DFF29006C3E55 = {
+			isa = PBXGroup;
+			children = (
+				468C07921D7F27C000E6E0F1 /* Eureka.framework */,
+				CFEB419F1D7E11DB0091C10E /* Resources */,
+				CFEB41951D7E0C520091C10E /* Sources */,
+				CFFC76AF1D7DFF2A006C3E55 /* GenericPasswordRow */,
+				CFFC76BB1D7DFF2A006C3E55 /* GenericPasswordRowTests */,
+				CFFC76AE1D7DFF29006C3E55 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CFFC76AE1D7DFF29006C3E55 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CFFC76AD1D7DFF29006C3E55 /* GenericPasswordRow.framework */,
+				CFFC76B71D7DFF2A006C3E55 /* GenericPasswordRowTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CFFC76AF1D7DFF2A006C3E55 /* GenericPasswordRow */ = {
+			isa = PBXGroup;
+			children = (
+				CFFC76B21D7DFF2A006C3E55 /* Info.plist */,
+			);
+			path = GenericPasswordRow;
+			sourceTree = "<group>";
+		};
+		CFFC76BB1D7DFF2A006C3E55 /* GenericPasswordRowTests */ = {
+			isa = PBXGroup;
+			children = (
+				CFFC76BC1D7DFF2A006C3E55 /* GenericPasswordRowTests.swift */,
+				CFFC76BE1D7DFF2A006C3E55 /* Info.plist */,
+			);
+			path = GenericPasswordRowTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		CFFC76AA1D7DFF29006C3E55 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		CFFC76AC1D7DFF29006C3E55 /* GenericPasswordRow */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CFFC76C11D7DFF2A006C3E55 /* Build configuration list for PBXNativeTarget "GenericPasswordRow" */;
+			buildPhases = (
+				CFFC76A81D7DFF29006C3E55 /* Sources */,
+				CFFC76A91D7DFF29006C3E55 /* Frameworks */,
+				CFFC76AA1D7DFF29006C3E55 /* Headers */,
+				CFFC76AB1D7DFF29006C3E55 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GenericPasswordRow;
+			productName = GenericPasswordRow;
+			productReference = CFFC76AD1D7DFF29006C3E55 /* GenericPasswordRow.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		CFFC76B61D7DFF2A006C3E55 /* GenericPasswordRowTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CFFC76C41D7DFF2A006C3E55 /* Build configuration list for PBXNativeTarget "GenericPasswordRowTests" */;
+			buildPhases = (
+				CFFC76B31D7DFF2A006C3E55 /* Sources */,
+				CFFC76B41D7DFF2A006C3E55 /* Frameworks */,
+				CFFC76B51D7DFF2A006C3E55 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CFFC76BA1D7DFF2A006C3E55 /* PBXTargetDependency */,
+			);
+			name = GenericPasswordRowTests;
+			productName = GenericPasswordRowTests;
+			productReference = CFFC76B71D7DFF2A006C3E55 /* GenericPasswordRowTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CFFC76A41D7DFF29006C3E55 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = "Diego Ernst";
+				TargetAttributes = {
+					CFFC76AC1D7DFF29006C3E55 = {
+						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 1010;
+					};
+					CFFC76B61D7DFF2A006C3E55 = {
+						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 6F2G55XL63;
+						LastSwiftMigration = 1010;
+					};
+				};
+			};
+			buildConfigurationList = CFFC76A71D7DFF29006C3E55 /* Build configuration list for PBXProject "GenericPasswordRow" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = CFFC76A31D7DFF29006C3E55;
+			productRefGroup = CFFC76AE1D7DFF29006C3E55 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CFFC76AC1D7DFF29006C3E55 /* GenericPasswordRow */,
+				CFFC76B61D7DFF2A006C3E55 /* GenericPasswordRowTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CFFC76AB1D7DFF29006C3E55 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CFEB41C61D7E28BB0091C10E /* visibility@2x.png in Resources */,
+				CFEB41C51D7E28BB0091C10E /* visibility.png in Resources */,
+				CFEB41B51D7E16D40091C10E /* GenericPasswordCell.xib in Resources */,
+				CFEB41C41D7E28BB0091C10E /* visibility_off@3x.png in Resources */,
+				CFEB41C71D7E28BB0091C10E /* visibility@3x.png in Resources */,
+				CFEB41C21D7E28BB0091C10E /* visibility_off.png in Resources */,
+				CFEB41C31D7E28BB0091C10E /* visibility_off@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CFFC76B51D7DFF2A006C3E55 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CFFC76A81D7DFF29006C3E55 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				46A493F31D7F0FA800C62EEC /* PasswordValidator.swift in Sources */,
+				CFEB419A1D7E0C7A0091C10E /* DefaultPasswordValidator.swift in Sources */,
+				CFEB419B1D7E0C7A0091C10E /* GenericPasswordRow.swift in Sources */,
+				46A493F11D7F0F7900C62EEC /* PasswordStrengthView.swift in Sources */,
+				CFEB419C1D7E0C7A0091C10E /* DefaultPasswordStrengthView.swift in Sources */,
+				CFEB41AD1D7E15420091C10E /* Resources.swift in Sources */,
+				46A493EF1D7F0F2200C62EEC /* GenericPasswordCell.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CFFC76B31D7DFF2A006C3E55 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CFFC76BD1D7DFF2A006C3E55 /* GenericPasswordRowTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CFFC76BA1D7DFF2A006C3E55 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CFFC76AC1D7DFF29006C3E55 /* GenericPasswordRow */;
+			targetProxy = CFFC76B91D7DFF2A006C3E55 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		CFFC76BF1D7DFF2A006C3E55 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		CFFC76C01D7DFF2A006C3E55 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		CFFC76C21D7DFF2A006C3E55 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = GenericPasswordRow/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.xmartlabs.GenericPasswordRow;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
+			};
+			name = Debug;
+		};
+		CFFC76C31D7DFF2A006C3E55 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = GenericPasswordRow/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.xmartlabs.GenericPasswordRow;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+			};
+			name = Release;
+		};
+		CFFC76C51D7DFF2A006C3E55 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = 6F2G55XL63;
+				INFOPLIST_FILE = GenericPasswordRowTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.xmartlabs.eureka.GenericPasswordRow.GenericPasswordRowTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+			};
+			name = Debug;
+		};
+		CFFC76C61D7DFF2A006C3E55 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = 6F2G55XL63;
+				INFOPLIST_FILE = GenericPasswordRowTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.xmartlabs.eureka.GenericPasswordRow.GenericPasswordRowTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CFFC76A71D7DFF29006C3E55 /* Build configuration list for PBXProject "GenericPasswordRow" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CFFC76BF1D7DFF2A006C3E55 /* Debug */,
+				CFFC76C01D7DFF2A006C3E55 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CFFC76C11D7DFF2A006C3E55 /* Build configuration list for PBXNativeTarget "GenericPasswordRow" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CFFC76C21D7DFF2A006C3E55 /* Debug */,
+				CFFC76C31D7DFF2A006C3E55 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CFFC76C41D7DFF2A006C3E55 /* Build configuration list for PBXNativeTarget "GenericPasswordRowTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CFFC76C51D7DFF2A006C3E55 /* Debug */,
+				CFFC76C61D7DFF2A006C3E55 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CFFC76A41D7DFF29006C3E55 /* Project object */;
+}

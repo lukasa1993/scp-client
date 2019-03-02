@@ -34,7 +34,6 @@ class RowsExampleViewController: FormViewController {
                     row.reload() // or row.updateCell()
             }
 
-
             <<< DateRow() { $0.value = Date(); $0.title = "DateRow" }
 
             <<< CheckRow() {
@@ -50,6 +49,9 @@ class RowsExampleViewController: FormViewController {
             <<< SliderRow() {
                 $0.title = "SliderRow"
                 $0.value = 5.0
+            }
+            .cellSetup { cell, row in
+                cell.imageView?.image = #imageLiteral(resourceName: "selected")
             }
 
             <<< StepperRow() {
@@ -144,7 +146,7 @@ class RowsExampleViewController: FormViewController {
                 $0.value = 👦🏼
                 $0.selectorTitle = "Choose a lazy Emoji!"
                 $0.optionsProvider = .lazy({ (form, completion) in
-                    let activityView = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+                    let activityView = UIActivityIndicatorView(style: .gray)
                     form.tableView.backgroundView = activityView
                     activityView.startAnimating()
                     DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
@@ -161,6 +163,28 @@ class RowsExampleViewController: FormViewController {
                         case 🍐: return "Food"
                         default: return ""
                         }
+                    }
+        }
+
+            <<< PushRow<Emoji>() {
+                $0.title = "Custom Cell Push Row"
+                $0.options = [💁🏻, 🍐, 👦🏼, 🐗, 🐼, 🐻]
+                $0.value = 👦🏼
+                $0.selectorTitle = "Choose an Emoji!"
+                }
+                .onPresent { from, to in
+                    to.selectableRowSetup = { row in
+                        row.cellProvider = CellProvider<ListCheckCell<Emoji>>(nibName: "EmojiCell", bundle: Bundle.main)
+                    }
+                    to.selectableRowCellUpdate = { cell, row in
+                        var detailText: String?
+                        switch row.selectableValue {
+                        case 💁🏻, 👦🏼: detailText = "Person"
+                        case 🐗, 🐼, 🐻: detailText = "Animal"
+                        case 🍐: detailText = "Food"
+                        default: detailText = ""
+                        }
+                        cell.detailTextLabel?.text = detailText
                     }
         }
 
@@ -217,7 +241,7 @@ class RowsExampleViewController: FormViewController {
                 $0.title = "LazyMultipleSelectorRow"
                 $0.value = [👦🏼, 🍐, 🐗]
                 $0.optionsProvider = .lazy({ (form, completion) in
-                    let activityView = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+                    let activityView = UIActivityIndicatorView(style: .gray)
                     form.tableView.backgroundView = activityView
                     activityView.startAnimating()
                     DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
@@ -246,6 +270,18 @@ class RowsExampleViewController: FormViewController {
                     $0.options.append("option \(i)")
                 }
                 $0.value = $0.options.first
+            }
+            
+            <<< DoublePickerInlineRow<String, Int>() {
+                $0.title = "2 Component picker"
+                $0.firstOptions = { return ["a", "b", "c"]}
+                $0.secondOptions = { _ in return [1, 2, 3]}
+            }
+            <<< TriplePickerInputRow<String, String, Int>() {
+                $0.firstOptions = { return ["a", "b", "c"]}
+                $0.secondOptions = { return [$0, $0 + $0, $0 + "-" + $0, "asd"]}
+                $0.thirdOptions = { _,_ in return [1, 2, 3]}
+                $0.title = "3 Component picker"
             }
 
             +++ Section("FieldRow examples")

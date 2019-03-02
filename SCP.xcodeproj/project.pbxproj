@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B4D325C222A68E000C0A8A5 /* GenericPasswordRow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B4D3257222A68D100C0A8A5 /* GenericPasswordRow.framework */; };
+		0B4D325D222A68E000C0A8A5 /* GenericPasswordRow.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0B4D3257222A68D100C0A8A5 /* GenericPasswordRow.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6B24E8F820777084005B33A5 /* NMSSH.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B24E8F72077707F005B33A5 /* NMSSH.framework */; };
 		6B24E8F920777084005B33A5 /* NMSSH.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6B24E8F72077707F005B33A5 /* NMSSH.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6B24E90C20778093005B33A5 /* Icofont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6B24E90020778093005B33A5 /* Icofont.ttf */; };
@@ -36,6 +38,27 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		0B4D3256222A68D100C0A8A5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0B4D3250222A68D100C0A8A5 /* GenericPasswordRow.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = CFFC76AD1D7DFF29006C3E55;
+			remoteInfo = GenericPasswordRow;
+		};
+		0B4D3258222A68D100C0A8A5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0B4D3250222A68D100C0A8A5 /* GenericPasswordRow.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = CFFC76B71D7DFF2A006C3E55;
+			remoteInfo = GenericPasswordRowTests;
+		};
+		0B4D325E222A68E000C0A8A5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0B4D3250222A68D100C0A8A5 /* GenericPasswordRow.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = CFFC76AC1D7DFF29006C3E55;
+			remoteInfo = GenericPasswordRow;
+		};
 		6B24E8F42077707F005B33A5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 6B24E8EE2077707F005B33A5 /* NMSSH-iOS.xcodeproj */;
@@ -87,6 +110,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				0B4D325D222A68E000C0A8A5 /* GenericPasswordRow.framework in Embed Frameworks */,
 				6B24E8F920777084005B33A5 /* NMSSH.framework in Embed Frameworks */,
 				6BC17E7B2077602000E2A999 /* Eureka.framework in Embed Frameworks */,
 			);
@@ -96,6 +120,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0B4D3250222A68D100C0A8A5 /* GenericPasswordRow.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GenericPasswordRow.xcodeproj; path = GenericPasswordRow/GenericPasswordRow.xcodeproj; sourceTree = SOURCE_ROOT; };
 		6B24E8EE2077707F005B33A5 /* NMSSH-iOS.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "NMSSH-iOS.xcodeproj"; path = "NMSSH/NMSSH-iOS.xcodeproj"; sourceTree = SOURCE_ROOT; };
 		6B24E8FC207770AB005B33A5 /* SCP-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "SCP-Bridging-Header.h"; path = "../SCP-Bridging-Header.h"; sourceTree = "<group>"; };
 		6B24E90020778093005B33A5 /* Icofont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Icofont.ttf; sourceTree = "<group>"; };
@@ -130,6 +155,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B4D325C222A68E000C0A8A5 /* GenericPasswordRow.framework in Frameworks */,
 				6B24E8F820777084005B33A5 /* NMSSH.framework in Frameworks */,
 				6BC17E7A2077602000E2A999 /* Eureka.framework in Frameworks */,
 			);
@@ -138,6 +164,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0B4D3251222A68D100C0A8A5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0B4D3257222A68D100C0A8A5 /* GenericPasswordRow.framework */,
+				0B4D3259222A68D100C0A8A5 /* GenericPasswordRowTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		6B24E8EF2077707F005B33A5 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -198,6 +233,7 @@
 				6B24E8FC207770AB005B33A5 /* SCP-Bridging-Header.h */,
 				6BC17E6620774D6300E2A999 /* Info.plist */,
 				6B24E8FF20778093005B33A5 /* icons */,
+				0B4D3250222A68D100C0A8A5 /* GenericPasswordRow.xcodeproj */,
 				6B24E8EE2077707F005B33A5 /* NMSSH-iOS.xcodeproj */,
 				6BC17E7120775FF100E2A999 /* Eureka.xcodeproj */,
 			);
@@ -231,6 +267,7 @@
 			dependencies = (
 				6BC17E7D2077602000E2A999 /* PBXTargetDependency */,
 				6B24E8FB20777084005B33A5 /* PBXTargetDependency */,
+				0B4D325F222A68E000C0A8A5 /* PBXTargetDependency */,
 			);
 			name = SCP;
 			productName = SCP;
@@ -270,6 +307,10 @@
 					ProjectRef = 6BC17E7120775FF100E2A999 /* Eureka.xcodeproj */;
 				},
 				{
+					ProductGroup = 0B4D3251222A68D100C0A8A5 /* Products */;
+					ProjectRef = 0B4D3250222A68D100C0A8A5 /* GenericPasswordRow.xcodeproj */;
+				},
+				{
 					ProductGroup = 6B24E8EF2077707F005B33A5 /* Products */;
 					ProjectRef = 6B24E8EE2077707F005B33A5 /* NMSSH-iOS.xcodeproj */;
 				},
@@ -282,6 +323,20 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		0B4D3257222A68D100C0A8A5 /* GenericPasswordRow.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = GenericPasswordRow.framework;
+			remoteRef = 0B4D3256222A68D100C0A8A5 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0B4D3259222A68D100C0A8A5 /* GenericPasswordRowTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = GenericPasswordRowTests.xctest;
+			remoteRef = 0B4D3258222A68D100C0A8A5 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		6B24E8F52077707F005B33A5 /* NMSSH Static.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
@@ -371,6 +426,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		0B4D325F222A68E000C0A8A5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = GenericPasswordRow;
+			targetProxy = 0B4D325E222A68E000C0A8A5 /* PBXContainerItemProxy */;
+		};
 		6B24E8FB20777084005B33A5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = NMSSH;

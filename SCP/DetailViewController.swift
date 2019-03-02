@@ -9,15 +9,19 @@
 import UIKit
 
 class DetailViewController: UIViewController, UIPopoverPresentationControllerDelegate {
-
+    
     @IBOutlet var leftTable: UITableView?
     @IBOutlet var rightTable: UITableView?
-
+    
     var leftServer: SSHServerTableViewController? = nil
     var rightServer: SSHServerTableViewController? = nil
-
+    
+    var wentInactive = false
+    
     func configureView() {
-
+        NotificationCenter.default.addObserver(self, selector: #selector(willResignActive), name: .UIApplicationWillResignActive, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(didBecomeActive),  name: .UIApplicationDidBecomeActive,  object: nil)
+        
         if let viewState = UserDefaults.standard.object(forKey: detailItemUUID + "_selected_view") as? Int {
             DispatchQueue.main.async {
                 if (viewState == 1) {
@@ -29,61 +33,74 @@ class DetailViewController: UIViewController, UIPopoverPresentationControllerDel
                 }
             }
         }
-
+        
         if let detail = detailItem {
             do {
                 let jsonDecoder = JSONDecoder()
                 let server = try jsonDecoder.decode(SSHServer.self, from: detail.data(using: .utf8)!)
-
-                self.title = server.name
-
+                
+                self.title = "Connecting…"
+                
                 leftServer = SSHServerTableViewController.init(nibName: nil, bundle: nil)
                 rightServer = SSHServerTableViewController.init(nibName: nil, bundle: nil)
-
+                
                 leftServer?.isLeft = true
                 rightServer?.isLeft = false
-
+                
                 leftServer?.tableView = leftTable
                 rightServer?.tableView = rightTable
-
+                
                 leftServer?.SSHServer = server
                 rightServer?.SSHServer = server
-
+                
                 leftServer?.presenter = self.presenter
                 rightServer?.presenter = self.presenter
-
+                
+                leftServer?.exit = self.exit
+                rightServer?.exit = self.exit
+                
                 leftServer?.sideListener = rightServer?.sideReceived
                 rightServer?.sideListener = leftServer?.sideReceived
-
+                
                 leftServer?.executionListener = rightServer?.handleAfterExecution
                 rightServer?.executionListener = leftServer?.handleAfterExecution
-
+                
                 leftServer?.serverUUID = detailItemUUID
                 rightServer?.serverUUID = detailItemUUID
-
+                
                 leftServer?.start();
                 rightServer?.start();
-
+                
+                DispatchQueue.global().async {
+                    while (self.leftServer?.checkConnecting())! || (self.rightServer?.checkConnecting())! {
+                        usleep(100)
+                    }
+                    DispatchQueue.main.async {
+                        self.title = server.name
+                    }
+                }
+                
             } catch let error {
                 print("error: \(error)")
             }
         }
     }
-
+    
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-
+        
         leftServer?.stop()
         rightServer?.stop()
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         DispatchQueue.global(qos: .userInteractive).async {
             self.configureView()
         }
-
+        
         for barButton in self.navigationItem.rightBarButtonItems! {
             if (barButton.tag == 1) {
                 barButton.setIcon(icon: .googleMaterialDesign(.borderLeft), iconSize: 30, color: .blue)
@@ -93,45 +110,70 @@ class DetailViewController: UIViewController, UIPopoverPresentationControllerDel
                 barButton.setIcon(icon: .googleMaterialDesign(.borderRight), iconSize: 30, color: .blue)
             }
         }
-
+        
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(dismissOnDone))
     }
-
+    
+    @objc func willResignActive(_ notification: Notification) {
+        wentInactive  = true
+    }
+    
+    @objc func didBecomeActive(_ notification: Notification) {
+        if wentInactive {
+            leftServer?.reconnect()
+            rightServer?.reconnect()
+            wentInactive = false
+        }
+    }
+    
     @objc func dismissOnDone() {
         self.dismiss(animated: true, completion: nil)
     }
-
+    
+    private func exit() {
+        DispatchQueue.global().async {
+            while (self.leftServer?.checkConnecting())! || (self.rightServer?.checkConnecting())! {
+                usleep(100)
+            }
+            self.leftServer?.stop()
+            self.rightServer?.stop()
+            DispatchQueue.main.async {
+                self.dismiss(animated: true, completion: nil)
+            }
+        }
+    }
+    
     private func presenter(_ viewControllerToPresent: UIAlertController, animated flag: Bool, completion: (() -> Void)? = nil) {
         self.present(viewControllerToPresent, animated: flag, completion: completion)
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     @IBAction func showLeft(sender: UIBarButtonItem? = nil) {
         leftTable?.isHidden = false
         rightTable?.isHidden = true
-
+        
         UserDefaults.standard.set(1, forKey: detailItemUUID + "_selected_view")
     }
-
+    
     @IBAction func showBoth(sender: UIBarButtonItem? = nil) {
         leftTable?.isHidden = false
         rightTable?.isHidden = false
         UserDefaults.standard.set(2, forKey: detailItemUUID + "_selected_view")
     }
-
+    
     @IBAction func showRigh(sender: UIBarButtonItem? = nil) {
         leftTable?.isHidden = true
         rightTable?.isHidden = false
         UserDefaults.standard.set(3, forKey: detailItemUUID + "_selected_view")
     }
-
+    
     var detailItem: String?
     var detailItemUUID: String = ""
-
-
+    
+    
 }
 
