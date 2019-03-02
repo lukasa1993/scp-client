@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B414CCB222AC4CD00E392C2 /* SSHServer_legacy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B414CC6222AC4CC00E392C2 /* SSHServer_legacy.swift */; };
 		0B4D325C222A68E000C0A8A5 /* GenericPasswordRow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B4D3257222A68D100C0A8A5 /* GenericPasswordRow.framework */; };
 		0B4D325D222A68E000C0A8A5 /* GenericPasswordRow.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0B4D3257222A68D100C0A8A5 /* GenericPasswordRow.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6B24E8F820777084005B33A5 /* NMSSH.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B24E8F72077707F005B33A5 /* NMSSH.framework */; };
@@ -120,6 +121,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0B414CC6222AC4CC00E392C2 /* SSHServer_legacy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSHServer_legacy.swift; sourceTree = "<group>"; };
 		0B4D3250222A68D100C0A8A5 /* GenericPasswordRow.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GenericPasswordRow.xcodeproj; path = GenericPasswordRow/GenericPasswordRow.xcodeproj; sourceTree = SOURCE_ROOT; };
 		6B24E8EE2077707F005B33A5 /* NMSSH-iOS.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "NMSSH-iOS.xcodeproj"; path = "NMSSH/NMSSH-iOS.xcodeproj"; sourceTree = SOURCE_ROOT; };
 		6B24E8FC207770AB005B33A5 /* SCP-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "SCP-Bridging-Header.h"; path = "../SCP-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -220,6 +222,7 @@
 		6BC17E5720774D6300E2A999 /* SCP */ = {
 			isa = PBXGroup;
 			children = (
+				0B414CC6222AC4CC00E392C2 /* SSHServer_legacy.swift */,
 				6BC17E82207766C400E2A999 /* SSHServer.swift */,
 				6BC17E6F2077519C00E2A999 /* Keychain.swift */,
 				6BC17E5820774D6300E2A999 /* AppDelegate.swift */,
@@ -417,6 +420,7 @@
 				6BC17E702077519C00E2A999 /* Keychain.swift in Sources */,
 				6BC17E83207766C400E2A999 /* SSHServer.swift in Sources */,
 				6B24E91520778093005B33A5 /* SwiftIcons.swift in Sources */,
+				0B414CCB222AC4CD00E392C2 /* SSHServer_legacy.swift in Sources */,
 				6BC17E8920776B8E00E2A999 /* SSHServerTableViewController.swift in Sources */,
 				6BC17E5B20774D6300E2A999 /* MasterViewController.swift in Sources */,
 				6BC17E5920774D6300E2A999 /* AppDelegate.swift in Sources */,
