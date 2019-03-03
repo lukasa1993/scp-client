@@ -290,6 +290,11 @@ class SSHServerTableViewController: UIViewController, UITableViewDelegate, UITab
             self.handleStats(path: self.pwd + "/" + item["name"]!)
         }))
         
+        
+        alert.addAction(UIAlertAction(title: "Edit", style: .default, handler: { (action) in
+            self.handleStats(path: self.pwd + "/" + item["name"]!)
+        }))
+        
         alert.addAction(UIAlertAction(title: "Move", style: .destructive, handler: { (action) in
             self.handleMove(from: self.pwd + "/" + item["name"]!, to: self.sidePWD)
         }))
