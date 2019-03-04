@@ -13,6 +13,8 @@ class DetailViewController: UIViewController, UIPopoverPresentationControllerDel
     @IBOutlet var leftTable: UITableView?
     @IBOutlet var rightTable: UITableView?
     
+    var editorSegue: Bool = false
+    
     var leftServer: SSHServerTableViewController? = nil
     var rightServer: SSHServerTableViewController? = nil
     
@@ -56,6 +58,9 @@ class DetailViewController: UIViewController, UIPopoverPresentationControllerDel
                 leftServer?.presenter = self.presenter
                 rightServer?.presenter = self.presenter
                 
+                leftServer?.performParentSegue = self.performSegue
+                rightServer?.performParentSegue = self.performSegue
+                
                 leftServer?.exit = self.exit
                 rightServer?.exit = self.exit
                 
@@ -90,9 +95,13 @@ class DetailViewController: UIViewController, UIPopoverPresentationControllerDel
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        leftServer?.stop()
-        rightServer?.stop()
+        if !editorSegue {
+            leftServer?.stop()
+            rightServer?.stop()
+        }
     }
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -112,6 +121,7 @@ class DetailViewController: UIViewController, UIPopoverPresentationControllerDel
         }
         
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(dismissOnDone))
+        editorSegue = false
     }
     
     @objc func willResignActive(_ notification: Notification) {
@@ -146,6 +156,26 @@ class DetailViewController: UIViewController, UIPopoverPresentationControllerDel
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "editor" {
+            editorSegue = true
+            let controller = segue.destination as! EditorConroller
+            do {
+                let payload = sender as! (tempFile:NSURL, cb:((String)->()))
+                
+                let tempFile = payload.tempFile
+                controller.title = tempFile.lastPathComponent
+                controller.data  = try String(contentsOf: tempFile.absoluteURL!, encoding: .utf8)
+                controller.cb = payload.cb
+            }
+            catch let error {
+                print("error: \(error)")
+                controller.data = "Download Failed…"
+            }
+            
+        }
     }
     
     @IBAction func showLeft(sender: UIBarButtonItem? = nil) {

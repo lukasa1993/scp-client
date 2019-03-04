@@ -3,10 +3,40 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "SSHServerTableViewController.changeDir(path:):SSHServerTableViewController.swift">
+         contextName = "SSHServerTableViewController.handleEdit(path:):SSHServerTableViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "pwd">
+               value = "alertController.view.bounds">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[NMSSHChannel downloadFile:to:progress:]:NMSSHChannel.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "[localPath UTF8String]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in closure #1 in closure #2 in SSHServerTableViewController.handleEdit(path:):SSHServerTableViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "current/total">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #2 in SSHServerTableViewController.handleEdit(path:):SSHServerTableViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "alertView.view.subviews">
+            </PersistentString>
+            <PersistentString
+               value = "alertView.view.subviews[0].subviews[0].subviews[1].subviews">
+            </PersistentString>
+            <PersistentString
+               value = "">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -15,6 +45,22 @@
          <PersistentStrings>
             <PersistentString
                value = "viewControllerToPresent.view.bounds.size.width">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "DetailViewController.prepare(for:sender:):DetailViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "(sender as! NSURL).path!">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "SSHServerTableViewController.changeDir(path:):SSHServerTableViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "pwd">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

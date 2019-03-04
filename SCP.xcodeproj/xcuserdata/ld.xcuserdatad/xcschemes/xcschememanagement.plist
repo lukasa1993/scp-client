@@ -9,6 +9,21 @@
 			<key>orderHint</key>
 			<integer>4</integer>
 		</dict>
+		<key>SCP.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>5</integer>
+		</dict>
+		<key>scp-file-provider.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>6</integer>
+		</dict>
+		<key>scp-file-providerUI.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>7</integer>
+		</dict>
 	</dict>
 </dict>
 </plist>
