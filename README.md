@@ -11,7 +11,7 @@
   
 ### TestFlight Link
 
-
+https://testflight.apple.com/join/ZqAD0ONr
 
 ### App Store Link
 
