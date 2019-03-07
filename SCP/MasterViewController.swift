@@ -93,7 +93,17 @@ class MasterViewController: UITableViewController {
                 self.tableView.deselectRow(at: indexPath, animated: false)
             }
         } else if segue.identifier == "editServer" {
-            
+            let controller = segue.destination as! AddServerViewController
+            let cell = sender as! UITableViewCell
+            do {
+                let Key = keys[tableView.indexPath(for: cell)!.row]
+                let Value = try keychain?.get(Key)
+                controller.editingItemJSON = Value!
+                controller.editingItemUUID = Key
+            } catch _ {
+                controller.editingItemJSON = "Key Doesn't Exist"
+            }
+            controller.navigationItem.leftItemsSupplementBackButton = true
         }
     }
     
@@ -146,12 +156,5 @@ class MasterViewController: UITableViewController {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
         }
     }
-    
-    override func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
-        let Key = keys[indexPath.row]
-        UserDefaults.standard.set(Key, forKey: "editing_key");
-    }
-    
-    
 }
 
