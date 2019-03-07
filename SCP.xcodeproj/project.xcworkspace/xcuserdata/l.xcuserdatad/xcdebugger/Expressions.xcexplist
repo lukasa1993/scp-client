@@ -21,5 +21,30 @@
             </PersistentString>
          </PersistentStrings>
       </ContextState>
+      <ContextState
+         contextName = "AddServerViewController.viewDidLoad():AddServerViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "editingItemUUID">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "MasterViewController.prepare(for:sender:):MasterViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "segue.source.view.tag">
+            </PersistentString>
+            <PersistentString
+               value = "segue.source.view.inputAccessoryView">
+            </PersistentString>
+            <PersistentString
+               value = "segue.source.view">
+            </PersistentString>
+            <PersistentString
+               value = "segue.source">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
    </ContextStates>
 </VariablesViewState>

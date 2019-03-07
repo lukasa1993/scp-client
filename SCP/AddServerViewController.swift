@@ -15,10 +15,21 @@ class AddServerViewController: FormViewController {
     var editingItem: SSHServer?
     var editingItemJSON: String?
     var editingItemUUID: String?
-
+    var keychain:Keychain? = nil;
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        do {
+            keychain = Keychain()
+            editingItemUUID = UserDefaults.standard.object(forKey:"editing_key") as? String
+            editingItemJSON = try keychain?.get(editingItemUUID!)
+        } catch let error {
+            print(error)
+        }
+        
+        
+        
         if let detail = editingItemJSON {
             do {
                 let jsonDecoder = JSONDecoder()
@@ -141,7 +152,6 @@ class AddServerViewController: FormViewController {
                     $0.title = "Edit Server"
                 }
                 }.onCellSelection { cell, row in
-                    let keychain = Keychain()
                     do {
                         let nameRow: NameRow? = self.serverForm?.rowBy(tag: "name")
                         let portRow: IntRow? = self.serverForm?.rowBy(tag: "port")
@@ -167,10 +177,10 @@ class AddServerViewController: FormViewController {
                         let jsonData = try jsonEncoder.encode(server)
                         let jsonString = String(data: jsonData, encoding: .utf8)
                         
-                        try keychain.set(jsonString!, key: UUID().uuidString)
+                        try self.keychain!.set(jsonString!, key: UUID().uuidString)
                         
                         if self.editingItemUUID != nil {
-                            try keychain.remove(self.editingItemUUID!)
+                            try self.keychain!.remove(self.editingItemUUID!)
                         }
                         
                         _ = self.navigationController?.popViewController(animated: true)
@@ -187,14 +197,16 @@ class AddServerViewController: FormViewController {
     }
     
     
-    /*
+    
      // MARK: - Navigation
      
      // In a storyboard-based application, you will often want to do a little preparation before navigation
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
      // Get the new view controller using segue.destinationViewController.
      // Pass the selected object to the new view controller.
+        
+        print(UserDefaults.standard.object(forKey: "editing_key"));
      }
-     */
+ 
     
 }

@@ -32,13 +32,13 @@ class MasterViewController: UITableViewController {
                 
                 
                 let serverNew = SSHServer(name: server.name,
-                                       host: server.host,
-                                       port: server.port,
-                                       user: server.user,
-                                       pass: server.pass,
-                                       privkey:"",
-                                       pubkey: "",
-                                       prase: ""
+                                          host: server.host,
+                                          port: server.port,
+                                          user: server.user,
+                                          pass: server.pass,
+                                          privkey:"",
+                                          pubkey: "",
+                                          prase: ""
                 )
                 
                 let jsonEncoder = JSONEncoder()
@@ -93,16 +93,6 @@ class MasterViewController: UITableViewController {
                 self.tableView.deselectRow(at: indexPath, animated: false)
             }
         } else if segue.identifier == "editServer" {
-            let controller = segue.destination as! AddServerViewController
-            do {
-                let Key = keys[segue.source.view.tag]
-                let Value = try keychain?.get(Key);
-                controller.editingItemJSON = Value!
-                controller.editingItemUUID = Key
-            } catch _ {
-                controller.editingItemJSON = "Key Doesn't Exist"
-            }
-            controller.navigationItem.leftItemsSupplementBackButton = true
             
         }
     }
@@ -130,8 +120,7 @@ class MasterViewController: UITableViewController {
             let jsonDecoder = JSONDecoder()
             let server = try jsonDecoder.decode(SSHServer.self, from: (Value?.data(using: .utf8))!)
             cell.textLabel!.text = server.name
-            cell.detailTextLabel!.text = server.host + ":" + String(server.port)
-            cell.accessoryView?.tag = indexPath.row;
+            cell.detailTextLabel!.text = server.host + ":" + String(server.port)            
         } catch _ {
             cell.textLabel!.text = "Corrupted!"
             cell.detailTextLabel!.text = Key
@@ -156,6 +145,11 @@ class MasterViewController: UITableViewController {
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
         }
+    }
+    
+    override func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
+        let Key = keys[indexPath.row]
+        UserDefaults.standard.set(Key, forKey: "editing_key");
     }
     
     
