@@ -28,14 +28,20 @@ class MasterViewController: UITableViewController {
             do {
                 let Value = try keychain?.get(key);
                 let jsonDecoder = JSONDecoder()
-                let server = try jsonDecoder.decode(SSHServerLegacy.self, from: (Value?.data(using: .utf8))!)
+                var server:SSHServerLegacy? = nil
+                do {
+                    _ = try jsonDecoder.decode(SSHServer.self, from: (Value?.data(using: .utf8))!)
+                    continue
+                } catch _ {
+                    server = try jsonDecoder.decode(SSHServerLegacy.self, from: (Value?.data(using: .utf8))!)                    
+                }
                 
                 
-                let serverNew = SSHServer(name: server.name,
-                                          host: server.host,
-                                          port: server.port,
-                                          user: server.user,
-                                          pass: server.pass,
+                let serverNew = SSHServer(name: server!.name,
+                                          host: server!.host,
+                                          port: server!.port,
+                                          user: server!.user,
+                                          pass: server!.pass,
                                           privkey:"",
                                           pubkey: "",
                                           prase: ""
@@ -45,9 +51,7 @@ class MasterViewController: UITableViewController {
                 let jsonData = try jsonEncoder.encode(serverNew)
                 let jsonString = String(data: jsonData, encoding: .utf8)
                 
-                try keychain!.set(jsonString!, key: UUID().uuidString)
-                try keychain!.remove(key)
-                
+                try keychain!.set(jsonString!, key: key)
             } catch _ {
                 
             }

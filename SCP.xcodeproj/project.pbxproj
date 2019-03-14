@@ -30,8 +30,6 @@
 		6B30423C222D493C0032100F /* FileProviderEnumerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B30423B222D493C0032100F /* FileProviderEnumerator.swift */; };
 		6B304246222D493C0032100F /* DocumentActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B304245222D493C0032100F /* DocumentActionViewController.swift */; };
 		6B304249222D493C0032100F /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B304247222D493C0032100F /* MainInterface.storyboard */; };
-		6B30424D222D493C0032100F /* scp-file-providerUI.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 6B304243222D493C0032100F /* scp-file-providerUI.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		6B304250222D493C0032100F /* scp-file-provider.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 6B304235222D493B0032100F /* scp-file-provider.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		6BC17E5920774D6300E2A999 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC17E5820774D6300E2A999 /* AppDelegate.swift */; };
 		6BC17E5B20774D6300E2A999 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC17E5A20774D6300E2A999 /* MasterViewController.swift */; };
 		6BC17E5D20774D6300E2A999 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC17E5C20774D6300E2A999 /* DetailViewController.swift */; };
@@ -89,20 +87,6 @@
 			remoteGlobalIDString = 186CC9571B69110500F674C4;
 			remoteInfo = NMSSH;
 		};
-		6B30424B222D493C0032100F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6BC17E4D20774D6300E2A999 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 6B304242222D493C0032100F;
-			remoteInfo = "scp-file-providerUI";
-		};
-		6B30424E222D493C0032100F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6BC17E4D20774D6300E2A999 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 6B304234222D493B0032100F;
-			remoteInfo = "scp-file-provider";
-		};
 		6BC17E7620775FF100E2A999 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 6BC17E7120775FF100E2A999 /* Eureka.xcodeproj */;
@@ -127,18 +111,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		6B304257222D493C0032100F /* Embed App Extensions */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 13;
-			files = (
-				6B304250222D493C0032100F /* scp-file-provider.appex in Embed App Extensions */,
-				6B30424D222D493C0032100F /* scp-file-providerUI.appex in Embed App Extensions */,
-			);
-			name = "Embed App Extensions";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		6BC17E7E2077602000E2A999 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -383,7 +355,6 @@
 				6BC17E5220774D6300E2A999 /* Frameworks */,
 				6BC17E5320774D6300E2A999 /* Resources */,
 				6BC17E7E2077602000E2A999 /* Embed Frameworks */,
-				6B304257222D493C0032100F /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
@@ -391,8 +362,6 @@
 				6BC17E7D2077602000E2A999 /* PBXTargetDependency */,
 				6B24E8FB20777084005B33A5 /* PBXTargetDependency */,
 				0B4D325F222A68E000C0A8A5 /* PBXTargetDependency */,
-				6B30424C222D493C0032100F /* PBXTargetDependency */,
-				6B30424F222D493C0032100F /* PBXTargetDependency */,
 			);
 			name = SCP;
 			productName = SCP;
@@ -587,16 +556,6 @@
 			isa = PBXTargetDependency;
 			name = NMSSH;
 			targetProxy = 6B24E8FA20777084005B33A5 /* PBXContainerItemProxy */;
-		};
-		6B30424C222D493C0032100F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 6B304242222D493C0032100F /* scp-file-providerUI */;
-			targetProxy = 6B30424B222D493C0032100F /* PBXContainerItemProxy */;
-		};
-		6B30424F222D493C0032100F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 6B304234222D493B0032100F /* scp-file-provider */;
-			targetProxy = 6B30424E222D493C0032100F /* PBXContainerItemProxy */;
 		};
 		6BC17E7D2077602000E2A999 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -842,6 +801,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 325;
 				DEVELOPMENT_TEAM = N43S8JF6JT;
 				INFOPLIST_FILE = SCP/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
@@ -865,6 +825,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 325;
 				DEVELOPMENT_TEAM = N43S8JF6JT;
 				INFOPLIST_FILE = SCP/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;

@@ -168,14 +168,11 @@ class AddServerViewController: FormViewController {
                         )
                         
                         let jsonEncoder = JSONEncoder()
-                        let jsonData = try jsonEncoder.encode(server)
-                        let jsonString = String(data: jsonData, encoding: .utf8)
+                        let jsonData    = try jsonEncoder.encode(server)
+                        let jsonString  = String(data: jsonData, encoding: .utf8)
                         
-                        try self.keychain!.set(jsonString!, key: UUID().uuidString)
-                        
-                        if self.editingItemUUID != nil {
-                            try self.keychain!.remove(self.editingItemUUID!)
-                        }
+                        let uuid = self.editingItemUUID ?? UUID().uuidString
+                        try self.keychain!.set(jsonString!, key: uuid)
                         
                         _ = self.navigationController?.popViewController(animated: true)
                     } catch let error {
