@@ -9,13 +9,14 @@
 import Foundation
 import PasscodeLock
 
+
+
 class UserDefaultsPasscodeRepository: PasscodeRepositoryType {
     
     fileprivate var passcodeKey = "passcode.lock.passcode"
     
-    fileprivate lazy var defaults: UserDefaults = {
-        
-        return UserDefaults.standard
+    fileprivate lazy var defaults: Keychain = {
+        return Keychain(service: "passcode_lock")
     }()
     
     init() {
@@ -32,19 +33,26 @@ class UserDefaultsPasscodeRepository: PasscodeRepositoryType {
     }
     
     var passcode: [String]? {
+        let passcode = try! defaults.get(passcodeKey)
+        let jsonDecode = JSONDecoder()
+        if(passcode == nil) {
+            return nil
+        }
         
-        return defaults.value(forKey: passcodeKey) as? [String] ?? nil
+        do {
+            return try jsonDecode.decode(Array<String>.self, from: passcode!.data(using: .utf8)!)
+        } catch {
+            return nil
+        }
     }
     
     func savePasscode(_ passcode: [String]) {
-        
-        defaults.set(passcode, forKey: passcodeKey)
-        defaults.synchronize()
+        let jsonEncoder = JSONEncoder()
+        let jsonData = try! jsonEncoder.encode(passcode)
+        try! defaults.set(jsonData, key: passcodeKey)
     }
     
     func deletePasscode() {
-        
-        defaults.removeObject(forKey: passcodeKey)
-        defaults.synchronize()
+        try! defaults.remove(passcodeKey)
     }
 }
