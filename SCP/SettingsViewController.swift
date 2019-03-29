@@ -22,6 +22,9 @@ class SettingsViewController: FormViewController {
         
         var skipBioChange = false
         
+        let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as! String
+        print(version)
+        
         form +++ Section("General")
             <<< SwitchRow("show_hidden") { row in
                 row.title = "Show Hidden Files"
@@ -72,11 +75,19 @@ class SettingsViewController: FormViewController {
                     self.present(passcodeViewController, animated: true, completion: nil)
             }
             +++ Section("Premium")
-            <<< SwitchRow("dark_mode"){
+            <<< SwitchRow("dark_mode") {
                 $0.title = "Dark Mode (Comming soon…)"
                 $0.disabled = true
-        }
+            }
+            +++ Section(self.version())
         
+    }
+    
+    func version() -> String {
+        let dictionary = Bundle.main.infoDictionary!
+        let version = dictionary["CFBundleShortVersionString"] as! String
+        let build = dictionary["CFBundleVersion"] as! String
+        return "\(version) build \(build)"
     }
     
     
