@@ -7,14 +7,27 @@
 //
 
 import UIKit
+import PasscodeLock
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
+    
+    lazy var passcodeLockPresenter: PasscodeLockPresenter = {
+        
+        let repo = UserDefaultsPasscodeRepository()
+        let configuration = PasscodeLockConfiguration(repository: repo)
+        let presenter = CustomPasscodeLockPresenter(mainWindow: self.window, configuration: configuration)
+        
+        return presenter
+    }()
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        let _ = passcodeLockPresenter
+        
         return true
     }
 

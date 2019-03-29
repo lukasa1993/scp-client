@@ -42,6 +42,13 @@
 		6BC17E802077605300E2A999 /* AddServerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC17E7F2077605300E2A999 /* AddServerViewController.swift */; };
 		6BC17E83207766C400E2A999 /* SSHServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC17E82207766C400E2A999 /* SSHServer.swift */; };
 		6BC17E8920776B8E00E2A999 /* SSHServerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC17E8820776B8E00E2A999 /* SSHServerTableViewController.swift */; };
+		6BEB47C0224E3DA3003FB71E /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BEB47BF224E3DA3003FB71E /* SettingsViewController.swift */; };
+		6BEB47E6224E485A003FB71E /* PasscodeLockConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BEB47E5224E485A003FB71E /* PasscodeLockConfiguration.swift */; };
+		6BEB47E8224E4912003FB71E /* UserDefaultsPasscodeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BEB47E7224E4912003FB71E /* UserDefaultsPasscodeRepository.swift */; };
+		6BEB47EA224E4E56003FB71E /* CustomPasscodeLockPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BEB47E9224E4E56003FB71E /* CustomPasscodeLockPresenter.swift */; };
+		6BEB47EC224E4E79003FB71E /* LockSplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BEB47EB224E4E79003FB71E /* LockSplashView.swift */; };
+		6BEB47F4224E503C003FB71E /* PasscodeLock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BEB47F3224E4FFD003FB71E /* PasscodeLock.framework */; };
+		6BEB47F5224E503C003FB71E /* PasscodeLock.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6BEB47F3224E4FFD003FB71E /* PasscodeLock.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,6 +115,20 @@
 			remoteGlobalIDString = 51729DEA1B9A4F5E004A00EB;
 			remoteInfo = Eureka;
 		};
+		6BEB47F2224E4FFD003FB71E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6BEB47C4224E4700003FB71E /* PasscodeLock.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C99EAF3F1B90B05700D61E1B;
+			remoteInfo = PasscodeLock;
+		};
+		6BEB47F6224E503C003FB71E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6BEB47C4224E4700003FB71E /* PasscodeLock.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = C99EAF3E1B90B05700D61E1B;
+			remoteInfo = PasscodeLock;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -118,6 +139,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				0B4D325D222A68E000C0A8A5 /* GenericPasswordRow.framework in Embed Frameworks */,
+				6BEB47F5224E503C003FB71E /* PasscodeLock.framework in Embed Frameworks */,
 				6B24E8F920777084005B33A5 /* NMSSH.framework in Embed Frameworks */,
 				6BC17E7B2077602000E2A999 /* Eureka.framework in Embed Frameworks */,
 			);
@@ -167,6 +189,12 @@
 		6BC17E7F2077605300E2A999 /* AddServerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddServerViewController.swift; sourceTree = "<group>"; };
 		6BC17E82207766C400E2A999 /* SSHServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSHServer.swift; sourceTree = "<group>"; };
 		6BC17E8820776B8E00E2A999 /* SSHServerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSHServerTableViewController.swift; sourceTree = "<group>"; };
+		6BEB47BF224E3DA3003FB71E /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		6BEB47C4224E4700003FB71E /* PasscodeLock.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = PasscodeLock.xcodeproj; path = SwiftPasscodeLock/PasscodeLock.xcodeproj; sourceTree = SOURCE_ROOT; };
+		6BEB47E5224E485A003FB71E /* PasscodeLockConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasscodeLockConfiguration.swift; sourceTree = "<group>"; };
+		6BEB47E7224E4912003FB71E /* UserDefaultsPasscodeRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsPasscodeRepository.swift; sourceTree = "<group>"; };
+		6BEB47E9224E4E56003FB71E /* CustomPasscodeLockPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPasscodeLockPresenter.swift; sourceTree = "<group>"; };
+		6BEB47EB224E4E79003FB71E /* LockSplashView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LockSplashView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,6 +217,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6B24E8F820777084005B33A5 /* NMSSH.framework in Frameworks */,
+				6BEB47F4224E503C003FB71E /* PasscodeLock.framework in Frameworks */,
 				6BC17E7A2077602000E2A999 /* Eureka.framework in Frameworks */,
 				0B4D325C222A68E000C0A8A5 /* GenericPasswordRow.framework in Frameworks */,
 			);
@@ -279,7 +308,12 @@
 		6BC17E5720774D6300E2A999 /* SCP */ = {
 			isa = PBXGroup;
 			children = (
+				6BEB47EB224E4E79003FB71E /* LockSplashView.swift */,
+				6BEB47E9224E4E56003FB71E /* CustomPasscodeLockPresenter.swift */,
+				6BEB47E7224E4912003FB71E /* UserDefaultsPasscodeRepository.swift */,
+				6BEB47E5224E485A003FB71E /* PasscodeLockConfiguration.swift */,
 				0B414CC6222AC4CC00E392C2 /* SSHServer_legacy.swift */,
+				6BEB47BF224E3DA3003FB71E /* SettingsViewController.swift */,
 				6BC17E82207766C400E2A999 /* SSHServer.swift */,
 				6BC17E6F2077519C00E2A999 /* Keychain.swift */,
 				6BC17E5820774D6300E2A999 /* AppDelegate.swift */,
@@ -294,6 +328,7 @@
 				6B24E8FC207770AB005B33A5 /* SCP-Bridging-Header.h */,
 				6BC17E6620774D6300E2A999 /* Info.plist */,
 				6B24E8FF20778093005B33A5 /* icons */,
+				6BEB47C4224E4700003FB71E /* PasscodeLock.xcodeproj */,
 				0B4D3250222A68D100C0A8A5 /* GenericPasswordRow.xcodeproj */,
 				6B24E8EE2077707F005B33A5 /* NMSSH-iOS.xcodeproj */,
 				6BC17E7120775FF100E2A999 /* Eureka.xcodeproj */,
@@ -306,6 +341,14 @@
 			children = (
 				6BC17E7720775FF100E2A999 /* Eureka.framework */,
 				6BC17E7920775FF100E2A999 /* EurekaTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6BEB47EF224E4FFD003FB71E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6BEB47F3224E4FFD003FB71E /* PasscodeLock.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -362,6 +405,7 @@
 				6BC17E7D2077602000E2A999 /* PBXTargetDependency */,
 				6B24E8FB20777084005B33A5 /* PBXTargetDependency */,
 				0B4D325F222A68E000C0A8A5 /* PBXTargetDependency */,
+				6BEB47F7224E503C003FB71E /* PBXTargetDependency */,
 			);
 			name = SCP;
 			productName = SCP;
@@ -414,6 +458,10 @@
 					ProductGroup = 6B24E8EF2077707F005B33A5 /* Products */;
 					ProjectRef = 6B24E8EE2077707F005B33A5 /* NMSSH-iOS.xcodeproj */;
 				},
+				{
+					ProductGroup = 6BEB47EF224E4FFD003FB71E /* Products */;
+					ProjectRef = 6BEB47C4224E4700003FB71E /* PasscodeLock.xcodeproj */;
+				},
 			);
 			projectRoot = "";
 			targets = (
@@ -465,6 +513,13 @@
 			fileType = wrapper.cfbundle;
 			path = EurekaTests.xctest;
 			remoteRef = 6BC17E7820775FF100E2A999 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		6BEB47F3224E4FFD003FB71E /* PasscodeLock.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = PasscodeLock.framework;
+			remoteRef = 6BEB47F2224E4FFD003FB71E /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -531,10 +586,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6BEB47EA224E4E56003FB71E /* CustomPasscodeLockPresenter.swift in Sources */,
 				6BC17E5D20774D6300E2A999 /* DetailViewController.swift in Sources */,
+				6BEB47E6224E485A003FB71E /* PasscodeLockConfiguration.swift in Sources */,
 				6BC17E802077605300E2A999 /* AddServerViewController.swift in Sources */,
+				6BEB47C0224E3DA3003FB71E /* SettingsViewController.swift in Sources */,
 				6B304230222D3DAE0032100F /* EditorController.swift in Sources */,
+				6BEB47EC224E4E79003FB71E /* LockSplashView.swift in Sources */,
 				6BC17E702077519C00E2A999 /* Keychain.swift in Sources */,
+				6BEB47E8224E4912003FB71E /* UserDefaultsPasscodeRepository.swift in Sources */,
 				6BC17E83207766C400E2A999 /* SSHServer.swift in Sources */,
 				6B24E91520778093005B33A5 /* SwiftIcons.swift in Sources */,
 				0B414CCB222AC4CD00E392C2 /* SSHServer_legacy.swift in Sources */,
@@ -561,6 +621,11 @@
 			isa = PBXTargetDependency;
 			name = Eureka;
 			targetProxy = 6BC17E7C2077602000E2A999 /* PBXContainerItemProxy */;
+		};
+		6BEB47F7224E503C003FB71E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = PasscodeLock;
+			targetProxy = 6BEB47F6224E503C003FB71E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -801,7 +866,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 325;
+				CURRENT_PROJECT_VERSION = 328;
 				DEVELOPMENT_TEAM = N43S8JF6JT;
 				INFOPLIST_FILE = SCP/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
@@ -825,7 +890,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 325;
+				CURRENT_PROJECT_VERSION = 328;
 				DEVELOPMENT_TEAM = N43S8JF6JT;
 				INFOPLIST_FILE = SCP/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;

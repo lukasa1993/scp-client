@@ -123,9 +123,15 @@ class SSHServerTableViewController: UIViewController, UITableViewDelegate, UITab
     
     private func listDirectory() {
         do {
-            let list = try SSHSession?.channel.execute("cd \"" + pwd + "\" && ls -1")
-            let dirs = try SSHSession?.channel.execute("cd \"" + pwd + "\" && ls -d1 */")
-            
+            let hidden = (UserDefaults.standard.object(forKey: "show_hidden_files") as? Bool) ?? false
+            var listCMD = "cd \"" + pwd + "\" && ls -1";
+            var dirsCMD = "cd \"" + pwd + "\" && ls -d1 */";
+            if(hidden) {
+                listCMD = "cd \"" + pwd + "\" && ls -a1";
+                dirsCMD = "cd \"" + pwd + "\" && ls -ad1 */";
+            }
+            let list = try SSHSession?.channel.execute(listCMD)
+            let dirs = try SSHSession?.channel.execute(dirsCMD)
             parseListing(all: list!, dirs: dirs!);
             DispatchQueue.main.async {
                 self.tableView?.reloadData()
@@ -142,6 +148,10 @@ class SSHServerTableViewController: UIViewController, UITableViewDelegate, UITab
         
         for item in allItems {
             var isDir = false
+            if(item == "." || item == "..") {
+                continue;
+            }
+            
             for dir in allDirs {
                 if(dir.range(of: item) != nil) {
                     isDir = true

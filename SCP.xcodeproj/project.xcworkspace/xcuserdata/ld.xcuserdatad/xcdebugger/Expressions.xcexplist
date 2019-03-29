@@ -3,6 +3,33 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "PasscodeLockPresenter.presentPasscodeLock():PasscodeLockPresenter.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "passcodeConfiguration.repository.hasPasscode">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #4 in SettingsViewController.viewDidLoad():SettingsViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "row.value">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in closure #4 in SettingsViewController.viewDidLoad():SettingsViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "lock.repository.hasPasscode">
+            </PersistentString>
+            <PersistentString
+               value = "lock.state">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "SSHServerTableViewController.handleEdit(path:):SSHServerTableViewController.swift">
          <PersistentStrings>
             <PersistentString
@@ -33,10 +60,10 @@
                value = "alertView.view.subviews">
             </PersistentString>
             <PersistentString
-               value = "alertView.view.subviews[0].subviews[0].subviews[1].subviews">
+               value = "">
             </PersistentString>
             <PersistentString
-               value = "">
+               value = "alertView.view.subviews[0].subviews[0].subviews[1].subviews">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
