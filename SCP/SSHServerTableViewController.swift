@@ -128,7 +128,7 @@ class SSHServerTableViewController: UIViewController, UITableViewDelegate, UITab
             var dirsCMD = "cd \"" + pwd + "\" && ls -d1 */";
             if(hidden) {
                 listCMD = "cd \"" + pwd + "\" && ls -a1";
-                dirsCMD = "cd \"" + pwd + "\" && ls -ad1 */";
+                dirsCMD = "cd \"" + pwd + "\" && ls -d1 */ && ls -d1 .*/";
             }
             let list = try SSHSession?.channel.execute(listCMD)
             let dirs = try SSHSession?.channel.execute(dirsCMD)
@@ -148,7 +148,7 @@ class SSHServerTableViewController: UIViewController, UITableViewDelegate, UITab
         
         for item in allItems {
             var isDir = false
-            if(item == "." || item == "..") {
+            if(item == "." || item == ".." || item == "../" || item == "./") {
                 continue;
             }
             
@@ -162,6 +162,22 @@ class SSHServerTableViewController: UIViewController, UITableViewDelegate, UITab
                 objects.append(["name":String(item), "type":"folder"])
             } else {
                 objects.append(["name":String(item), "type":"file"])
+            }
+        }
+        
+        let folder_first  = (UserDefaults.standard.object(forKey: "folder_first") as? Bool) ?? false
+        
+        if(folder_first) {
+            objects.sort {
+                if $0["type"] != $1["type"] {
+                    if($0["type"] == "folder") {
+                        return true
+                    }
+                    if($1["type"] == "folder") {
+                        return false
+                    }
+                }
+                return $0["name"]!.lowercased() < $1["name"]!.lowercased()
             }
         }
         
@@ -406,7 +422,7 @@ class SSHServerTableViewController: UIViewController, UITableViewDelegate, UITab
             let progressView = UIProgressView(frame: rect)
             
             progressView.tintColor = UIColor.blue
-            alertView.view.addSubview(progressView)            
+            alertView.view.addSubview(progressView)
             
             DispatchQueue.global(qos: .background).async {
                 self.SSHSession?.channel.downloadFile(path, to: tempFile.path, progress: {(current:UInt, total:UInt) -> (Bool) in

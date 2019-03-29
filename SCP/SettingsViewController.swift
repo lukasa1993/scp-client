@@ -15,6 +15,7 @@ class SettingsViewController: FormViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        let folder_first  = (UserDefaults.standard.object(forKey: "folder_first") as? Bool) ?? false
         let hidden        = (UserDefaults.standard.object(forKey: "show_hidden_files") as? Bool) ?? false
         let repo          = UserDefaultsPasscodeRepository()
         let configuration = PasscodeLockConfiguration(repository: repo)
@@ -27,6 +28,12 @@ class SettingsViewController: FormViewController {
                 row.value = hidden
                 }.onChange { row in
                     UserDefaults.standard.set(row.value, forKey: "show_hidden_files")                    
+            }
+            <<< SwitchRow("folder_first") { row in
+                row.title = "Sort Folders First"
+                row.value = folder_first
+                }.onChange { row in
+                    UserDefaults.standard.set(row.value, forKey: "folder_first")
             }
             +++ Section("Security")
             <<< SwitchRow("bio_auth") { row in

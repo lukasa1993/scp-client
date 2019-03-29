@@ -25,7 +25,7 @@ open class PasscodeLockPresenter {
     fileprivate let passcodeConfiguration: PasscodeLockConfigurationType
     open var isPasscodePresented = false
     
-    open let passcodeLockVC: PasscodeLockViewController
+    public let passcodeLockVC: PasscodeLockViewController
     
     public init(mainWindow window: UIWindow?, configuration: PasscodeLockConfigurationType, viewController: PasscodeLockViewController) {
         
