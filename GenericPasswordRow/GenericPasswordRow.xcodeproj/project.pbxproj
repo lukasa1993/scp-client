@@ -22,19 +22,7 @@
 		CFEB41C51D7E28BB0091C10E /* visibility.png in Resources */ = {isa = PBXBuildFile; fileRef = CFEB41BF1D7E28BB0091C10E /* visibility.png */; };
 		CFEB41C61D7E28BB0091C10E /* visibility@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CFEB41C01D7E28BB0091C10E /* visibility@2x.png */; };
 		CFEB41C71D7E28BB0091C10E /* visibility@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = CFEB41C11D7E28BB0091C10E /* visibility@3x.png */; };
-		CFFC76B81D7DFF2A006C3E55 /* GenericPasswordRow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFFC76AD1D7DFF29006C3E55 /* GenericPasswordRow.framework */; };
-		CFFC76BD1D7DFF2A006C3E55 /* GenericPasswordRowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFFC76BC1D7DFF2A006C3E55 /* GenericPasswordRowTests.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		CFFC76B91D7DFF2A006C3E55 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CFFC76A41D7DFF29006C3E55 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = CFFC76AC1D7DFF29006C3E55;
-			remoteInfo = GenericPasswordRow;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		0B4D3276222ABE3900C0A8A5 /* Eureka.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Eureka.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -54,7 +42,6 @@
 		CFEB41C11D7E28BB0091C10E /* visibility@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "visibility@3x.png"; path = "Resources/visibility@3x.png"; sourceTree = "<group>"; };
 		CFFC76AD1D7DFF29006C3E55 /* GenericPasswordRow.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GenericPasswordRow.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFFC76B21D7DFF2A006C3E55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CFFC76B71D7DFF2A006C3E55 /* GenericPasswordRowTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GenericPasswordRowTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFFC76BC1D7DFF2A006C3E55 /* GenericPasswordRowTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericPasswordRowTests.swift; sourceTree = "<group>"; };
 		CFFC76BE1D7DFF2A006C3E55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -65,14 +52,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				0B4D3277222ABE3900C0A8A5 /* Eureka.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		CFFC76B41D7DFF2A006C3E55 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				CFFC76B81D7DFF2A006C3E55 /* GenericPasswordRow.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -131,7 +110,6 @@
 			isa = PBXGroup;
 			children = (
 				CFFC76AD1D7DFF29006C3E55 /* GenericPasswordRow.framework */,
-				CFFC76B71D7DFF2A006C3E55 /* GenericPasswordRowTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -184,24 +162,6 @@
 			productReference = CFFC76AD1D7DFF29006C3E55 /* GenericPasswordRow.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		CFFC76B61D7DFF2A006C3E55 /* GenericPasswordRowTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = CFFC76C41D7DFF2A006C3E55 /* Build configuration list for PBXNativeTarget "GenericPasswordRowTests" */;
-			buildPhases = (
-				CFFC76B31D7DFF2A006C3E55 /* Sources */,
-				CFFC76B41D7DFF2A006C3E55 /* Frameworks */,
-				CFFC76B51D7DFF2A006C3E55 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				CFFC76BA1D7DFF2A006C3E55 /* PBXTargetDependency */,
-			);
-			name = GenericPasswordRowTests;
-			productName = GenericPasswordRowTests;
-			productReference = CFFC76B71D7DFF2A006C3E55 /* GenericPasswordRowTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -216,11 +176,6 @@
 						CreatedOnToolsVersion = 7.3.1;
 						LastSwiftMigration = 1010;
 					};
-					CFFC76B61D7DFF2A006C3E55 = {
-						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = 6F2G55XL63;
-						LastSwiftMigration = 1010;
-					};
 				};
 			};
 			buildConfigurationList = CFFC76A71D7DFF29006C3E55 /* Build configuration list for PBXProject "GenericPasswordRow" */;
@@ -228,6 +183,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = CFFC76A31D7DFF29006C3E55;
@@ -236,7 +192,6 @@
 			projectRoot = "";
 			targets = (
 				CFFC76AC1D7DFF29006C3E55 /* GenericPasswordRow */,
-				CFFC76B61D7DFF2A006C3E55 /* GenericPasswordRowTests */,
 			);
 		};
 /* End PBXProject section */
@@ -253,13 +208,6 @@
 				CFEB41C71D7E28BB0091C10E /* visibility@3x.png in Resources */,
 				CFEB41C21D7E28BB0091C10E /* visibility_off.png in Resources */,
 				CFEB41C31D7E28BB0091C10E /* visibility_off@2x.png in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		CFFC76B51D7DFF2A006C3E55 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,23 +228,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CFFC76B31D7DFF2A006C3E55 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				CFFC76BD1D7DFF2A006C3E55 /* GenericPasswordRowTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		CFFC76BA1D7DFF2A006C3E55 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = CFFC76AC1D7DFF29006C3E55 /* GenericPasswordRow */;
-			targetProxy = CFFC76B91D7DFF2A006C3E55 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		CFFC76BF1D7DFF2A006C3E55 /* Debug */ = {
@@ -458,30 +390,6 @@
 			};
 			name = Release;
 		};
-		CFFC76C51D7DFF2A006C3E55 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				DEVELOPMENT_TEAM = 6F2G55XL63;
-				INFOPLIST_FILE = GenericPasswordRowTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.xmartlabs.eureka.GenericPasswordRow.GenericPasswordRowTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
-			};
-			name = Debug;
-		};
-		CFFC76C61D7DFF2A006C3E55 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				DEVELOPMENT_TEAM = 6F2G55XL63;
-				INFOPLIST_FILE = GenericPasswordRowTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.xmartlabs.eureka.GenericPasswordRow.GenericPasswordRowTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -499,15 +407,6 @@
 			buildConfigurations = (
 				CFFC76C21D7DFF2A006C3E55 /* Debug */,
 				CFFC76C31D7DFF2A006C3E55 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		CFFC76C41D7DFF2A006C3E55 /* Build configuration list for PBXNativeTarget "GenericPasswordRowTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				CFFC76C51D7DFF2A006C3E55 /* Debug */,
-				CFFC76C61D7DFF2A006C3E55 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -21,7 +21,6 @@
 		51729E1E1B9A54F1004A00EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51729E1D1B9A54F1004A00EB /* AppDelegate.swift */; };
 		51729E201B9A54F1004A00EB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51729E1F1B9A54F1004A00EB /* ViewController.swift */; };
 		51729E231B9A54F1004A00EB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51729E211B9A54F1004A00EB /* Main.storyboard */; };
-		51729E251B9A54F1004A00EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 51729E241B9A54F1004A00EB /* Assets.xcassets */; };
 		51729E281B9A54F1004A00EB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51729E261B9A54F1004A00EB /* LaunchScreen.storyboard */; };
 		51729E6E1B9A6601004A00EB /* CustomCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51729E6D1B9A6601004A00EB /* CustomCells.swift */; };
 		51729E711B9A660A004A00EB /* WeekDaysCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51729E6F1B9A660A004A00EB /* WeekDaysCell.xib */; };
@@ -109,7 +108,6 @@
 		51729E1D1B9A54F1004A00EB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Example/AppDelegate.swift; sourceTree = "<group>"; };
 		51729E1F1B9A54F1004A00EB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = ViewController.swift; path = Example/ViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		51729E221B9A54F1004A00EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		51729E241B9A54F1004A00EB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Example/Assets.xcassets; sourceTree = "<group>"; };
 		51729E271B9A54F1004A00EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		51729E291B9A54F1004A00EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = Example/Info.plist; sourceTree = "<group>"; };
 		51729E2E1B9A54F1004A00EB /* ExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -229,7 +227,6 @@
 				51729E1D1B9A54F1004A00EB /* AppDelegate.swift */,
 				51729E1F1B9A54F1004A00EB /* ViewController.swift */,
 				51729E211B9A54F1004A00EB /* Main.storyboard */,
-				51729E241B9A54F1004A00EB /* Assets.xcassets */,
 				51729E261B9A54F1004A00EB /* LaunchScreen.storyboard */,
 				51729E291B9A54F1004A00EB /* Info.plist */,
 			);
@@ -402,7 +399,6 @@
 				51729E281B9A54F1004A00EB /* LaunchScreen.storyboard in Resources */,
 				284D28B81E4917A000BB38E7 /* SwitchCell.xib in Resources */,
 				284D28BA1E491FEF00BB38E7 /* TextCell.xib in Resources */,
-				51729E251B9A54F1004A00EB /* Assets.xcassets in Resources */,
 				51729E711B9A660A004A00EB /* WeekDaysCell.xib in Resources */,
 				284D28B61E49121E00BB38E7 /* DatePickerCell.xib in Resources */,
 				28CD97C21BB32F0E00AFDA67 /* EurekaSectionHeader.xib in Resources */,

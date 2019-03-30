@@ -16,26 +16,11 @@
 		2859CDC41C7D19C50002982F /* HeaderFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2859CDC31C7D19C50002982F /* HeaderFooterView.swift */; };
 		2859CDC61C7D1A2E0002982F /* NavigationAccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2859CDC51C7D1A2E0002982F /* NavigationAccessoryView.swift */; };
 		2859CDE91C7DD78E0002982F /* BaseRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2859CDE81C7DD78E0002982F /* BaseRow.swift */; };
-		285BA44A1E8187480034EE92 /* MultivaluedSectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285BA4481E81864E0034EE92 /* MultivaluedSectionTests.swift */; };
-		287A142B1D89DF1E00FFE6EB /* ValidationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287A142A1D89DF1E00FFE6EB /* ValidationsTests.swift */; };
-		287A14331D8A07ED00FFE6EB /* SelectableSectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287A142D1D8A07B700FFE6EB /* SelectableSectionTests.swift */; };
 		287E7D7E1D625A260065F4DE /* RuleRequired.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287E7D7D1D625A260065F4DE /* RuleRequired.swift */; };
 		287E7D801D74E42D0065F4DE /* RuleRegExp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287E7D7F1D74E42D0065F4DE /* RuleRegExp.swift */; };
 		287E7D821D74E64C0065F4DE /* RuleURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287E7D811D74E64C0065F4DE /* RuleURL.swift */; };
 		287E7D841D75F9C80065F4DE /* RuleEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287E7D831D75F9C80065F4DE /* RuleEmail.swift */; };
 		287E7D901D7601850065F4DE /* RuleLength.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287E7D8F1D7601850065F4DE /* RuleLength.swift */; };
-		28B12FD51BA0E83C00F27A23 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28B12FD41BA0E83C00F27A23 /* Assets.xcassets */; };
-		28B1D7871C7F911900605EB3 /* BaseEurekaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B1D7711C7F90C900605EB3 /* BaseEurekaTests.swift */; };
-		28B1D7881C7F911900605EB3 /* CallbacksTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B1D7721C7F90C900605EB3 /* CallbacksTests.swift */; };
-		28B1D7891C7F911900605EB3 /* CollectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B1D7731C7F90C900605EB3 /* CollectionTests.swift */; };
-		28B1D78A1C7F911900605EB3 /* DateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B1D7741C7F90C900605EB3 /* DateTests.swift */; };
-		28B1D78B1C7F911900605EB3 /* FormValuesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B1D7751C7F90C900605EB3 /* FormValuesTests.swift */; };
-		28B1D78C1C7F911900605EB3 /* HelperMethodTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B1D7761C7F90C900605EB3 /* HelperMethodTests.swift */; };
-		28B1D78D1C7F911900605EB3 /* HiddenRowsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B1D7771C7F90C900605EB3 /* HiddenRowsTests.swift */; };
-		28B1D78E1C7F911900605EB3 /* OperatorsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B1D7781C7F90C900605EB3 /* OperatorsTest.swift */; };
-		28B1D78F1C7F911900605EB3 /* RowByTagTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B1D7791C7F90C900605EB3 /* RowByTagTests.swift */; };
-		28B1D7901C7F911900605EB3 /* RowCallbackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B1D77A1C7F90C900605EB3 /* RowCallbackTests.swift */; };
-		28B1D7911C7F911900605EB3 /* SetValuesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B1D77B1C7F90C900605EB3 /* SetValuesTests.swift */; };
 		28DB37301CE4F864009E46BA /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28DB372F1CE4F864009E46BA /* Protocols.swift */; };
 		28EE0FDE1D5E889F00B91340 /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EE0FDD1D5E889F00B91340 /* Validation.swift */; };
 		28EE46A81C7F5D5200EFF4A2 /* SelectableSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2859CE231C7E141B0002982F /* SelectableSection.swift */; };
@@ -81,7 +66,6 @@
 		28EEC0331C7E64AB00300699 /* PopoverSelectorRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2859CE1D1C7E08300002982F /* PopoverSelectorRow.swift */; };
 		3973000A1DF0E2A000080E4D /* PickerInputRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397300091DF0E2A000080E4D /* PickerInputRow.swift */; };
 		49ADC7F91C8A83240073952B /* StepperRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ADC7F81C8A83240073952B /* StepperRow.swift */; };
-		51729DF61B9A4F5E004A00EB /* Eureka.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51729DEB1B9A4F5E004A00EB /* Eureka.framework */; };
 		51729E671B9A5FA5004A00EB /* Eureka.h in Headers */ = {isa = PBXBuildFile; fileRef = 51729E661B9A5FA5004A00EB /* Eureka.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		798C5ADA1EF1E35600A21F52 /* SwipeActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798C5AD91EF1E35600A21F52 /* SwipeActions.swift */; };
 		8690E4BE1CFDE062004CDB1C /* Eureka.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8690E4BD1CFDE062004CDB1C /* Eureka.bundle */; };
@@ -90,20 +74,8 @@
 		8FCCF92320A473E7004793A0 /* DoublePickerInputRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FCCF92220A473E7004793A0 /* DoublePickerInputRow.swift */; };
 		8FCCF92520A4794B004793A0 /* TriplePickerInputRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FCCF92420A4794B004793A0 /* TriplePickerInputRow.swift */; };
 		B244E6541FE1C94F0026B944 /* AlertOptionsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B244E6531FE1C94F0026B944 /* AlertOptionsRow.swift */; };
-		B257FE2E1EC0F66900043911 /* RowsInsertionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B257FE2D1EC0F66900043911 /* RowsInsertionTests.swift */; };
-		B2A401161EC0BA140042EDF0 /* SectionsInsertionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A401151EC0BA140042EDF0 /* SectionsInsertionTests.swift */; };
 		FA56B6AF1DBAD38900407C94 /* RuleEqualsToRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56B6AE1DBAD38900407C94 /* RuleEqualsToRow.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		51729DF71B9A4F5E004A00EB /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 51729DE21B9A4F5E004A00EB /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 51729DEA1B9A4F5E004A00EB;
-			remoteInfo = Eureka;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		280FBE5C1D87360900900064 /* RuleRange.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RuleRange.swift; path = Source/Validations/RuleRange.swift; sourceTree = SOURCE_ROOT; };
@@ -154,7 +126,6 @@
 		287E7D811D74E64C0065F4DE /* RuleURL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RuleURL.swift; path = Source/Validations/RuleURL.swift; sourceTree = SOURCE_ROOT; };
 		287E7D831D75F9C80065F4DE /* RuleEmail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RuleEmail.swift; path = Source/Validations/RuleEmail.swift; sourceTree = SOURCE_ROOT; };
 		287E7D8F1D7601850065F4DE /* RuleLength.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RuleLength.swift; path = Source/Validations/RuleLength.swift; sourceTree = SOURCE_ROOT; };
-		28B12FD41BA0E83C00F27A23 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Source/Assets.xcassets; sourceTree = SOURCE_ROOT; };
 		28B1D7711C7F90C900605EB3 /* BaseEurekaTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = BaseEurekaTests.swift; path = Tests/BaseEurekaTests.swift; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		28B1D7721C7F90C900605EB3 /* CallbacksTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = CallbacksTests.swift; path = Tests/CallbacksTests.swift; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		28B1D7731C7F90C900605EB3 /* CollectionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CollectionTests.swift; path = Tests/CollectionTests.swift; sourceTree = SOURCE_ROOT; };
@@ -182,7 +153,6 @@
 		49ADC7F81C8A83240073952B /* StepperRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StepperRow.swift; sourceTree = "<group>"; };
 		51729DEB1B9A4F5E004A00EB /* Eureka.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Eureka.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		51729DF01B9A4F5E004A00EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		51729DF51B9A4F5E004A00EB /* EurekaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EurekaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		51729DFC1B9A4F5E004A00EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Tests/Info.plist; sourceTree = "<group>"; };
 		51729E661B9A5FA5004A00EB /* Eureka.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Eureka.h; path = Source/Eureka.h; sourceTree = SOURCE_ROOT; };
 		798C5AD91EF1E35600A21F52 /* SwipeActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeActions.swift; sourceTree = "<group>"; };
@@ -202,14 +172,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		51729DF21B9A4F5E004A00EB /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				51729DF61B9A4F5E004A00EB /* Eureka.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,7 +304,6 @@
 			isa = PBXGroup;
 			children = (
 				51729DEB1B9A4F5E004A00EB /* Eureka.framework */,
-				51729DF51B9A4F5E004A00EB /* EurekaTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -356,7 +317,6 @@
 				8690E4BC1CFDE02A004CDB1C /* Resources */,
 				51729E661B9A5FA5004A00EB /* Eureka.h */,
 				51729DF01B9A4F5E004A00EB /* Info.plist */,
-				28B12FD41BA0E83C00F27A23 /* Assets.xcassets */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -426,24 +386,6 @@
 			productReference = 51729DEB1B9A4F5E004A00EB /* Eureka.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		51729DF41B9A4F5E004A00EB /* EurekaTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 51729E021B9A4F5E004A00EB /* Build configuration list for PBXNativeTarget "EurekaTests" */;
-			buildPhases = (
-				51729DF11B9A4F5E004A00EB /* Sources */,
-				51729DF21B9A4F5E004A00EB /* Frameworks */,
-				51729DF31B9A4F5E004A00EB /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				51729DF81B9A4F5E004A00EB /* PBXTargetDependency */,
-			);
-			name = EurekaTests;
-			productName = EurekaTests;
-			productReference = 51729DF51B9A4F5E004A00EB /* EurekaTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -457,11 +399,6 @@
 					51729DEA1B9A4F5E004A00EB = {
 						CreatedOnToolsVersion = 7.0;
 						LastSwiftMigration = 0900;
-						ProvisioningStyle = Automatic;
-					};
-					51729DF41B9A4F5E004A00EB = {
-						CreatedOnToolsVersion = 7.0;
-						LastSwiftMigration = 1000;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -480,7 +417,6 @@
 			projectRoot = "";
 			targets = (
 				51729DEA1B9A4F5E004A00EB /* Eureka */,
-				51729DF41B9A4F5E004A00EB /* EurekaTests */,
 			);
 		};
 /* End PBXProject section */
@@ -491,14 +427,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8690E4BE1CFDE062004CDB1C /* Eureka.bundle in Resources */,
-				28B12FD51BA0E83C00F27A23 /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		51729DF31B9A4F5E004A00EB /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -578,38 +506,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		51729DF11B9A4F5E004A00EB /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				28B1D7881C7F911900605EB3 /* CallbacksTests.swift in Sources */,
-				28B1D7891C7F911900605EB3 /* CollectionTests.swift in Sources */,
-				28B1D78C1C7F911900605EB3 /* HelperMethodTests.swift in Sources */,
-				28B1D78B1C7F911900605EB3 /* FormValuesTests.swift in Sources */,
-				B2A401161EC0BA140042EDF0 /* SectionsInsertionTests.swift in Sources */,
-				28B1D7871C7F911900605EB3 /* BaseEurekaTests.swift in Sources */,
-				28B1D7911C7F911900605EB3 /* SetValuesTests.swift in Sources */,
-				285BA44A1E8187480034EE92 /* MultivaluedSectionTests.swift in Sources */,
-				28B1D7901C7F911900605EB3 /* RowCallbackTests.swift in Sources */,
-				28B1D78E1C7F911900605EB3 /* OperatorsTest.swift in Sources */,
-				28B1D78D1C7F911900605EB3 /* HiddenRowsTests.swift in Sources */,
-				287A14331D8A07ED00FFE6EB /* SelectableSectionTests.swift in Sources */,
-				B257FE2E1EC0F66900043911 /* RowsInsertionTests.swift in Sources */,
-				28B1D78A1C7F911900605EB3 /* DateTests.swift in Sources */,
-				287A142B1D89DF1E00FFE6EB /* ValidationsTests.swift in Sources */,
-				28B1D78F1C7F911900605EB3 /* RowByTagTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		51729DF81B9A4F5E004A00EB /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 51729DEA1B9A4F5E004A00EB /* Eureka */;
-			targetProxy = 51729DF71B9A4F5E004A00EB /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		51729DFD1B9A4F5E004A00EB /* Debug */ = {
@@ -771,37 +668,6 @@
 			};
 			name = Release;
 		};
-		51729E031B9A4F5E004A00EB /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = Tests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.xmartlabs.EurekaTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.2;
-			};
-			name = Debug;
-		};
-		51729E041B9A4F5E004A00EB /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = Tests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.xmartlabs.EurekaTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 4.2;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -819,15 +685,6 @@
 			buildConfigurations = (
 				51729E001B9A4F5E004A00EB /* Debug */,
 				51729E011B9A4F5E004A00EB /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		51729E021B9A4F5E004A00EB /* Build configuration list for PBXNativeTarget "EurekaTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				51729E031B9A4F5E004A00EB /* Debug */,
-				51729E041B9A4F5E004A00EB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

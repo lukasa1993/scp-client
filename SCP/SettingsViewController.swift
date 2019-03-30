@@ -33,7 +33,7 @@ class SettingsViewController: FormViewController, Themeable {
         
         currentTheme  = dark_mode ? .dark : .light
         
-        self.getInfo("premium_upgrade")
+        self.getInfo("premium")
         
         form +++ Section("General")
             <<< SwitchRow("show_hidden") { row in

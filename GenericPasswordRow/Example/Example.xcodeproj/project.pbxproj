@@ -13,7 +13,6 @@
 		CFEB41581D7E0AB50091C10E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFEB41571D7E0AB50091C10E /* AppDelegate.swift */; };
 		CFEB415A1D7E0AB50091C10E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFEB41591D7E0AB50091C10E /* ViewController.swift */; };
 		CFEB415D1D7E0AB50091C10E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CFEB415B1D7E0AB50091C10E /* Main.storyboard */; };
-		CFEB415F1D7E0AB50091C10E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CFEB415E1D7E0AB50091C10E /* Assets.xcassets */; };
 		CFEB41621D7E0AB50091C10E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CFEB41601D7E0AB50091C10E /* LaunchScreen.storyboard */; };
 		CFEB416D1D7E0AB50091C10E /* ExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFEB416C1D7E0AB50091C10E /* ExampleTests.swift */; };
 		CFEB41781D7E0AB50091C10E /* ExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFEB41771D7E0AB50091C10E /* ExampleUITests.swift */; };
@@ -57,7 +56,6 @@
 		CFEB41571D7E0AB50091C10E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CFEB41591D7E0AB50091C10E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		CFEB415C1D7E0AB50091C10E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		CFEB415E1D7E0AB50091C10E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CFEB41611D7E0AB50091C10E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CFEB41631D7E0AB50091C10E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CFEB41681D7E0AB50091C10E /* ExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -131,7 +129,6 @@
 				CFEB41571D7E0AB50091C10E /* AppDelegate.swift */,
 				CFEB41591D7E0AB50091C10E /* ViewController.swift */,
 				CFEB415B1D7E0AB50091C10E /* Main.storyboard */,
-				CFEB415E1D7E0AB50091C10E /* Assets.xcassets */,
 				CFEB41601D7E0AB50091C10E /* LaunchScreen.storyboard */,
 				CFEB41631D7E0AB50091C10E /* Info.plist */,
 			);
@@ -266,7 +263,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				CFEB41621D7E0AB50091C10E /* LaunchScreen.storyboard in Resources */,
-				CFEB415F1D7E0AB50091C10E /* Assets.xcassets in Resources */,
 				CFEB415D1D7E0AB50091C10E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

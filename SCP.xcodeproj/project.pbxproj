@@ -18,9 +18,11 @@
 		0B2817E5224F76570032D963 /* SwiftyStoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B2817D8224F763B0032D963 /* SwiftyStoreKit.framework */; };
 		0B2817E6224F76570032D963 /* SwiftyStoreKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0B2817D8224F763B0032D963 /* SwiftyStoreKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0B2817EC224F94300032D963 /* NetworkActivityIndicatorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B2817EB224F94300032D963 /* NetworkActivityIndicatorManager.swift */; };
+		0B281809224FAA2E0032D963 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B281808224FAA2E0032D963 /* StoreKit.framework */; };
 		0B414CCB222AC4CD00E392C2 /* SSHServer_legacy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B414CC6222AC4CC00E392C2 /* SSHServer_legacy.swift */; };
 		0B4D325C222A68E000C0A8A5 /* GenericPasswordRow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B4D3257222A68D100C0A8A5 /* GenericPasswordRow.framework */; };
 		0B4D325D222A68E000C0A8A5 /* GenericPasswordRow.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0B4D3257222A68D100C0A8A5 /* GenericPasswordRow.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0B556E87224FAF39001781A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B556E86224FAF39001781A7 /* Assets.xcassets */; };
 		6B24E8F820777084005B33A5 /* NMSSH.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B24E8F72077707F005B33A5 /* NMSSH.framework */; };
 		6B24E8F920777084005B33A5 /* NMSSH.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6B24E8F72077707F005B33A5 /* NMSSH.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6B24E90C20778093005B33A5 /* Icofont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6B24E90020778093005B33A5 /* Icofont.ttf */; };
@@ -45,7 +47,6 @@
 		6BC17E5B20774D6300E2A999 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC17E5A20774D6300E2A999 /* MasterViewController.swift */; };
 		6BC17E5D20774D6300E2A999 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC17E5C20774D6300E2A999 /* DetailViewController.swift */; };
 		6BC17E6020774D6300E2A999 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6BC17E5E20774D6300E2A999 /* Main.storyboard */; };
-		6BC17E6220774D6300E2A999 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6BC17E6120774D6300E2A999 /* Assets.xcassets */; };
 		6BC17E6520774D6300E2A999 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6BC17E6320774D6300E2A999 /* LaunchScreen.storyboard */; };
 		6BC17E702077519C00E2A999 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC17E6F2077519C00E2A999 /* Keychain.swift */; };
 		6BC17E7A2077602000E2A999 /* Eureka.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BC17E7720775FF100E2A999 /* Eureka.framework */; };
@@ -91,13 +92,6 @@
 			remoteGlobalIDString = CFFC76AD1D7DFF29006C3E55;
 			remoteInfo = GenericPasswordRow;
 		};
-		0B4D3258222A68D100C0A8A5 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0B4D3250222A68D100C0A8A5 /* GenericPasswordRow.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = CFFC76B71D7DFF2A006C3E55;
-			remoteInfo = GenericPasswordRowTests;
-		};
 		0B4D325E222A68E000C0A8A5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0B4D3250222A68D100C0A8A5 /* GenericPasswordRow.xcodeproj */;
@@ -132,13 +126,6 @@
 			proxyType = 2;
 			remoteGlobalIDString = 51729DEB1B9A4F5E004A00EB;
 			remoteInfo = Eureka;
-		};
-		6BC17E7820775FF100E2A999 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6BC17E7120775FF100E2A999 /* Eureka.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 51729DF51B9A4F5E004A00EB;
-			remoteInfo = EurekaTests;
 		};
 		6BC17E7C2077602000E2A999 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -190,14 +177,16 @@
 		0B28177E224F52480032D963 /* UINavigationController+preferredStatusBarStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UINavigationController+preferredStatusBarStyle.swift"; sourceTree = "<group>"; };
 		0B281780224F52480032D963 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		0B281781224F52480032D963 /* Themeable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Themeable.swift; sourceTree = "<group>"; };
-		0B281799224F75080032D963 /* ContentInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ContentInfo.plist; sourceTree = "<group>"; };
 		0B28179D224F76330032D963 /* SwiftyStoreKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftyStoreKit.xcodeproj; path = SwiftyStoreKit/SwiftyStoreKit.xcodeproj; sourceTree = SOURCE_ROOT; };
 		0B2817CD224F763B0032D963 /* SwiftyStoreKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftyStoreKit.xcodeproj; path = Eureka/../SwiftyStoreKit/SwiftyStoreKit.xcodeproj; sourceTree = SOURCE_ROOT; };
 		0B2817EB224F94300032D963 /* NetworkActivityIndicatorManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkActivityIndicatorManager.swift; sourceTree = "<group>"; };
 		0B2817FF224FA8470032D963 /* premium */ = {isa = PBXFileReference; explicitFileType = folder; includeInIndex = 0; path = premium; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B281801224FA8470032D963 /* ContentInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ContentInfo.plist; sourceTree = "<group>"; };
+		0B281807224FAA250032D963 /* SCP.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SCP.entitlements; sourceTree = "<group>"; };
+		0B281808224FAA2E0032D963 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		0B414CC6222AC4CC00E392C2 /* SSHServer_legacy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSHServer_legacy.swift; sourceTree = "<group>"; };
 		0B4D3250222A68D100C0A8A5 /* GenericPasswordRow.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GenericPasswordRow.xcodeproj; path = GenericPasswordRow/GenericPasswordRow.xcodeproj; sourceTree = SOURCE_ROOT; };
+		0B556E86224FAF39001781A7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6B24E8EE2077707F005B33A5 /* NMSSH-iOS.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "NMSSH-iOS.xcodeproj"; path = "NMSSH/NMSSH-iOS.xcodeproj"; sourceTree = SOURCE_ROOT; };
 		6B24E8FC207770AB005B33A5 /* SCP-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "SCP-Bridging-Header.h"; path = "../SCP-Bridging-Header.h"; sourceTree = "<group>"; };
 		6B24E90020778093005B33A5 /* Icofont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Icofont.ttf; sourceTree = "<group>"; };
@@ -228,7 +217,6 @@
 		6BC17E5A20774D6300E2A999 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
 		6BC17E5C20774D6300E2A999 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		6BC17E5F20774D6300E2A999 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		6BC17E6120774D6300E2A999 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6BC17E6420774D6300E2A999 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6BC17E6620774D6300E2A999 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6BC17E6F2077519C00E2A999 /* Keychain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
@@ -266,6 +254,7 @@
 				6B24E8F820777084005B33A5 /* NMSSH.framework in Frameworks */,
 				6BEB47F4224E503C003FB71E /* PasscodeLock.framework in Frameworks */,
 				0B2817E5224F76570032D963 /* SwiftyStoreKit.framework in Frameworks */,
+				0B281809224FAA2E0032D963 /* StoreKit.framework in Frameworks */,
 				6BC17E7A2077602000E2A999 /* Eureka.framework in Frameworks */,
 				0B4D325C222A68E000C0A8A5 /* GenericPasswordRow.framework in Frameworks */,
 			);
@@ -316,16 +305,9 @@
 		0B28178A224F6E8F0032D963 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0B281808224FAA2E0032D963 /* StoreKit.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		0B281798224F75080032D963 /* premium_upgrade */ = {
-			isa = PBXGroup;
-			children = (
-				0B281799224F75080032D963 /* ContentInfo.plist */,
-			);
-			path = premium_upgrade;
 			sourceTree = "<group>";
 		};
 		0B28179E224F76330032D963 /* Products */ = {
@@ -356,7 +338,6 @@
 			isa = PBXGroup;
 			children = (
 				0B4D3257222A68D100C0A8A5 /* GenericPasswordRow.framework */,
-				0B4D3259222A68D100C0A8A5 /* GenericPasswordRowTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -418,7 +399,6 @@
 				6BC17E5720774D6300E2A999 /* SCP */,
 				6B304236222D493B0032100F /* scp-file-provider */,
 				6B304244222D493C0032100F /* scp-file-providerUI */,
-				0B281798224F75080032D963 /* premium_upgrade */,
 				0B281800224FA8470032D963 /* premium */,
 				6BC17E5620774D6300E2A999 /* Products */,
 				0B28178A224F6E8F0032D963 /* Frameworks */,
@@ -439,6 +419,7 @@
 		6BC17E5720774D6300E2A999 /* SCP */ = {
 			isa = PBXGroup;
 			children = (
+				0B281807224FAA250032D963 /* SCP.entitlements */,
 				0B2817EB224F94300032D963 /* NetworkActivityIndicatorManager.swift */,
 				6BEB47EB224E4E79003FB71E /* LockSplashView.swift */,
 				6BEB47E9224E4E56003FB71E /* CustomPasscodeLockPresenter.swift */,
@@ -455,9 +436,9 @@
 				6BC17E5C20774D6300E2A999 /* DetailViewController.swift */,
 				6BC17E8820776B8E00E2A999 /* SSHServerTableViewController.swift */,
 				6BC17E5E20774D6300E2A999 /* Main.storyboard */,
-				6BC17E6120774D6300E2A999 /* Assets.xcassets */,
 				6BC17E6320774D6300E2A999 /* LaunchScreen.storyboard */,
 				6B24E8FC207770AB005B33A5 /* SCP-Bridging-Header.h */,
+				0B556E86224FAF39001781A7 /* Assets.xcassets */,
 				6BC17E6620774D6300E2A999 /* Info.plist */,
 				6B24E8FF20778093005B33A5 /* icons */,
 				0B281776224F52480032D963 /* theming */,
@@ -474,7 +455,6 @@
 			isa = PBXGroup;
 			children = (
 				6BC17E7720775FF100E2A999 /* Eureka.framework */,
-				6BC17E7920775FF100E2A999 /* EurekaTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -586,6 +566,9 @@
 						LastSwiftMigration = 1010;
 						SystemCapabilities = {
 							com.apple.InAppPurchase = {
+								enabled = 1;
+							};
+							com.apple.InterAppAudio = {
 								enabled = 0;
 							};
 						};
@@ -661,13 +644,6 @@
 			remoteRef = 0B4D3256222A68D100C0A8A5 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		0B4D3259222A68D100C0A8A5 /* GenericPasswordRowTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = GenericPasswordRowTests.xctest;
-			remoteRef = 0B4D3258222A68D100C0A8A5 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		6B24E8F52077707F005B33A5 /* NMSSH Static.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
@@ -687,13 +663,6 @@
 			fileType = wrapper.framework;
 			path = Eureka.framework;
 			remoteRef = 6BC17E7620775FF100E2A999 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		6BC17E7920775FF100E2A999 /* EurekaTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = EurekaTests.xctest;
-			remoteRef = 6BC17E7820775FF100E2A999 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		6BEB47F3224E4FFD003FB71E /* PasscodeLock.framework */ = {
@@ -736,12 +705,12 @@
 				6B24E91020778093005B33A5 /* WeatherIcons.ttf in Resources */,
 				6B24E91220778093005B33A5 /* FontAwesome.ttf in Resources */,
 				6BC17E6520774D6300E2A999 /* LaunchScreen.storyboard in Resources */,
+				0B556E87224FAF39001781A7 /* Assets.xcassets in Resources */,
 				6B24E91120778093005B33A5 /* Ionicons.ttf in Resources */,
 				6B24E90C20778093005B33A5 /* Icofont.ttf in Resources */,
 				6B24E91720778093005B33A5 /* MaterialIcons.ttf in Resources */,
 				6B24E91420778093005B33A5 /* Linearicons.ttf in Resources */,
 				6B24E90D20778093005B33A5 /* MapIcons.ttf in Resources */,
-				6BC17E6220774D6300E2A999 /* Assets.xcassets in Resources */,
 				6B24E90E20778093005B33A5 /* Dripicons.ttf in Resources */,
 				6B24E90F20778093005B33A5 /* OpenIconic.ttf in Resources */,
 				6BC17E6020774D6300E2A999 /* Main.storyboard in Resources */,
@@ -1092,10 +1061,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 331;
+				CURRENT_PROJECT_VERSION = 334;
 				DEVELOPMENT_TEAM = N43S8JF6JT;
 				INFOPLIST_FILE = SCP/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
@@ -1116,10 +1084,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 331;
+				CURRENT_PROJECT_VERSION = 334;
 				DEVELOPMENT_TEAM = N43S8JF6JT;
 				INFOPLIST_FILE = SCP/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
