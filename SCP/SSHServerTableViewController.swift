@@ -37,6 +37,33 @@ class SSHServerTableViewController: UIViewController, UITableViewDelegate, UITab
         fatalError("init(coder:) has not been implemented")
     }
     
+    var currentTheme: Theme = .light {
+        didSet {
+            apply(theme: currentTheme)
+        }
+    }
+    
+    func apply(theme: Theme) {
+        let navigationBar = navigationController?.navigationBar
+        navigationBar?.barTintColor = theme.navigationBarColor
+        navigationBar?.titleTextAttributes = [.foregroundColor: theme.navigationTextColor]
+        
+        tabBarController?.tabBar.barTintColor = theme.navigationBarColor
+        
+        tableView!.backgroundColor = theme.backgroundColor
+        tableView!.separatorColor = theme.cellSeparatorColor
+        
+        for cell in tableView!.visibleCells {
+            cell.apply(theme: currentTheme)
+        }
+        
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return currentTheme.statusBarStyle
+    }
+    
+    
     public func start() {
         if(isStarted) {
             return
@@ -48,6 +75,9 @@ class SSHServerTableViewController: UIViewController, UITableViewDelegate, UITab
             self.tableView?.dataSource = self;
             self.tableView?.delegate = self;
             self.tableView?.register(UITableViewCell.self, forCellReuseIdentifier: self.isLeft ? "LeftTableCell" : "RightTableCell")
+            
+            let dark_mode = (UserDefaults.standard.object(forKey: "dark_mode") as? Bool) ?? false
+            self.currentTheme  = dark_mode ? .dark : .light
         }
         
         if(isLeft) {
@@ -218,13 +248,15 @@ class SSHServerTableViewController: UIViewController, UITableViewDelegate, UITab
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: isLeft ? "LeftTableCell" : "RightTableCell", for: indexPath)
         let item = objects[indexPath.row];
+        cell.apply(theme: currentTheme)
         
         cell.textLabel?.text = item["name"]
         if(item["type"] == "folder") {
-            cell.imageView?.image = UIImage.init(icon: .fontAwesome(.folder), size: CGSize(width: 35, height: 35))
+            cell.imageView?.image = UIImage.init(icon: .fontAwesome(.folder), size: CGSize(width: 35, height: 35), textColor: currentTheme.cellMainTextColor)
         } else if(item["type"] == "file") {
-            cell.imageView?.image = UIImage.init(icon: .fontAwesome(.file), size: CGSize(width: 35, height: 35))
+            cell.imageView?.image = UIImage.init(icon: .fontAwesome(.file), size: CGSize(width: 35, height: 35), textColor: currentTheme.cellMainTextColor)
         }
+        
         let holdForAction = UILongPressGestureRecognizer(target: self, action: #selector(SSHServerTableViewController.longPressFolder));
         cell.addGestureRecognizer(holdForAction)
         
@@ -259,7 +291,7 @@ class SSHServerTableViewController: UIViewController, UITableViewDelegate, UITab
         let alert = UIAlertController(title: "Action On " + item["name"]!,
                                       message: "Move/Copy to: " + sidePWD,
                                       preferredStyle: .actionSheet)
-        
+
         if let popoverController = alert.popoverPresentationController {
             popoverController.sourceView = tableView?.cellForRow(at: indexPath)
             popoverController.sourceRect = (popoverController.sourceView?.bounds)!

@@ -133,7 +133,7 @@ open class _TextAreaCell<T> : Cell<T>, UITextViewDelegate, AreaCell where T: Equ
         textLabel?.text = nil
         detailTextLabel?.text = nil
         textView.isEditable = !row.isDisabled
-        textView.textColor = row.isDisabled ? .gray : .black
+//        textView.textColor = row.isDisabled ? .gray : .black
         textView.text = row.displayValueFor?(row.value)
         placeholderLabel?.text = (row as? TextAreaConformance)?.placeholder
         placeholderLabel?.isHidden = textView.text.count != 0

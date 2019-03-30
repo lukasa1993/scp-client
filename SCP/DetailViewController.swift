@@ -92,6 +92,49 @@ class DetailViewController: UIViewController, UIPopoverPresentationControllerDel
     }
     
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let dark_mode = (UserDefaults.standard.object(forKey: "dark_mode") as? Bool) ?? false
+        currentTheme  = dark_mode ? .dark : .light
+        
+        self.view.backgroundColor = currentTheme.backgroundColor
+    }
+    
+    var currentTheme: Theme = .light {
+        didSet {
+            apply(theme: currentTheme)
+        }
+    }
+    
+    func apply(theme: Theme) {
+        let navigationBar = navigationController?.navigationBar
+        navigationBar?.barTintColor = theme.navigationBarColor
+        navigationBar?.titleTextAttributes = [.foregroundColor: theme.navigationTextColor]
+        
+        tabBarController?.tabBar.barTintColor = theme.navigationBarColor
+        
+        leftTable!.backgroundColor = theme.backgroundColor
+        leftTable!.separatorColor = theme.cellSeparatorColor
+        
+        for cell in leftTable!.visibleCells {
+            cell.apply(theme: currentTheme)
+        }
+        
+        rightTable!.backgroundColor = theme.backgroundColor
+        rightTable!.separatorColor = theme.cellSeparatorColor
+        
+        for cell in rightTable!.visibleCells {
+            cell.apply(theme: currentTheme)
+        }
+        
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return currentTheme.statusBarStyle
+    }
+    
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         

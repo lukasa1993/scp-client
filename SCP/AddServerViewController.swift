@@ -16,13 +16,43 @@ class AddServerViewController: FormViewController {
     var editingItemJSON: String?
     var editingItemUUID: String?
     var keychain:Keychain? = nil;
+    var currentTheme: Theme = .light {
+        didSet {
+            apply(theme: currentTheme)
+        }
+    }
+    
+    func apply(theme: Theme) {
+        let navigationBar = navigationController?.navigationBar
+        navigationBar?.barTintColor = theme.navigationBarColor
+        navigationBar?.titleTextAttributes = [.foregroundColor: theme.navigationTextColor]
+        
+        tabBarController?.tabBar.barTintColor = theme.navigationBarColor
+        
+        tableView.backgroundColor = theme.backgroundColor
+        tableView.separatorColor = theme.cellSeparatorColor
+        
+        for cell in tableView.visibleCells {
+            cell.apply(theme: currentTheme)
+        }
+        
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return currentTheme.statusBarStyle
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.apply(theme: currentTheme)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         keychain = Keychain()
         
-        
+        let dark_mode = (UserDefaults.standard.object(forKey: "dark_mode") as? Bool) ?? false
+        currentTheme  = dark_mode ? .dark : .light
         
         if let detail = editingItemJSON {
             do {
@@ -88,6 +118,10 @@ class AddServerViewController: FormViewController {
                 $0.tag = "pass"
                 $0.cell.hintLabel = nil
                 
+                $0.cell.bgView?.backgroundColor = self.currentTheme.backgroundColor
+                $0.cell.textField.backgroundColor = self.currentTheme.backgroundColor
+                $0.cell.textField.textColor = self.currentTheme.cellMainTextColor
+                
                 if editingItem != nil {
                     $0.value = editingItem?.pass
                 }
@@ -109,6 +143,10 @@ class AddServerViewController: FormViewController {
                 $0.cell.textView.autocorrectionType = .no
                 $0.cell.textView.autocapitalizationType = .none
                 
+                $0.cell.textView.backgroundColor = self.currentTheme.backgroundColor
+                $0.cell.textView.textColor = self.currentTheme.cellMainTextColor
+                $0.cell.placeholderLabel?.textColor = self.currentTheme.cellDetailTextColor
+                
                 if editingItem != nil {
                     $0.value = editingItem?.privkey
                 }
@@ -125,6 +163,10 @@ class AddServerViewController: FormViewController {
                 $0.cell.textView.autocorrectionType = .no
                 $0.cell.textView.autocapitalizationType = .none
                 
+                $0.cell.textView.backgroundColor = self.currentTheme.backgroundColor
+                $0.cell.textView.textColor = self.currentTheme.cellMainTextColor
+                $0.cell.placeholderLabel?.textColor = self.currentTheme.cellDetailTextColor
+                
                 if editingItem != nil {
                     $0.value = editingItem?.pubkey
                 }
@@ -134,6 +176,10 @@ class AddServerViewController: FormViewController {
                 $0.placeholder = "leave empty if not needed"
                 $0.tag = "passprase"
                 $0.cell.hintLabel = nil
+                
+                $0.cell.bgView?.backgroundColor = self.currentTheme.backgroundColor
+                $0.cell.textField.backgroundColor = self.currentTheme.backgroundColor
+                $0.cell.textField.textColor = self.currentTheme.cellMainTextColor
                 
                 if editingItem != nil {
                     $0.value = editingItem?.prase

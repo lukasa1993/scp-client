@@ -3,9 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
-	<string>$(DEVELOPMENT_LANGUAGE)</string>
-	<key>CFBundleDisplayName</key>
-	<string>scp-file-provider</string>
+	<string>en</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -15,21 +13,16 @@
 	<key>CFBundleName</key>
 	<string>$(PRODUCT_NAME)</string>
 	<key>CFBundlePackageType</key>
-	<string>XPC!</string>
+	<string>FMWK</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.3</string>
+	<string>1.0</string>
+	<key>CFBundleSignature</key>
+	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>332</string>
-	<key>NSExtension</key>
-	<dict>
-		<key>NSExtensionFileProviderDocumentGroup</key>
-		<string>group.com.picktek.sscpclient</string>
-		<key>NSExtensionFileProviderSupportsEnumeration</key>
-		<true/>
-		<key>NSExtensionPointIdentifier</key>
-		<string>com.apple.fileprovider-nonui</string>
-		<key>NSExtensionPrincipalClass</key>
-		<string>$(PRODUCT_MODULE_NAME).FileProviderExtension</string>
-	</dict>
+	<string>$(CURRENT_PROJECT_VERSION)</string>
+	<key>NSHumanReadableCopyright</key>
+	<string>Copyright © 2015 musevisions. All rights reserved.</string>
+	<key>NSPrincipalClass</key>
+	<string></string>
 </dict>
 </plist>

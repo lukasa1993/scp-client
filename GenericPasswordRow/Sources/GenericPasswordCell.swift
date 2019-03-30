@@ -14,6 +14,7 @@ open class GenericPasswordCell: _FieldCell<String>, CellType {
     @IBOutlet weak var visibilityButton: UIButton?
     @IBOutlet weak var passwordStrengthView: PasswordStrengthView?
     @IBOutlet public weak var hintLabel: UILabel?
+    @IBOutlet public weak var bgView: UIView?
 
     @IBOutlet public weak var leading: NSLayoutConstraint!
     @IBOutlet public weak var trailing: NSLayoutConstraint!
@@ -47,6 +48,7 @@ open class GenericPasswordCell: _FieldCell<String>, CellType {
 
     open override func setup() {
         super.setup()
+        
         dynamicHeight = (collapsed: 48, expanded: 64)
         textField.autocorrectionType = .no
         textField.autocapitalizationType = .none

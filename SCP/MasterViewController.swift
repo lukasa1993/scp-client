@@ -66,6 +66,34 @@ class MasterViewController: UITableViewController {
             keys = (keychain?.allKeys())!;
             tableView.reloadData()
         }
+        
+        let dark_mode = (UserDefaults.standard.object(forKey: "dark_mode") as? Bool) ?? false
+        currentTheme  = dark_mode ? .dark : .light
+    }
+    
+    var currentTheme: Theme = .light {
+        didSet {
+            apply(theme: currentTheme)
+        }
+    }
+    
+    func apply(theme: Theme) {
+        let navigationBar = navigationController?.navigationBar
+        navigationBar?.barTintColor = theme.navigationBarColor
+        navigationBar?.titleTextAttributes = [.foregroundColor: theme.navigationTextColor]
+        
+        tabBarController?.tabBar.barTintColor = theme.navigationBarColor
+        
+        tableView.backgroundColor = theme.backgroundColor
+        tableView.separatorColor = theme.cellSeparatorColor
+        
+        for cell in tableView.visibleCells {
+            cell.apply(theme: currentTheme)
+        }
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return currentTheme.statusBarStyle
     }
     
     override func didReceiveMemoryWarning() {

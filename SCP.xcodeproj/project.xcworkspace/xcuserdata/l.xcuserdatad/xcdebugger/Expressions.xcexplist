@@ -3,6 +3,14 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "closure #1 in SettingsViewController.viewDidLoad():SettingsViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "currentTheme">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "SSHServerTableViewController.start():SSHServerTableViewController.swift">
          <PersistentStrings>
             <PersistentString
@@ -18,6 +26,14 @@
             </PersistentString>
             <PersistentString
                value = "publicKey">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "SettingsViewController.viewDidLoad():SettingsViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "currentTheme">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
