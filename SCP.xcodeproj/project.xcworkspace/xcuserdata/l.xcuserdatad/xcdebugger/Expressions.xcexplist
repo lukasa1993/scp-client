@@ -3,18 +3,10 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "closure #1 in SettingsViewController.viewDidLoad():SettingsViewController.swift">
+         contextName = "AddServerViewController.viewDidLoad():AddServerViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "currentTheme">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "SSHServerTableViewController.start():SSHServerTableViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "SSHServer">
+               value = "editingItemUUID">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -30,18 +22,26 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "SettingsViewController.viewDidLoad():SettingsViewController.swift">
+         contextName = "SettingsViewController.alertForRestorePurchases(_:):SettingsViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "currentTheme">
+               value = "results.restoreFailedPurchases">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "AddServerViewController.viewDidLoad():AddServerViewController.swift">
+         contextName = "SSHServerTableViewController.start():SSHServerTableViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "editingItemUUID">
+               value = "SSHServer">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in SettingsViewController.viewDidLoad():SettingsViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "currentTheme">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -59,6 +59,14 @@
             </PersistentString>
             <PersistentString
                value = "segue.source">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "SettingsViewController.viewDidLoad():SettingsViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "currentTheme">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

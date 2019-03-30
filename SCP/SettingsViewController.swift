@@ -14,6 +14,8 @@ import SwiftyStoreKit
 class SettingsViewController: FormViewController, Themeable {
     let appBundleId = "com.picktek.sscpclient"
     
+    var premiumPurchased = false
+    
     var currentTheme: Theme = .light {
         didSet {
             apply(theme: currentTheme)
@@ -33,7 +35,8 @@ class SettingsViewController: FormViewController, Themeable {
         
         currentTheme  = dark_mode ? .dark : .light
         
-        self.getInfo("premium")
+        self.restorePurchases()
+//        self.getInfo("premium")
         
         form +++ Section("General")
             <<< SwitchRow("show_hidden") { row in
@@ -92,11 +95,17 @@ class SettingsViewController: FormViewController, Themeable {
             <<< SwitchRow("dark_mode") { row in
                 row.title = "Dark Mode"
                 row.value = dark_mode
+                row.disabled = true
                 }.onChange { row in
-                    UserDefaults.standard.set(row.value, forKey: "dark_mode")
-                    UserDefaults.standard.synchronize()
-                    let swtch = self.form.rowBy(tag: "dark_mode") as! SwitchRow
-                    self.toggleDarkMode(swtch.cell.switchControl)
+                    if(self.premiumPurchased) {
+                        UserDefaults.standard.set(row.value, forKey: "dark_mode")
+                        UserDefaults.standard.synchronize()
+                        let swtch = self.form.rowBy(tag: "dark_mode") as! SwitchRow
+                        self.toggleDarkMode(swtch.cell.switchControl)
+                    } else {
+                        self.purchase("premium", atomically: true)
+                    }
+                    
             }
             +++ Section(self.version())
     }
@@ -145,7 +154,7 @@ class SettingsViewController: FormViewController, Themeable {
     func purchase(_ purchase: String, atomically: Bool) {
         
         NetworkActivityIndicatorManager.networkOperationStarted()
-        SwiftyStoreKit.purchaseProduct(appBundleId + "." + purchase, atomically: atomically) { result in
+        SwiftyStoreKit.purchaseProduct(purchase, atomically: atomically) { result in
             NetworkActivityIndicatorManager.networkOperationFinished()
             
             if case .success(let purchase) = result {
@@ -164,12 +173,35 @@ class SettingsViewController: FormViewController, Themeable {
         }
     }
     
-    func getInfo(_ purchase: String) {
+    func restorePurchases() {
+        
         NetworkActivityIndicatorManager.networkOperationStarted()
-        SwiftyStoreKit.retrieveProductsInfo([appBundleId + "." + purchase]) { result in
+        SwiftyStoreKit.restorePurchases(atomically: true) { results in
             NetworkActivityIndicatorManager.networkOperationFinished()
             
-            self.showAlert(self.alertForProductRetrievalInfo(result))
+            for purchase in results.restoredPurchases {
+                let downloads = purchase.transaction.downloads
+                if !downloads.isEmpty {
+                    SwiftyStoreKit.start(downloads)
+                } else if purchase.needsFinishTransaction {
+                    // Deliver content from server, then:
+                    SwiftyStoreKit.finishTransaction(purchase.transaction)
+                }
+            }
+            let alert = self.alertForRestorePurchases(results)
+            (self.form.rowBy(tag: "dark_mode") as! SwitchRow).cell.switchControl.isEnabled = true
+            print(alert)
+            //            self.showAlert(alert)
+        }
+    }
+    
+    func getInfo(_ purchase: String) {
+        NetworkActivityIndicatorManager.networkOperationStarted()
+        SwiftyStoreKit.retrieveProductsInfo([purchase]) { result in
+            NetworkActivityIndicatorManager.networkOperationFinished()
+            
+            //            self.showAlert(self.alertForProductRetrievalInfo(result))
+            (self.form.rowBy(tag: "dark_mode") as! SwitchRow).cell.switchControl.isEnabled = true
         }
     }
     
@@ -209,6 +241,11 @@ extension SettingsViewController {
     func alertForPurchaseResult(_ result: PurchaseResult) -> UIAlertController? {
         switch result {
         case .success(let purchase):
+            premiumPurchased = true
+            let swtch = self.form.rowBy(tag: "dark_mode") as! SwitchRow
+            self.toggleDarkMode(swtch.cell.switchControl)
+            UserDefaults.standard.set(swtch.cell.switchControl.isOn, forKey: "dark_mode")
+            UserDefaults.standard.synchronize()
             print("Purchase Success: \(purchase.productId)")
             return nil
         case .error(let error):
@@ -243,6 +280,7 @@ extension SettingsViewController {
             print("Restore Failed: \(results.restoreFailedPurchases)")
             return alertWithTitle("Restore failed", message: "Unknown error. Please contact support")
         } else if results.restoredPurchases.count > 0 {
+            premiumPurchased = true
             print("Restore Success: \(results.restoredPurchases)")
             return alertWithTitle("Purchases Restored", message: "All purchases have been restored")
         } else {

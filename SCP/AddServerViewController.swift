@@ -36,6 +36,10 @@ class AddServerViewController: FormViewController {
             cell.apply(theme: currentTheme)
         }
         
+        for row in form.allRows {
+            row.baseCell.apply(theme: currentTheme)
+            row.updateCell()
+        }
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -44,6 +48,13 @@ class AddServerViewController: FormViewController {
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         cell.apply(theme: currentTheme)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let dark_mode = (UserDefaults.standard.object(forKey: "dark_mode") as? Bool) ?? false
+        currentTheme  = dark_mode ? .dark : .light
     }
     
     override func viewDidLoad() {
@@ -71,12 +82,18 @@ class AddServerViewController: FormViewController {
                 row.placeholder = "Name"
                 row.tag = "name"
                 
-                row.cell.textField?.autocorrectionType = UITextAutocorrectionType.no
-                row.cell.textField?.autocapitalizationType = UITextAutocapitalizationType.none
+                row.cell.textField.autocorrectionType = UITextAutocorrectionType.no
+                row.cell.textField.autocapitalizationType = UITextAutocapitalizationType.none
+                row.cell.textField.textColor = self.currentTheme.cellMainTextColor
+                row.placeholderColor = self.currentTheme.cellDetailTextColor
                 
                 if editingItem != nil {
                     row.value = editingItem?.name
                 }
+                }.cellUpdate { cell,row in
+                    row.cell.textField.textColor = self.currentTheme.cellMainTextColor
+                    row.placeholderColor = self.currentTheme.cellDetailTextColor
+                    cell.apply(theme: self.currentTheme)
             }
             <<< TextRow() {
                 $0.title = "Host"
@@ -85,19 +102,31 @@ class AddServerViewController: FormViewController {
                 
                 $0.cell.textField?.autocorrectionType = UITextAutocorrectionType.no
                 $0.cell.textField?.autocapitalizationType = UITextAutocapitalizationType.none
+                $0.cell.textField?.textColor = self.currentTheme.cellMainTextColor
+                $0.placeholderColor = self.currentTheme.cellDetailTextColor
                 
                 if editingItem != nil {
                     $0.value = editingItem?.host
                 }
+                }.cellUpdate { cell,row in
+                    row.cell.textField.textColor = self.currentTheme.cellMainTextColor
+                    row.placeholderColor = self.currentTheme.cellDetailTextColor
+                    cell.apply(theme: self.currentTheme)
             }
             <<< IntRow() {
                 $0.title = "Port"
                 $0.placeholder = "Defaults to 22"
                 $0.tag = "port"
+                $0.cell.textField?.textColor = self.currentTheme.cellMainTextColor
+                $0.placeholderColor = self.currentTheme.cellDetailTextColor
                 
                 if editingItem != nil {
                     $0.value = editingItem?.port
                 }
+                }.cellUpdate { cell,row in
+                    row.cell.textField.textColor = self.currentTheme.cellMainTextColor
+                    row.placeholderColor = self.currentTheme.cellDetailTextColor
+                    cell.apply(theme: self.currentTheme)
             }
             <<< TextRow() {
                 $0.title = "Username"
@@ -106,10 +135,16 @@ class AddServerViewController: FormViewController {
                 
                 $0.cell.textField?.autocorrectionType = .no
                 $0.cell.textField?.autocapitalizationType = .none
+                $0.cell.textField?.textColor = self.currentTheme.cellMainTextColor
+                $0.placeholderColor = self.currentTheme.cellDetailTextColor
                 
                 if editingItem != nil {
                     $0.value = editingItem?.user
                 }
+                }.cellUpdate { cell,row in
+                    row.cell.textField.textColor = self.currentTheme.cellMainTextColor
+                    row.placeholderColor = self.currentTheme.cellDetailTextColor
+                    cell.apply(theme: self.currentTheme)
             }
             +++ Section()
             <<< GenericPasswordRow() {
@@ -120,11 +155,14 @@ class AddServerViewController: FormViewController {
                 
                 $0.cell.bgView?.backgroundColor = self.currentTheme.backgroundColor
                 $0.cell.textField.backgroundColor = self.currentTheme.backgroundColor
-                $0.cell.textField.textColor = self.currentTheme.cellMainTextColor
+                $0.cell.textField?.textColor = self.currentTheme.cellMainTextColor
                 
                 if editingItem != nil {
                     $0.value = editingItem?.pass
                 }
+                }.cellUpdate { cell,row in
+                    row.cell.textField.textColor = self.currentTheme.cellMainTextColor
+                    cell.apply(theme: self.currentTheme)
             }
             <<< LabelRow() {
                 $0.title = "Password and Key auth can be used together or separetly"
@@ -184,6 +222,9 @@ class AddServerViewController: FormViewController {
                 if editingItem != nil {
                     $0.value = editingItem?.prase
                 }
+                }.cellUpdate { cell,row in
+                    row.cell.textField.textColor = self.currentTheme.cellMainTextColor
+                    cell.apply(theme: self.currentTheme)
             }
             +++ Section()
             <<< ButtonRow() {
@@ -227,5 +268,5 @@ class AddServerViewController: FormViewController {
         }
         
     }
-        
+    
 }
