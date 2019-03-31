@@ -43,6 +43,8 @@ class EditorConroller: UIViewController {
         let dark_mode = (UserDefaults.standard.object(forKey: "dark_mode") as? Bool) ?? false
         currentTheme  = dark_mode ? .dark : .light
         
+        configureKeyboardNotifications()
+        
         textView?.text = data
         textView?.becomeFirstResponder()
     }
@@ -51,6 +53,26 @@ class EditorConroller: UIViewController {
         //        self.dismiss(animated: true, completion: nil)
         _ = navigationController?.popViewController(animated: true)
         cb?(textView!.text)
+    }
+    
+    
+    func configureKeyboardNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWasShown(aNotification:)), name: UIResponder.keyboardDidShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillBeHidden(aNotification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    @objc func keyboardWasShown(aNotification:NSNotification) {
+        let info = aNotification.userInfo
+        let infoNSValue = info![UIResponder.keyboardFrameBeginUserInfoKey] as! NSValue
+        let kbSize = infoNSValue.cgRectValue.size
+        let contentInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 6*kbSize.height, right: 0.0)
+        textView!.contentInset = contentInsets
+        textView!.scrollIndicatorInsets = contentInsets
+    }
+    
+    @objc func keyboardWillBeHidden(aNotification:NSNotification) {
+        let contentInsets = UIEdgeInsets.zero
+        textView!.contentInset = contentInsets
+        textView!.scrollIndicatorInsets = contentInsets
     }
 }
 
