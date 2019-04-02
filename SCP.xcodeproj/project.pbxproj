@@ -43,6 +43,8 @@
 		6B30423C222D493C0032100F /* FileProviderEnumerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B30423B222D493C0032100F /* FileProviderEnumerator.swift */; };
 		6B304246222D493C0032100F /* DocumentActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B304245222D493C0032100F /* DocumentActionViewController.swift */; };
 		6B304249222D493C0032100F /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B304247222D493C0032100F /* MainInterface.storyboard */; };
+		6B6A24302253483E002328CE /* JSONTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6A242F2253483E002328CE /* JSONTableViewController.swift */; };
+		6B6A243722534A95002328CE /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6A243622534A95002328CE /* SwiftyJSON.swift */; };
 		6BC17E5920774D6300E2A999 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC17E5820774D6300E2A999 /* AppDelegate.swift */; };
 		6BC17E5B20774D6300E2A999 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC17E5A20774D6300E2A999 /* MasterViewController.swift */; };
 		6BC17E5D20774D6300E2A999 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC17E5C20774D6300E2A999 /* DetailViewController.swift */; };
@@ -212,6 +214,9 @@
 		6B304245222D493C0032100F /* DocumentActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentActionViewController.swift; sourceTree = "<group>"; };
 		6B304248222D493C0032100F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		6B30424A222D493C0032100F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6B6A242F2253483E002328CE /* JSONTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONTableViewController.swift; sourceTree = "<group>"; };
+		6B6A243522534A95002328CE /* SwiftyJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwiftyJSON.h; sourceTree = "<group>"; };
+		6B6A243622534A95002328CE /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		6BC17E5520774D6300E2A999 /* SCP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SCP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BC17E5820774D6300E2A999 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6BC17E5A20774D6300E2A999 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
@@ -393,6 +398,15 @@
 			path = "scp-file-providerUI";
 			sourceTree = "<group>";
 		};
+		6B6A243422534A82002328CE /* json */ = {
+			isa = PBXGroup;
+			children = (
+				6B6A243522534A95002328CE /* SwiftyJSON.h */,
+				6B6A243622534A95002328CE /* SwiftyJSON.swift */,
+			);
+			path = json;
+			sourceTree = "<group>";
+		};
 		6BC17E4C20774D6300E2A999 = {
 			isa = PBXGroup;
 			children = (
@@ -432,6 +446,7 @@
 				6BC17E5820774D6300E2A999 /* AppDelegate.swift */,
 				6BC17E5A20774D6300E2A999 /* MasterViewController.swift */,
 				6BC17E7F2077605300E2A999 /* AddServerViewController.swift */,
+				6B6A242F2253483E002328CE /* JSONTableViewController.swift */,
 				6B30422B222D3DAE0032100F /* EditorController.swift */,
 				6BC17E5C20774D6300E2A999 /* DetailViewController.swift */,
 				6BC17E8820776B8E00E2A999 /* SSHServerTableViewController.swift */,
@@ -440,6 +455,7 @@
 				6B24E8FC207770AB005B33A5 /* SCP-Bridging-Header.h */,
 				0B556E86224FAF39001781A7 /* Assets.xcassets */,
 				6BC17E6620774D6300E2A999 /* Info.plist */,
+				6B6A243422534A82002328CE /* json */,
 				6B24E8FF20778093005B33A5 /* icons */,
 				0B281776224F52480032D963 /* theming */,
 				0B2817CD224F763B0032D963 /* SwiftyStoreKit.xcodeproj */,
@@ -754,6 +770,7 @@
 				6BEB47EC224E4E79003FB71E /* LockSplashView.swift in Sources */,
 				0B281782224F52480032D963 /* LinearReveal.swift in Sources */,
 				6BC17E702077519C00E2A999 /* Keychain.swift in Sources */,
+				6B6A243722534A95002328CE /* SwiftyJSON.swift in Sources */,
 				0B281785224F52480032D963 /* CGPath+embed.swift in Sources */,
 				6BEB47E8224E4912003FB71E /* UserDefaultsPasscodeRepository.swift in Sources */,
 				6BC17E83207766C400E2A999 /* SSHServer.swift in Sources */,
@@ -763,6 +780,7 @@
 				0B414CCB222AC4CD00E392C2 /* SSHServer_legacy.swift in Sources */,
 				0B281784224F52480032D963 /* CircularReveal.swift in Sources */,
 				6BC17E8920776B8E00E2A999 /* SSHServerTableViewController.swift in Sources */,
+				6B6A24302253483E002328CE /* JSONTableViewController.swift in Sources */,
 				6BC17E5B20774D6300E2A999 /* MasterViewController.swift in Sources */,
 				6BC17E5920774D6300E2A999 /* AppDelegate.swift in Sources */,
 				0B281783224F52480032D963 /* AnimationDelegate.swift in Sources */,
@@ -1064,7 +1082,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 339;
+				CURRENT_PROJECT_VERSION = 340;
 				DEVELOPMENT_TEAM = N43S8JF6JT;
 				INFOPLIST_FILE = SCP/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
@@ -1088,7 +1106,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 339;
+				CURRENT_PROJECT_VERSION = 340;
 				DEVELOPMENT_TEAM = N43S8JF6JT;
 				INFOPLIST_FILE = SCP/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;

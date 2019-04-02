@@ -218,6 +218,21 @@ class DetailViewController: UIViewController, UIPopoverPresentationControllerDel
                 controller.data = "Download Failed…"
             }
             
+        } else if segue.identifier == "json_editor" {
+            editorSegue = true
+            let controller = segue.destination as! JSONTableViewController
+            do {
+                let payload = sender as! (tempFile:NSURL, cb:((String)->()))
+                
+                let tempFile = payload.tempFile
+                controller.title = tempFile.lastPathComponent
+                controller.data  = try String(contentsOf: tempFile.absoluteURL!, encoding: .utf8)
+                controller.cb = payload.cb
+            }
+            catch let error {
+                print("error: \(error)")
+                controller.data = "Download Failed…"
+            }
         }
     }
     

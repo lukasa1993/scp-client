@@ -1,6 +1,10 @@
 ### Roadmap
 
-#### Next version 1.3
+#### next version 1.4
+
+1. JSON Editing
+
+#### version 1.3
 
 1. server edit
 1. private/public key auth

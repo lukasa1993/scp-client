@@ -354,6 +354,13 @@ class SSHServerTableViewController: UIViewController, UITableViewDelegate, UITab
             self.handleEdit(path: self.pwd + "/" + item["name"]!)
         }))
         
+        if(item["name"]!.hasSuffix(".json")) {
+            alert.addAction(UIAlertAction(title: "Edit JSON", style: .default, handler: { (action) in
+                self.handleJSONEdit(path: self.pwd + "/" + item["name"]!)
+            }))
+        }
+        
+        
         alert.addAction(UIAlertAction(title: "Move", style: .destructive, handler: { (action) in
             self.handleMove(from: self.pwd + "/" + item["name"]!, to: self.sidePWD)
         }))
@@ -476,6 +483,54 @@ class SSHServerTableViewController: UIViewController, UITableViewDelegate, UITab
                             }
                         })
                         self.performParentSegue!( "editor", payload)
+                    })
+                }
+            }
+        })
+    }
+    
+    
+    private func handleJSONEdit(path: String) {
+        let tmpDirURL = URL(fileURLWithPath: NSTemporaryDirectory())
+        let tempFile  = tmpDirURL.appendingPathComponent((path as NSString).lastPathComponent)
+        
+        
+        var continueDownload = true
+        
+        let alertView = UIAlertController(title: "Downloading…", message: (path as NSString).lastPathComponent, preferredStyle: .alert)
+        alertView.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action : UIAlertAction!) -> Void in continueDownload = false}))
+        
+        //  Show it to your users
+        self.presenter!(alertView, true, {
+            //  Add your progressbar after alert is shown (and measured)
+            let width:CGFloat = alertView.view.frame.size.width
+            let margin:CGFloat = 8.0
+            let rect = CGRect(x: margin, y: alertView.view.subviews[0].subviews[0].subviews[1].subviews[0].frame.height - 8, width: width - margin * 2.0, height: 4.0)
+            let progressView = UIProgressView(frame: rect)
+            
+            progressView.tintColor = UIColor.blue
+            alertView.view.addSubview(progressView)
+            
+            DispatchQueue.global(qos: .background).async {
+                self.SSHSession?.channel.downloadFile(path, to: tempFile.path, progress: {(current:UInt, total:UInt) -> (Bool) in
+                    DispatchQueue.main.async {
+                        progressView.setProgress(Float(Float(current)  / Float(total)), animated: true)
+                    }
+                    return continueDownload
+                })
+                DispatchQueue.main.async {
+                    alertView.dismiss(animated: true, completion: {
+                        let payload = (tempFile:tempFile, cb:{(data:String) in
+                            print(data)
+                            
+                            do {
+                                try data.write(to: tempFile, atomically: true, encoding: .utf8)
+                                self.handleUpload(tempFile: tempFile as NSURL, path: path)
+                            } catch let error {
+                                print(error)
+                            }
+                        })
+                        self.performParentSegue!( "json_editor", payload)
                     })
                 }
             }

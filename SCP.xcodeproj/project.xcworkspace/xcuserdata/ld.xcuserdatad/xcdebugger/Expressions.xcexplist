@@ -3,18 +3,10 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "PasscodeLockPresenter.presentPasscodeLock():PasscodeLockPresenter.swift">
+         contextName = "SSHServerTableViewController.changeDir(path:):SSHServerTableViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "passcodeConfiguration.repository.hasPasscode">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "closure #4 in SettingsViewController.viewDidLoad():SettingsViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "row.value">
+               value = "pwd">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -30,26 +22,26 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "SSHServerTableViewController.handleEdit(path:):SSHServerTableViewController.swift">
+         contextName = "JSONTableViewController.parseJSON(json:):JSONTableViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "alertController.view.bounds">
+               value = "json">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "-[NMSSHChannel downloadFile:to:progress:]:NMSSHChannel.m">
+         contextName = "JSONTableViewController.parseJSON(key:json:):JSONTableViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "[localPath UTF8String]">
+               value = "json.type">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "closure #1 in closure #1 in closure #2 in SSHServerTableViewController.handleEdit(path:):SSHServerTableViewController.swift">
+         contextName = "JSONTableViewController.copyPath():JSONTableViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "current/total">
+               value = "self.path">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -68,6 +60,52 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "JSONTableViewController.viewDidLoad():JSONTableViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "subJson">
+            </PersistentString>
+            <PersistentString
+               value = "data">
+            </PersistentString>
+            <PersistentString
+               value = "json">
+            </PersistentString>
+            <PersistentString
+               value = "dataFromString">
+            </PersistentString>
+            <PersistentString
+               value = "json.type">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #2 in JSONTableViewController.parseString(key:json:):JSONTableViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "row.value">
+            </PersistentString>
+            <PersistentString
+               value = "self.json">
+            </PersistentString>
+            <PersistentString
+               value = "self.json![0]">
+            </PersistentString>
+            <PersistentString
+               value = " self.json![subPath].rawString()">
+            </PersistentString>
+            <PersistentString
+               value = "self.json?.rawString()">
+            </PersistentString>
+            <PersistentString
+               value = "self.json![key]">
+            </PersistentString>
+            <PersistentString
+               value = "subPath">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "DetailViewController.presenter(_:animated:completion:):DetailViewController.swift">
          <PersistentStrings>
             <PersistentString
@@ -76,18 +114,61 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "DetailViewController.prepare(for:sender:):DetailViewController.swift">
+         contextName = "-[NMSSHChannel downloadFile:to:progress:]:NMSSHChannel.m">
          <PersistentStrings>
             <PersistentString
-               value = "(sender as! NSURL).path!">
+               value = "[localPath UTF8String]">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "SSHServerTableViewController.changeDir(path:):SSHServerTableViewController.swift">
+         contextName = "SSHServerTableViewController.handleEdit(path:):SSHServerTableViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "pwd">
+               value = "alertController.view.bounds">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "SSHServerTableViewController.handleAction(_:indexPath:):SSHServerTableViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "item[&quot;name&quot;]">
+            </PersistentString>
+            <PersistentString
+               value = "item[&quot;name&quot;]!.hasPrefix(&quot;.json&quot;)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #4 in SettingsViewController.viewDidLoad():SettingsViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "row.value">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PasscodeLockPresenter.presentPasscodeLock():PasscodeLockPresenter.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "passcodeConfiguration.repository.hasPasscode">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in closure #1 in closure #2 in SSHServerTableViewController.handleEdit(path:):SSHServerTableViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "current/total">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "DetailViewController.prepare(for:sender:):DetailViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "(sender as! NSURL).path!">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
