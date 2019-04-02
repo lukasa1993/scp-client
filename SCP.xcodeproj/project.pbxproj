@@ -171,6 +171,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0B253F5122540AFF00AFA9B3 /* premium_access */ = {isa = PBXFileReference; explicitFileType = folder; includeInIndex = 0; path = premium_access; sourceTree = BUILT_PRODUCTS_DIR; };
+		0B253F5322540AFF00AFA9B3 /* ContentInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ContentInfo.plist; sourceTree = "<group>"; };
 		0B281778224F52480032D963 /* LinearReveal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinearReveal.swift; sourceTree = "<group>"; };
 		0B281779224F52480032D963 /* AnimationDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationDelegate.swift; sourceTree = "<group>"; };
 		0B28177A224F52480032D963 /* CircularReveal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularReveal.swift; sourceTree = "<group>"; };
@@ -182,8 +184,6 @@
 		0B28179D224F76330032D963 /* SwiftyStoreKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftyStoreKit.xcodeproj; path = SwiftyStoreKit/SwiftyStoreKit.xcodeproj; sourceTree = SOURCE_ROOT; };
 		0B2817CD224F763B0032D963 /* SwiftyStoreKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftyStoreKit.xcodeproj; path = Eureka/../SwiftyStoreKit/SwiftyStoreKit.xcodeproj; sourceTree = SOURCE_ROOT; };
 		0B2817EB224F94300032D963 /* NetworkActivityIndicatorManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkActivityIndicatorManager.swift; sourceTree = "<group>"; };
-		0B2817FF224FA8470032D963 /* premium */ = {isa = PBXFileReference; explicitFileType = folder; includeInIndex = 0; path = premium; sourceTree = BUILT_PRODUCTS_DIR; };
-		0B281801224FA8470032D963 /* ContentInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ContentInfo.plist; sourceTree = "<group>"; };
 		0B281807224FAA250032D963 /* SCP.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SCP.entitlements; sourceTree = "<group>"; };
 		0B281808224FAA2E0032D963 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		0B414CC6222AC4CC00E392C2 /* SSHServer_legacy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSHServer_legacy.swift; sourceTree = "<group>"; };
@@ -268,6 +268,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0B253F5222540AFF00AFA9B3 /* premium-access */ = {
+			isa = PBXGroup;
+			children = (
+				0B253F5322540AFF00AFA9B3 /* ContentInfo.plist */,
+			);
+			path = "premium-access";
+			sourceTree = "<group>";
+		};
 		0B281776224F52480032D963 /* theming */ = {
 			isa = PBXGroup;
 			children = (
@@ -329,14 +337,6 @@
 				0B2817D8224F763B0032D963 /* SwiftyStoreKit.framework */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		0B281800224FA8470032D963 /* premium */ = {
-			isa = PBXGroup;
-			children = (
-				0B281801224FA8470032D963 /* ContentInfo.plist */,
-			);
-			path = premium;
 			sourceTree = "<group>";
 		};
 		0B4D3251222A68D100C0A8A5 /* Products */ = {
@@ -413,7 +413,7 @@
 				6BC17E5720774D6300E2A999 /* SCP */,
 				6B304236222D493B0032100F /* scp-file-provider */,
 				6B304244222D493C0032100F /* scp-file-providerUI */,
-				0B281800224FA8470032D963 /* premium */,
+				0B253F5222540AFF00AFA9B3 /* premium-access */,
 				6BC17E5620774D6300E2A999 /* Products */,
 				0B28178A224F6E8F0032D963 /* Frameworks */,
 			);
@@ -425,7 +425,7 @@
 				6BC17E5520774D6300E2A999 /* SCP.app */,
 				6B304235222D493B0032100F /* scp-file-provider.appex */,
 				6B304243222D493C0032100F /* scp-file-providerUI.appex */,
-				0B2817FF224FA8470032D963 /* premium */,
+				0B253F5122540AFF00AFA9B3 /* premium_access */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -486,19 +486,19 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		0B2817FE224FA8470032D963 /* premium */ = {
+		0B253F5022540AFF00AFA9B3 /* premium-access */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0B281804224FA84D0032D963 /* Build configuration list for PBXNativeTarget "premium" */;
+			buildConfigurationList = 0B253F5422540AFF00AFA9B3 /* Build configuration list for PBXNativeTarget "premium-access" */;
 			buildPhases = (
-				0B2817FD224FA8470032D963 /* Resources */,
+				0B253F4F22540AFF00AFA9B3 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = premium;
-			productName = premium;
-			productReference = 0B2817FF224FA8470032D963 /* premium */;
+			name = "premium-access";
+			productName = "premium-access";
+			productReference = 0B253F5122540AFF00AFA9B3 /* premium_access */;
 			productType = "com.apple.product-type.in-app-purchase-content";
 		};
 		6B304234222D493B0032100F /* scp-file-provider */ = {
@@ -568,7 +568,7 @@
 				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = LD;
 				TargetAttributes = {
-					0B2817FE224FA8470032D963 = {
+					0B253F5022540AFF00AFA9B3 = {
 						CreatedOnToolsVersion = 10.2;
 					};
 					6B304234222D493B0032100F = {
@@ -633,7 +633,7 @@
 				6BC17E5420774D6300E2A999 /* SCP */,
 				6B304234222D493B0032100F /* scp-file-provider */,
 				6B304242222D493C0032100F /* scp-file-providerUI */,
-				0B2817FE224FA8470032D963 /* premium */,
+				0B253F5022540AFF00AFA9B3 /* premium-access */,
 			);
 		};
 /* End PBXProject section */
@@ -691,7 +691,7 @@
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
-		0B2817FD224FA8470032D963 /* Resources */ = {
+		0B253F4F22540AFF00AFA9B3 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -846,29 +846,29 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		0B281802224FA8470032D963 /* Debug */ = {
+		0B253F5522540AFF00AFA9B3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = N43S8JF6JT;
-				INFOPLIST_FILE = premium/ContentInfo.plist;
+				INFOPLIST_FILE = "premium-access/ContentInfo.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/InAppPurchaseContent";
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = premium_access;
 				WRAPPER_EXTENSION = "";
 			};
 			name = Debug;
 		};
-		0B281803224FA8470032D963 /* Release */ = {
+		0B253F5622540AFF00AFA9B3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = N43S8JF6JT;
-				INFOPLIST_FILE = premium/ContentInfo.plist;
+				INFOPLIST_FILE = "premium-access/ContentInfo.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/InAppPurchaseContent";
 				MTL_FAST_MATH = YES;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = premium_access;
 				WRAPPER_EXTENSION = "";
 			};
 			name = Release;
@@ -1125,11 +1125,11 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0B281804224FA84D0032D963 /* Build configuration list for PBXNativeTarget "premium" */ = {
+		0B253F5422540AFF00AFA9B3 /* Build configuration list for PBXNativeTarget "premium-access" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				0B281802224FA8470032D963 /* Debug */,
-				0B281803224FA8470032D963 /* Release */,
+				0B253F5522540AFF00AFA9B3 /* Debug */,
+				0B253F5622540AFF00AFA9B3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -12,8 +12,7 @@ import StoreKit
 import SwiftyStoreKit
 
 class SettingsViewController: FormViewController, Themeable {
-    let appBundleId = "com.picktek.sscpclient"
-    
+    let premiumId = "com.picktek.sscpclient.premium_access"
     var premiumPurchased = false
     
     var currentTheme: Theme = .light {
@@ -36,7 +35,7 @@ class SettingsViewController: FormViewController, Themeable {
         currentTheme  = dark_mode ? .dark : .light
         
         self.restorePurchases()
-        //        self.getInfo("premium")
+        //        self.getInfo(self.premiumId)
         
         form +++ Section("General")
             <<< SwitchRow("show_hidden") { row in
@@ -103,7 +102,7 @@ class SettingsViewController: FormViewController, Themeable {
                         let swtch = self.form.rowBy(tag: "dark_mode") as! SwitchRow
                         self.toggleDarkMode(swtch.cell.switchControl)
                     } else {
-                        self.purchase("premium", atomically: true)
+                        self.purchase(self.premiumId, atomically: true)                        
                     }
                     
             }
