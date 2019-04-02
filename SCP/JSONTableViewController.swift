@@ -47,11 +47,15 @@ class JSONTableViewController: FormViewController {
         return currentTheme.statusBarStyle
     }
     
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.apply(theme: currentTheme)
+    }
     
     @objc func save(sender: Any? = nil) {
-        //        print("save: "  + self.json!.rawString()!)
-        _ = navigationController?.popViewController(animated: true)
-        cb?(self.json!.rawString()!)
+        _ = navigationController!.popViewController(animated: true)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            self.cb?(self.json!.rawString()!)
+        }
     }
     
     override func viewDidLoad() {
@@ -80,9 +84,6 @@ class JSONTableViewController: FormViewController {
         self.form +++ Section()
         self.parseJSON(key: nil, json: json!)
     }
-    func backward(_ s1: String, _ s2: String) -> Bool {
-        return s1 > s2
-    }
     
     func parseJSON(key:String?, json:JSON) {
         if json.type == Type.dictionary {
@@ -90,28 +91,14 @@ class JSONTableViewController: FormViewController {
                 nextLayer = true
                 self.parseDictionary(json: json)
             } else {
-                form.last! <<< ButtonRow() {
-                    $0.title = key!
-                    $0.presentationMode =  PresentationMode.show(
-                        controllerProvider: ControllerProvider.callback(builder: { () -> UIViewController in
-                            return self.presentSubJSONEditor(key:key!, json: json)
-                        }),
-                        onDismiss: nil)
-                }
+                self.handleButtonRow(key: key!, json: json)
             }
         } else if json.type == Type.array {
             if nextLayer == false {
                 nextLayer = true
                 self.parseArray(json: json)
             } else {
-                form.last! <<< ButtonRow() {
-                    $0.title = key!
-                    $0.presentationMode =  PresentationMode.show(
-                        controllerProvider: ControllerProvider.callback(builder: { () -> UIViewController in
-                            return self.presentSubJSONEditor(key:key!, json: json)
-                        }),
-                        onDismiss: nil)
-                }
+               self.handleButtonRow(key: key!, json: json)
             }            
         } else if json.type == Type.string {
             self.parseString(key:key!, json: json)
@@ -141,11 +128,35 @@ class JSONTableViewController: FormViewController {
     }
     
     func parseString(key:String, json:JSON) {
-        form.last! <<< TextRow() {
-            $0.title = key
-            $0.value = json.string
-            }.onChange { row in
-                self.updateJSON(key: key, value: JSON(row.value!))
+        if json.string!.count > 20 {
+            form.last!
+                <<< LabelRow() {
+                    $0.title = key
+                    }.cellUpdate { cell,row in
+                        row.cell.textLabel?.textColor = self.currentTheme.cellMainTextColor
+                }
+                <<< TextAreaRow() {
+                    $0.value = json.string
+                    }.cellUpdate { cell,row in                        
+                        row.cell.textView.backgroundColor = self.currentTheme.backgroundColor
+                        row.cell.textView.textColor = self.currentTheme.cellMainTextColor
+                        row.cell.placeholderLabel?.textColor = self.currentTheme.cellDetailTextColor
+                        cell.apply(theme: self.currentTheme)
+                    }.onChange { row in
+                        self.updateJSON(key: key, value: JSON(row.value ?? ""))
+            }
+        } else {
+            form.last! <<< TextRow() {
+                $0.title = key
+                $0.value = json.string
+                }.cellUpdate { cell,row in
+                    row.cell.textLabel?.textColor = self.currentTheme.cellMainTextColor
+                    row.cell.textField.textColor = self.currentTheme.cellMainTextColor
+                    row.placeholderColor = self.currentTheme.cellDetailTextColor
+                    cell.apply(theme: self.currentTheme)
+                }.onChange { row in
+                    self.updateJSON(key: key, value: JSON(row.value ?? ""))
+            }
         }
     }
     
@@ -153,6 +164,11 @@ class JSONTableViewController: FormViewController {
         form.last! <<< DecimalRow() {
             $0.title = key
             $0.value = json.number!.doubleValue
+            }.cellUpdate { cell,row in
+                row.cell.textLabel?.textColor = self.currentTheme.cellMainTextColor
+                row.cell.textField.textColor = self.currentTheme.cellMainTextColor
+                row.placeholderColor = self.currentTheme.cellDetailTextColor
+                cell.apply(theme: self.currentTheme)
             }.onChange { row in
                 self.updateJSON(key: key, value: JSON(row.value!))
         }
@@ -162,8 +178,25 @@ class JSONTableViewController: FormViewController {
         form.last! <<< SwitchRow(key) {
             $0.title = key
             $0.value = json.bool
+            }.cellUpdate { cell,row in
+                row.cell.textLabel?.textColor = self.currentTheme.cellMainTextColor
+                cell.apply(theme: self.currentTheme)
             }.onChange { row in
                 self.updateJSON(key: key, value: JSON(row.value!))
+        }
+    }
+    
+    func handleButtonRow(key:String, json:JSON) {
+        form.last! <<< ButtonRow() {
+            $0.title = key
+            $0.presentationMode =  PresentationMode.show(
+                controllerProvider: ControllerProvider.callback(builder: { () -> UIViewController in
+                    return self.presentSubJSONEditor(key:key, json: json)
+                }),
+                onDismiss: nil)
+            }.cellUpdate { cell,row in
+                row.cell.textLabel?.textColor = self.currentTheme.cellMainTextColor
+                cell.apply(theme: self.currentTheme)
         }
     }
     
@@ -184,9 +217,7 @@ class JSONTableViewController: FormViewController {
                 do {
                     let changedJSON = try JSON(data: dataFromString)
                     self.json![key] = changedJSON
-                    
-                    _ = self.navigationController?.popViewController(animated: false)
-                    self.cb?(self.json!.rawString()!)
+                    self.save()
                 } catch _ {
                     print("cant parse json");
                 }
@@ -195,10 +226,6 @@ class JSONTableViewController: FormViewController {
             }
         }
         editor.title = key;
-        
-        let backItem = UIBarButtonItem()
-        backItem.title = self.title
-        editor.navigationItem.backBarButtonItem = backItem
         
         return editor
     }
