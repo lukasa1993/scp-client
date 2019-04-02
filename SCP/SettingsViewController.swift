@@ -36,7 +36,7 @@ class SettingsViewController: FormViewController, Themeable {
         currentTheme  = dark_mode ? .dark : .light
         
         self.restorePurchases()
-//        self.getInfo("premium")
+        //        self.getInfo("premium")
         
         form +++ Section("General")
             <<< SwitchRow("show_hidden") { row in
@@ -107,7 +107,30 @@ class SettingsViewController: FormViewController, Themeable {
                     }
                     
             }
-            +++ Section(self.version())
+            +++ Section(header: "Support", footer: "Please include version : " + self.version() + " in your ticket")
+            <<< ButtonRow() {
+                $0.title = "Get HELP!"
+                $0.onCellSelection { cell, row in
+                    guard let url = URL(string: "https://github.com/lukasa1993/scp-client/issues") else { return }
+                    if #available(iOS 10.0, *) {
+                        UIApplication.shared.open(url)
+                    } else {
+                        UIApplication.shared.openURL(url)
+                    }
+                }
+            }
+            +++ Section(header: "Beta", footer: "Public TestFlight is for early access if you want to have sneak peak on new features")
+            <<< ButtonRow() {
+                $0.title = "Join TestFlight"
+                $0.onCellSelection { cell, row in
+                    guard let url = URL(string: "https://testflight.apple.com/join/ZqAD0ONr") else { return }
+                    if #available(iOS 10.0, *) {
+                        UIApplication.shared.open(url)
+                    } else {
+                        UIApplication.shared.openURL(url)
+                    }
+                }
+        }
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
