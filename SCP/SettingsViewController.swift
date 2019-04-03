@@ -30,7 +30,7 @@ class SettingsViewController: FormViewController, Themeable {
         let hidden        = (UserDefaults.standard.object(forKey: "show_hidden_files") as? Bool) ?? false
         let repo          = UserDefaultsPasscodeRepository()
         let configuration = PasscodeLockConfiguration(repository: repo)
-        var skipBioChange = false
+        var skipBioChange = false                
         
         currentTheme  = dark_mode ? .dark : .light
         

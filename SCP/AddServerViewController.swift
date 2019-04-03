@@ -9,7 +9,7 @@
 import Eureka
 import GenericPasswordRow
 
-class AddServerViewController: FormViewController {
+class AddServerViewController: FormViewController, Themeable {
     
     var serverForm: Form? = nil
     var editingItem: SSHServer?

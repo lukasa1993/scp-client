@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EditorConroller: UIViewController {
+class EditorConroller: UIViewController, Themeable {
     
     var data:String = ""
     var cb:((String)->())? = nil

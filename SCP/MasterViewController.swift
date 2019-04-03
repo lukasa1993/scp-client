@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MasterViewController: UITableViewController {
+class MasterViewController: UITableViewController, Themeable {
     
     var keys = [String]()
     var keychain:Keychain? = nil;

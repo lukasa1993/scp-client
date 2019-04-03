@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DetailViewController: UIViewController, UIPopoverPresentationControllerDelegate {
+class DetailViewController: UIViewController, UIPopoverPresentationControllerDelegate, Themeable {
     
     @IBOutlet var leftTable: UITableView?
     @IBOutlet var rightTable: UITableView?

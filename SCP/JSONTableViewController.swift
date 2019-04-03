@@ -9,7 +9,7 @@
 import UIKit
 import Eureka
 
-class JSONTableViewController: FormViewController {
+class JSONTableViewController: FormViewController, Themeable {
     
     var data:String = ""
     var cb:((String)->())? = nil
@@ -61,7 +61,7 @@ class JSONTableViewController: FormViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let saveItem = UIBarButtonItem(title: "save", style: UIBarButtonItem.Style.done, target: self, action: #selector(self.save(sender:)))
+        let saveItem = UIBarButtonItem(title: "Save", style: UIBarButtonItem.Style.done, target: self, action: #selector(self.save(sender:)))
         self.navigationItem.rightBarButtonItem = saveItem
         
         let dark_mode = (UserDefaults.standard.object(forKey: "dark_mode") as? Bool) ?? false
@@ -78,10 +78,10 @@ class JSONTableViewController: FormViewController {
         }
         
         if json == nil {
-            return;
+            return
         }
         
-        self.form +++ Section()
+        form +++ Section()
         self.parseJSON(key: nil, json: json!)
     }
     
@@ -210,7 +210,7 @@ class JSONTableViewController: FormViewController {
     }
     
     func presentSubJSONEditor(key:String, json:JSON) -> UIViewController {
-        let editor = JSONTableViewController.init()
+        let editor = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "jsoneditortable") as! JSONTableViewController
         editor.data = json.rawString()!
         editor.cb = {(data:String) in
             if let dataFromString = data.data(using: .utf8, allowLossyConversion: false) {

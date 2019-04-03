@@ -9,7 +9,7 @@
 import UIKit
 import NMSSH
 
-class SSHServerTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NMSSHChannelDelegate {
+class SSHServerTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NMSSHChannelDelegate, Themeable {
     
     var tableView:UITableView? = nil
     var SSHServer:SSHServer? = nil
