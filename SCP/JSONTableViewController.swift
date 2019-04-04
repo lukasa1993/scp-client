@@ -9,6 +9,30 @@
 import UIKit
 import Eureka
 
+extension JSON {
+    mutating func appendIfArray(json:JSON){
+        if var arr = self.array {
+            arr.append(json)
+            self = JSON(arr);
+        }
+    }
+    
+    mutating func appendIfDictionary(key:String, json:JSON){
+        if var dict = self.dictionary {
+            dict[key] = json;
+            self = JSON(dict);
+        }
+    }
+    
+    mutating func append(key:String?, json:JSON) {
+        if self.type == Type.array {
+            self.appendIfArray(json: json)
+        } else {
+            self.appendIfDictionary(key: key!, json: json)
+        }
+    }
+}
+
 class JSONTableViewController: FormViewController, Themeable {
     
     var data:String = ""
@@ -98,7 +122,7 @@ class JSONTableViewController: FormViewController, Themeable {
                 nextLayer = true
                 self.parseArray(json: json)
             } else {
-               self.handleButtonRow(key: key!, json: json)
+                self.handleButtonRow(key: key!, json: json)
             }            
         } else if json.type == Type.string {
             self.parseString(key:key!, json: json)
@@ -113,6 +137,8 @@ class JSONTableViewController: FormViewController, Themeable {
         for (index,subJson):(String, JSON) in json {
             self.parseJSON(key: index, json: subJson)
         }
+        
+        self.addInsert()
     }
     
     func parseDictionary(json:JSON) {
@@ -125,18 +151,20 @@ class JSONTableViewController: FormViewController, Themeable {
             self.parseJSON(key:key, json: json[key])
         }
         
+        self.addInsert()
     }
     
     func parseString(key:String, json:JSON) {
         if json.string!.count > 20 {
-            form.last!
-                <<< LabelRow() {
+            self.lastSection()
+                <<< LabelRow(key + "_labeltag") {
                     $0.title = key
                     }.cellUpdate { cell,row in
                         row.cell.textLabel?.textColor = self.currentTheme.cellMainTextColor
                 }
-                <<< TextAreaRow() {
+                <<< TextAreaRow(key + "_textareatag") {
                     $0.value = json.string
+                    self.addDelete(key: key, row: $0)
                     }.cellUpdate { cell,row in                        
                         row.cell.textView.backgroundColor = self.currentTheme.backgroundColor
                         row.cell.textView.textColor = self.currentTheme.cellMainTextColor
@@ -146,9 +174,12 @@ class JSONTableViewController: FormViewController, Themeable {
                         self.updateJSON(key: key, value: JSON(row.value ?? ""))
             }
         } else {
-            form.last! <<< TextRow() {
+            self.lastSection() <<< TextRow() {
                 $0.title = key
                 $0.value = json.string
+                
+                self.addDelete(key: key, row: $0)
+                
                 }.cellUpdate { cell,row in
                     row.cell.textLabel?.textColor = self.currentTheme.cellMainTextColor
                     row.cell.textField.textColor = self.currentTheme.cellMainTextColor
@@ -161,23 +192,26 @@ class JSONTableViewController: FormViewController, Themeable {
     }
     
     func parseNumber(key:String, json:JSON) {
-        form.last! <<< DecimalRow() {
+        self.lastSection() <<< DecimalRow() {
             $0.title = key
             $0.value = json.number!.doubleValue
+            self.addDelete(key: key, row: $0)
             }.cellUpdate { cell,row in
                 row.cell.textLabel?.textColor = self.currentTheme.cellMainTextColor
                 row.cell.textField.textColor = self.currentTheme.cellMainTextColor
                 row.placeholderColor = self.currentTheme.cellDetailTextColor
                 cell.apply(theme: self.currentTheme)
             }.onChange { row in
-                self.updateJSON(key: key, value: JSON(row.value!))
+                let val = row.value ?? 0
+                self.updateJSON(key: key, value: JSON(val))
         }
     }
     
     func parseBool(key:String, json:JSON) {
-        form.last! <<< SwitchRow(key) {
+        self.lastSection() <<< SwitchRow(key) {
             $0.title = key
             $0.value = json.bool
+            self.addDelete(key: key, row: $0)
             }.cellUpdate { cell,row in
                 row.cell.textLabel?.textColor = self.currentTheme.cellMainTextColor
                 cell.apply(theme: self.currentTheme)
@@ -187,8 +221,9 @@ class JSONTableViewController: FormViewController, Themeable {
     }
     
     func handleButtonRow(key:String, json:JSON) {
-        form.last! <<< ButtonRow() {
+        self.lastSection() <<< ButtonRow() {
             $0.title = key
+            self.addDelete(key: key, row: $0)
             $0.presentationMode =  PresentationMode.show(
                 controllerProvider: ControllerProvider.callback(builder: { () -> UIViewController in
                     return self.presentSubJSONEditor(key:key, json: json)
@@ -216,7 +251,12 @@ class JSONTableViewController: FormViewController, Themeable {
             if let dataFromString = data.data(using: .utf8, allowLossyConversion: false) {
                 do {
                     let changedJSON = try JSON(data: dataFromString)
-                    self.json![key] = changedJSON
+                    if self.json![key].exists() {
+                        self.json![key] = changedJSON
+                    } else {
+                        self.json!.append(key: key, json: changedJSON)
+                    }
+                    print(self.json!.rawString()!)
                     self.save()
                 } catch _ {
                     print("cant parse json");
@@ -228,5 +268,80 @@ class JSONTableViewController: FormViewController, Themeable {
         editor.title = key;
         
         return editor
+    }
+    
+    func lastSection() -> Section {
+        var section = self.form.last!
+        
+        if section.tag == "inset_section" {
+            section = self.form.allSections[self.form.allSections.count - 2]
+        }
+        
+        return section
+    }
+    
+    func addInsert() {
+        form +++ Section("Insert New Element") {
+            $0.tag = "inset_section"
+            }
+            <<< TextRow("new_element_key") {
+                $0.title = "Key"
+                $0.disabled = self.json!.type == Type.array ? true : false
+                }.cellUpdate { cell,row in
+                    row.cell.textLabel?.textColor = self.currentTheme.cellMainTextColor
+                    row.cell.textField.textColor = self.currentTheme.cellMainTextColor
+                    row.placeholderColor = self.currentTheme.cellDetailTextColor
+                    cell.apply(theme: self.currentTheme)
+            }
+            <<< SegmentedRow<String>("new_element_type") {
+                $0.options = ["Object", "Array", "String", "Number", "Boolean"]
+                $0.value = "Object"
+            }
+            <<< ButtonRow() {
+                $0.title = "Insert"
+                $0.onCellSelection { cell, row in
+                    let key  = (self.form.rowBy(tag: "new_element_key") as! TextRow).value ?? String(self.json!.count)
+                    let type = (self.form.rowBy(tag: "new_element_type") as! SegmentedRow<String>).value!
+                    let typeMap:JSON = [
+                        "Object": JSON().dictionary!,
+                        "Array": JSON().arrayValue,
+                        "String": "",
+                        "Number": 0.0,
+                        "Boolean": true
+                        ]
+                    let elem = typeMap[type]
+                    
+                    self.json!.append(key: key, json: elem)
+                    print(self.json!.rawString()!)
+                    self.parseJSON(key: key, json: elem)
+                }
+                }.cellUpdate { cell,row in
+                    row.cell.textLabel?.textColor = self.currentTheme.cellMainTextColor
+                    cell.apply(theme: self.currentTheme)
+        }
+    }
+    
+    func addDelete(key:String, row:BaseRow) {
+        let deleteAction = SwipeAction(
+            style: .destructive,
+            title: "Delete",
+            handler: { (action, row, completionHandler) in
+                var trimedJSON = JSON()
+                for (dKey,subJson):(String, JSON) in self.json! {
+                    if dKey != key {
+                        trimedJSON[dKey] = subJson
+                    }
+                }
+                self.json = trimedJSON
+                
+                if let labelRow = self.form.rowBy(tag: key + "_labeltag") {
+                    labelRow.section?.remove(at: labelRow.indexPath!.row)
+                }
+                completionHandler?(true)
+        })
+        deleteAction.image = UIImage(named: "icon-trash")
+        
+        row.trailingSwipe.actions = [deleteAction]
+        row.trailingSwipe.performsFirstActionWithFullSwipe = true
     }
 }
