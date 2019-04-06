@@ -19,10 +19,6 @@ class UserDefaultsPasscodeRepository: PasscodeRepositoryType {
         return Keychain(service: "passcode_lock")
     }()
     
-    init() {
-        self.passcodeKey = UIDevice.current.identifierForVendor!.uuidString + ".passcode.lockkey"
-    }
-    
     var hasPasscode: Bool {
         
         if passcode != nil {

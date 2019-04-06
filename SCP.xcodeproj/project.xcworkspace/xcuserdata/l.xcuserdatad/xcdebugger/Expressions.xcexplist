@@ -11,6 +11,22 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "Keychain.set(_:key:):Keychain.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.service">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "Keychain.getString(_:):Keychain.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.service">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "-[NMSSHSession authenticateByInMemoryPublicKey:privateKey:andPassword:]:NMSSHSession.m">
          <PersistentStrings>
             <PersistentString
@@ -26,6 +42,9 @@
          <PersistentStrings>
             <PersistentString
                value = "results.restoreFailedPurchases">
+            </PersistentString>
+            <PersistentString
+               value = "self.keychain">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
