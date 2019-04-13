@@ -43,6 +43,7 @@
 		6B30423C222D493C0032100F /* FileProviderEnumerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B30423B222D493C0032100F /* FileProviderEnumerator.swift */; };
 		6B304246222D493C0032100F /* DocumentActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B304245222D493C0032100F /* DocumentActionViewController.swift */; };
 		6B304249222D493C0032100F /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B304247222D493C0032100F /* MainInterface.storyboard */; };
+		6B34A4072261C34C00D147EC /* TailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B34A4062261C34C00D147EC /* TailViewController.swift */; };
 		6B6A24302253483E002328CE /* JSONTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6A242F2253483E002328CE /* JSONTableViewController.swift */; };
 		6B6A243722534A95002328CE /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6A243622534A95002328CE /* SwiftyJSON.swift */; };
 		6BC17E5920774D6300E2A999 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC17E5820774D6300E2A999 /* AppDelegate.swift */; };
@@ -214,6 +215,7 @@
 		6B304245222D493C0032100F /* DocumentActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentActionViewController.swift; sourceTree = "<group>"; };
 		6B304248222D493C0032100F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		6B30424A222D493C0032100F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6B34A4062261C34C00D147EC /* TailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TailViewController.swift; sourceTree = "<group>"; };
 		6B6A242F2253483E002328CE /* JSONTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONTableViewController.swift; sourceTree = "<group>"; };
 		6B6A243522534A95002328CE /* SwiftyJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwiftyJSON.h; sourceTree = "<group>"; };
 		6B6A243622534A95002328CE /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
@@ -448,6 +450,7 @@
 				6BC17E7F2077605300E2A999 /* AddServerViewController.swift */,
 				6B6A242F2253483E002328CE /* JSONTableViewController.swift */,
 				6B30422B222D3DAE0032100F /* EditorController.swift */,
+				6B34A4062261C34C00D147EC /* TailViewController.swift */,
 				6BC17E5C20774D6300E2A999 /* DetailViewController.swift */,
 				6BC17E8820776B8E00E2A999 /* SSHServerTableViewController.swift */,
 				6BC17E5E20774D6300E2A999 /* Main.storyboard */,
@@ -774,6 +777,7 @@
 				0B281785224F52480032D963 /* CGPath+embed.swift in Sources */,
 				6BEB47E8224E4912003FB71E /* UserDefaultsPasscodeRepository.swift in Sources */,
 				6BC17E83207766C400E2A999 /* SSHServer.swift in Sources */,
+				6B34A4072261C34C00D147EC /* TailViewController.swift in Sources */,
 				6B24E91520778093005B33A5 /* SwiftIcons.swift in Sources */,
 				0B281789224F52480032D963 /* Themeable.swift in Sources */,
 				0B281788224F52480032D963 /* Theme.swift in Sources */,
