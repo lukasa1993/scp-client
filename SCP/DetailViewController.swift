@@ -233,6 +233,12 @@ class DetailViewController: UIViewController, UIPopoverPresentationControllerDel
                 print("error: \(error)")
                 controller.data = "Download Failed…"
             }
+        } else if segue.identifier == "tail_view" {
+            editorSegue = true
+            let controller = segue.destination as! TailViewController        
+            let payload = sender as! (path:String, session:NMSSHSession)
+            controller.path = payload.path
+            controller.session = payload.session
         }
     }
     

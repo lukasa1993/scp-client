@@ -9,7 +9,7 @@
 import UIKit
 import NMSSH
 
-class SSHServerTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NMSSHChannelDelegate, Themeable {
+class SSHServerTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, Themeable {
     
     var tableView:UITableView? = nil
     var SSHServer:SSHServer? = nil
@@ -345,6 +345,11 @@ class SSHServerTableViewController: UIViewController, UITableViewDelegate, UITab
             self.handleView(path: self.pwd + "/" + item["name"]!)
         }))
         
+        alert.addAction(UIAlertAction(title: "Tail", style: .default, handler: { (action) in
+            let payload = (path:self.pwd + "/" + item["name"]!, session:self.SSHSession)
+            self.performParentSegue!( "tail_view", payload)
+        }))
+        
         alert.addAction(UIAlertAction(title: "Stats", style: .default, handler: { (action) in
             self.handleStats(path: self.pwd + "/" + item["name"]!)
         }))
@@ -428,6 +433,18 @@ class SSHServerTableViewController: UIViewController, UITableViewDelegate, UITab
         }
     }
     
+    private func handleTail(path: String) {
+        do {
+            let cat = try SSHSession?.channel.execute("tail -f \"" + path + "\"")
+            
+            let viewAlert = UIAlertController(title: "Viewing " + path, message: cat, preferredStyle: .alert)
+            viewAlert.addAction(UIAlertAction(title: "Done", style: .default))
+            
+            self.presenter!(viewAlert, true, nil)
+        } catch let error {
+            print("error: \(error)")
+        }
+    }
     
     private func handleStats(path: String) {
         do {

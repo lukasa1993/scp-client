@@ -144,11 +144,27 @@
                         <outlet property="rightTable" destination="7GB-Gy-rlc" id="I1b-fV-esB"/>
                         <segue destination="vhS-vq-RvS" kind="show" identifier="editor" id="IYM-We-xxV"/>
                         <segue destination="6Cb-69-K8O" kind="show" identifier="json_editor" id="1t0-mN-zui"/>
+                        <segue destination="Te2-Af-HSb" kind="show" identifier="tail_view" id="xbV-iz-h9Y"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FJe-Yq-33r" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2694" y="125"/>
+        </scene>
+        <!--Tail View Controller-->
+        <scene sceneID="5Mx-LD-KGS">
+            <objects>
+                <viewController id="Te2-Af-HSb" customClass="TailViewController" customModule="SCP" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gQF-od-Zld">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="JTl-eO-Dqo"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hjN-hP-PLR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2694" y="930"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="UBx-IL-Ws4">
