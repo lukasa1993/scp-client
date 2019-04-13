@@ -13,12 +13,23 @@ import SwiftyStoreKit
 
 class SettingsViewController: FormViewController, Themeable {
     let premiumId = "com.picktek.sscpclient.premium_access"
-    var premiumPurchased = false
+    let keychain:Keychain = Keychain(service: "settings");
     
     var currentTheme: Theme = .light {
         didSet {
             apply(theme: currentTheme)
         }
+    }
+    
+    func getPremiumAccess() -> Bool {
+        var premium_access = false
+        do {
+            let premium = try self.keychain.get("premium_access")
+            premium_access = premium == "purchased"
+        } catch let e {
+            print(e)
+        }
+        return premium_access
     }
     
     override func viewDidLoad() {
@@ -32,10 +43,11 @@ class SettingsViewController: FormViewController, Themeable {
         let configuration = PasscodeLockConfiguration(repository: repo)
         var skipBioChange = false                
         
-        currentTheme  = dark_mode ? .dark : .light
+        if self.getPremiumAccess() == false {
+            self.getInfo(self.premiumId)
+        }
         
-        self.restorePurchases()
-        //        self.getInfo(self.premiumId)
+        currentTheme  = dark_mode ? .dark : .light
         
         form +++ Section("General")
             <<< SwitchRow("show_hidden") { row in
@@ -90,39 +102,38 @@ class SettingsViewController: FormViewController, Themeable {
                     }
                     self.present(passcodeViewController, animated: true, completion: nil)
             }
-            +++ Section(header: "Premium", footer: "This is more of a donation than a pay-wall since code is open-source.")
+            +++ Section(header: "Premium", footer: "This is more of a donation than a pay-wall since code is open-source.", {
+                $0.tag = "premium_section"
+            })
             <<< SwitchRow("dark_mode") { row in
                 row.title = "Dark Mode"
                 row.value = dark_mode
-                row.disabled = true
+                row.disabled = self.getPremiumAccess() ? false : true
                 }.onChange { row in
-                    if(self.premiumPurchased) {
-                        UserDefaults.standard.set(row.value, forKey: "dark_mode")
-                        UserDefaults.standard.synchronize()
-                        let swtch = self.form.rowBy(tag: "dark_mode") as! SwitchRow
-                        self.toggleDarkMode(swtch.cell.switchControl)
-                    } else {
-                        self.purchase(self.premiumId, atomically: true)                        
+                    UserDefaults.standard.set(row.value, forKey: "dark_mode")
+                    UserDefaults.standard.synchronize()
+                    let swtch = self.form.rowBy(tag: "dark_mode") as! SwitchRow
+                    self.toggleDarkMode(swtch.cell.switchControl)
+        }
+        if self.getPremiumAccess() == false {
+            form.last! <<< ButtonRow("restore_button_row") {
+                $0.title = "Restore"
+                $0.onCellSelection { cell, row in
+                    self.restorePurchases()
+                }
+                } <<< ButtonRow("purchase_button_row") {
+                    $0.title = "Purchase"
+                    $0.onCellSelection { cell, row in
+                        self.purchase(self.premiumId, atomically: true)
                     }
-                    
             }
-            +++ Section(header: "Support", footer: "Please include version : " + self.version() + " in your ticket")
+        }
+        
+        form +++ Section(header: "Support", footer: "Please include version : " + self.version() + " in your ticket")
             <<< ButtonRow() {
                 $0.title = "Get HELP!"
                 $0.onCellSelection { cell, row in
                     guard let url = URL(string: "https://github.com/lukasa1993/scp-client/issues") else { return }
-                    if #available(iOS 10.0, *) {
-                        UIApplication.shared.open(url)
-                    } else {
-                        UIApplication.shared.openURL(url)
-                    }
-                }
-            }
-            +++ Section(header: "Beta", footer: "Public TestFlight is for early access if you want to have sneak peak on new features")
-            <<< ButtonRow() {
-                $0.title = "Join TestFlight"
-                $0.onCellSelection { cell, row in
-                    guard let url = URL(string: "https://testflight.apple.com/join/ZqAD0ONr") else { return }
                     if #available(iOS 10.0, *) {
                         UIApplication.shared.open(url)
                     } else {
@@ -135,6 +146,7 @@ class SettingsViewController: FormViewController, Themeable {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         cell.apply(theme: currentTheme)
     }
+    
     
     func version() -> String {
         let dictionary = Bundle.main.infoDictionary!
@@ -171,6 +183,22 @@ class SettingsViewController: FormViewController, Themeable {
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return currentTheme.statusBarStyle
+    }
+    
+    func activatePurchase() {
+        let restore:ButtonRow = form.rowBy(tag: "restore_button_row")!
+        let purchase:ButtonRow = form.rowBy(tag: "purchase_button_row")!
+        let dark_mode:SwitchRow = form.rowBy(tag: "dark_mode")!
+        
+        restore.hidden = true
+        restore.evaluateHidden()
+        purchase.hidden = true
+        purchase.evaluateHidden()
+        dark_mode.disabled = false
+        dark_mode.evaluateDisabled()
+        
+        self.form.sectionBy(tag: "premium_section")?.header?.title = "Premium"
+        self.form.sectionBy(tag: "premium_section")?.reload()
     }
     
     func purchase(_ purchase: String, atomically: Bool) {
@@ -211,9 +239,8 @@ class SettingsViewController: FormViewController, Themeable {
                 }
             }
             let alert = self.alertForRestorePurchases(results)
-            (self.form.rowBy(tag: "dark_mode") as! SwitchRow).cell.switchControl.isEnabled = true
-            print(alert)
-            //            self.showAlert(alert)
+            self.showAlert(alert)
+            
         }
     }
     
@@ -222,8 +249,14 @@ class SettingsViewController: FormViewController, Themeable {
         SwiftyStoreKit.retrieveProductsInfo([purchase]) { result in
             NetworkActivityIndicatorManager.networkOperationFinished()
             
-            //            self.showAlert(self.alertForProductRetrievalInfo(result))
-            (self.form.rowBy(tag: "dark_mode") as! SwitchRow).cell.switchControl.isEnabled = true
+            print(result)
+            
+            if let product = result.retrievedProducts.first {
+                let priceString = product.localizedPrice!
+                let title = self.form.sectionBy(tag: "premium_section")?.header?.title
+                self.form.sectionBy(tag: "premium_section")?.header?.title = title! + " " + priceString
+                self.form.sectionBy(tag: "premium_section")?.reload()
+            }
         }
     }
     
@@ -235,13 +268,17 @@ extension SettingsViewController {
     func alertWithTitle(_ title: String, message: String) -> UIAlertController {
         
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .cancel, handler: { _ in
+            self.apply(theme: self.currentTheme)
+        }))
         return alert
     }
     
     func showAlert(_ alert: UIAlertController) {
         guard self.presentedViewController != nil else {
-            self.present(alert, animated: true, completion: nil)
+            self.present(alert, animated: false, completion: {
+                self.apply(theme: self.currentTheme)
+            })
             return
         }
     }
@@ -263,11 +300,14 @@ extension SettingsViewController {
     func alertForPurchaseResult(_ result: PurchaseResult) -> UIAlertController? {
         switch result {
         case .success(let purchase):
-            premiumPurchased = true
-            let swtch = self.form.rowBy(tag: "dark_mode") as! SwitchRow
-            self.toggleDarkMode(swtch.cell.switchControl)
-            UserDefaults.standard.set(swtch.cell.switchControl.isOn, forKey: "dark_mode")
-            UserDefaults.standard.synchronize()
+            do {
+                try self.keychain.set("purchased", key: "premium_access")
+                if self.getPremiumAccess() {
+                    self.activatePurchase()
+                }
+            } catch _ {
+                
+            }
             print("Purchase Success: \(purchase.productId)")
             return nil
         case .error(let error):
@@ -302,7 +342,14 @@ extension SettingsViewController {
             print("Restore Failed: \(results.restoreFailedPurchases)")
             return alertWithTitle("Restore failed", message: "Unknown error. Please contact support")
         } else if results.restoredPurchases.count > 0 {
-            premiumPurchased = true
+            do {
+                try self.keychain.set("purchased", key: "premium_access")
+                if self.getPremiumAccess() {
+                    self.activatePurchase()
+                }
+            } catch let e {
+                print(e)
+            }
             print("Restore Success: \(results.restoredPurchases)")
             return alertWithTitle("Purchases Restored", message: "All purchases have been restored")
         } else {
