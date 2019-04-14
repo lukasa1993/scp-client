@@ -7,40 +7,84 @@
 //
 
 import UIKit
+import Eureka
 
-class TailViewController: UIViewController, NMSSHChannelDelegate {
+class TailViewController: FormViewController, Themeable  {
     var path:String = ""
     var session:NMSSHSession? = nil
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        
-        session!.channel.delegate = self
-        session!.channel.requestPty = true
-        session!.channel.ptyTerminalType = .ansi
-        do {
-            try session!.channel.startShell()
-            try session!.channel.write("tail -f " + path)
-        } catch let error {
-            print("error: \(error)")
+    var textIndex = 0
+    var keepAlive = true
+    var textUnique: Set<String> = []
+    var currentTheme: Theme = .light {
+        didSet {
+            apply(theme: currentTheme)
         }
     }
     
+    func apply(theme: Theme) {
+        let navigationBar = navigationController?.navigationBar
+        navigationBar?.barTintColor = theme.navigationBarColor
+        navigationBar?.titleTextAttributes = [.foregroundColor: theme.navigationTextColor]
+        
+        tabBarController?.tabBar.barTintColor = theme.navigationBarColor
+        
+        tableView.backgroundColor = theme.backgroundColor
+        tableView.separatorColor = theme.cellSeparatorColor
+        
+        for cell in tableView.visibleCells {
+            cell.apply(theme: currentTheme)
+        }
+        
+        for row in form.allRows {
+            row.baseCell.apply(theme: currentTheme)
+            row.updateCell()
+        }
+    }
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        form +++ Section(path)
+        startTail()
+    }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        
-        session?.channel.closeShell()
+        keepAlive = false
     }
     
-    func channel(_ channel: NMSSHChannel!, didReadData message: String!) {
-        NSLog("message: " + message)
+    
+    func startTail() {
+        DispatchQueue.global().async {
+            do {
+                let result = try self.session!.channel.execute("tail -n 4 " + self.path)
+                let before = self.textUnique.count
+                self.textUnique.insert(result)
+                let after = self.textUnique.count
+                if after > before {
+                    DispatchQueue.main.async {
+                        let tag = "text_" + String(self.textIndex)
+                        self.form.last! <<< TextAreaRow(tag) {
+                            $0.value = result
+                            $0.textAreaMode = .readOnly
+                            $0.cell.textView.contentOffset = .zero
+                            }.cellUpdate { cell,row in
+                                row.cell.textView.backgroundColor = self.currentTheme.backgroundColor
+                                row.cell.textView.textColor = self.currentTheme.cellMainTextColor
+                                row.cell.placeholderLabel?.textColor = self.currentTheme.cellDetailTextColor
+                                cell.apply(theme: self.currentTheme)
+                        }
+                    }
+                    self.textIndex += 1
+                }
+                if self.keepAlive {
+                    usleep(500)
+                    self.startTail()
+                }
+            } catch let error {
+                print("error: \(error)")
+            }
+        }
     }
     
-    func channel(_ channel: NMSSHChannel!, didReadError error: String!) {
-        NSLog("Error: " + error)
-    }
     
-
 }

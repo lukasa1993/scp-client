@@ -139,6 +139,15 @@ class DetailViewController: UIViewController, UIPopoverPresentationControllerDel
         super.viewWillDisappear(animated)
         
         if !editorSegue {
+            var count = 20
+            while (self.leftServer?.checkConnecting())! || (self.rightServer?.checkConnecting())! {
+                usleep(100)
+                count -= 1
+                
+                if count == 0 {
+                    break
+                }
+            }
             leftServer?.stop()
             rightServer?.stop()
         }
