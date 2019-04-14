@@ -32,10 +32,11 @@ struct Payment: Hashable {
     let applicationUsername: String
     let simulatesAskToBuyInSandbox: Bool
     let callback: (TransactionResult) -> Void
-
-    var hashValue: Int {
-        return product.productIdentifier.hashValue
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(product.productIdentifier.hashValue)
     }
+    
     static func == (lhs: Payment, rhs: Payment) -> Bool {
         return lhs.product.productIdentifier == rhs.product.productIdentifier
     }
