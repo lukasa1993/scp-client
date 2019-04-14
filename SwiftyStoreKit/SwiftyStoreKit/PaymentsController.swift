@@ -48,7 +48,7 @@ class PaymentsController: TransactionController {
 
     private func findPaymentIndex(withProductIdentifier identifier: String) -> Int? {
         for payment in payments where payment.product.productIdentifier == identifier {
-            return payments.index(of: payment)
+            return payments.firstIndex(of: payment)
         }
         return nil
     }

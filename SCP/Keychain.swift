@@ -659,7 +659,7 @@ public final class Keychain {
 
     public subscript(key: String) -> String? {
         get {
-            return (try? get(key)).flatMap {
+            return (((try? get(key)) as String??)).flatMap {
                 $0
             }
         }
@@ -691,7 +691,7 @@ public final class Keychain {
 
     public subscript(data key: String) -> Data? {
         get {
-            return (try? getData(key)).flatMap {
+            return (((try? getData(key)) as Data??)).flatMap {
                 $0
             }
         }
@@ -713,9 +713,9 @@ public final class Keychain {
 
     public subscript(attributes key: String) -> Attributes? {
         get {
-            return (try? get(key) {
+            return (((try? get(key) {
                 $0
-            }).flatMap {
+            }) as Attributes??)).flatMap {
                 $0
             }
         }
