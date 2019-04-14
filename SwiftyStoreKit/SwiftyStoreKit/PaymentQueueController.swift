@@ -78,6 +78,8 @@ extension SKPaymentTransactionState: CustomDebugStringConvertible {
         case .failed: return "failed"
         case .restored: return "restored"
         case .deferred: return "deferred"
+        @unknown default:
+            return "failed"
         }
     }
 }
