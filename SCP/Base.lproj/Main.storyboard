@@ -151,7 +151,7 @@
             </objects>
             <point key="canvasLocation" x="2694" y="125"/>
         </scene>
-        <!--Tail View Controller-->
+        <!--Tail-->
         <scene sceneID="5Mx-LD-KGS">
             <objects>
                 <viewController id="Te2-Af-HSb" customClass="TailViewController" customModule="SCP" customModuleProvider="target" sceneMemberID="viewController">
@@ -161,6 +161,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="JTl-eO-Dqo"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Tail" id="cbw-wT-9Jh">
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="jv0-JH-wYb">
+                            <connections>
+                                <action selector="editTail:" destination="Te2-Af-HSb" id="L1b-pJ-QDa"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hjN-hP-PLR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
