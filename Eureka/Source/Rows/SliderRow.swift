@@ -139,7 +139,7 @@ open class SliderCell: Cell<Float>, CellType {
         contentView.removeConstraints(dynamicConstraints)
         dynamicConstraints = []
         
-        var views: [String : Any] = ["titleLabel": titleLabel!, "slider": slider, "valueLabel": valueLabel!]
+        var views: [String : Any] = ["titleLabel": titleLabel!, "slider": slider!, "valueLabel": valueLabel!]
         let metrics = ["spacing": 15.0]
         valueLabel.setContentCompressionResistancePriority(.defaultHigh, for: .horizontal)
         titleLabel.setContentCompressionResistancePriority(.defaultHigh, for: .horizontal)
