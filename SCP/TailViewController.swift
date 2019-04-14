@@ -57,9 +57,18 @@ class TailViewController: FormViewController, Themeable  {
         let dark_mode = (UserDefaults.standard.object(forKey: "dark_mode") as? Bool) ?? false
         currentTheme  = dark_mode ? .dark : .light
         
+        self.lineCount = UserDefaults.standard.integer(forKey: "tail_linecount")
+        self.timeout = UserDefaults.standard.integer(forKey: "tail_timeout")
         
+        if self.lineCount == 0 {
+            self.lineCount = 1
+        }
         
-        form +++ Section(header: path, footer: "kuku")
+        if self.timeout == 0 {
+            self.timeout = 500
+        }
+        
+        form +++ Section(header: path, footer: "…")
         startTail()
     }
     
@@ -69,24 +78,47 @@ class TailViewController: FormViewController, Themeable  {
     }
     
     @IBAction func editTail(_ sender: UIBarButtonItem? = nil) {
-        //get the Slider values from UserDefaults
-        let defaultSliderValue = UserDefaults.standard.float(forKey: "sliderValue")
+        let dark_mode = (UserDefaults.standard.object(forKey: "dark_mode") as? Bool) ?? false
         
-        //create the Alert message with extra return spaces
-        let sliderAlert = UIAlertController(title: "Options", message: "Set Tail Options", preferredStyle: UIAlertController.Style.actionSheet)
-        
-        //create a Slider and fit within the extra message spaces
-        //add the Slider to a Subview of the sliderAlert
-        let slider = UISlider(frame:CGRect(x: 10, y: 100, width: 250, height: 80))
-        slider.minimumValue = 1
-        slider.maximumValue = 100
-        slider.value = defaultSliderValue
-        slider.isContinuous = true
-        slider.tintColor = UIColor.cyan
-        sliderAlert.view.addSubview(slider)
-                
+        let alertController = UIAlertController(title: "Add New Name", message: "", preferredStyle: .alert)
+        alertController.addTextField { (textField : UITextField!) -> Void in
+            textField.text = String(self.lineCount)
+            textField.becomeFirstResponder()
+            textField.backgroundColor = nil
+            textField.textColor = .black
+            textField.placeholder = "Line Number"
+            textField.clearButtonMode = .whileEditing
+            textField.autocapitalizationType = .none
+            textField.keyboardAppearance =  dark_mode ? .dark : .light
+            textField.keyboardType = .numberPad
+            textField.returnKeyType = .continue
+        }
+        alertController.addTextField { (textField : UITextField!) -> Void in
+            textField.text = String(self.timeout)
+            textField.backgroundColor = nil
+            textField.textColor = .black
+            textField.placeholder = "Timeout"
+            textField.clearsOnBeginEditing = false
+            textField.autocapitalizationType = .none
+            textField.keyboardAppearance =  dark_mode ? .dark : .light
+            textField.keyboardType = .numberPad
+            textField.isSecureTextEntry = false
+            textField.returnKeyType = .done
+        }
+        let saveAction = UIAlertAction(title: "Save", style: .default, handler: { alert -> Void in
+            let firstTextField = alertController.textFields![0] as UITextField
+            let secondTextField = alertController.textFields![1] as UITextField
+            
+            self.lineCount = Int(firstTextField.text!)!
+            self.timeout = Int(secondTextField.text!)!
+            UserDefaults.standard.set(self.lineCount, forKey: "tail_linecount")
+            UserDefaults.standard.set(self.timeout, forKey: "tail_timeout")
+        })
+        alertController.addAction(saveAction)
+
         //present the sliderAlert message
-        self.present(sliderAlert, animated: true, completion: nil)
+        self.present(alertController, animated: true, completion: nil)
+        
     }
     
     func startTail() {
@@ -102,6 +134,7 @@ class TailViewController: FormViewController, Themeable  {
                         self.form.last! <<< TextAreaRow(tag) {
                             $0.value = result
                             $0.textAreaMode = .readOnly
+                            $0.textAreaHeight = TextAreaHeight.dynamic(initialTextViewHeight: 110)
                             $0.cell.textView.contentOffset = .zero
                             }.cellUpdate { cell,row in
                                 row.cell.textView.backgroundColor = self.currentTheme.backgroundColor
@@ -119,8 +152,9 @@ class TailViewController: FormViewController, Themeable  {
                     self.textIndex += 1
                 }
                 if self.keepAlive {
-                    usleep(useconds_t(self.timeout))
-                    self.startTail()
+                    DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(self.timeout), execute: {
+                        self.startTail()
+                    })
                 }
             } catch let error {
                 print("error: \(error)")
