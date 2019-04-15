@@ -15,6 +15,8 @@ class DetailViewController: UIViewController, UIPopoverPresentationControllerDel
     
     var editorSegue: Bool = false
     
+    var grasefulStop: Bool = true
+    
     var leftServer: SSHServerTableViewController? = nil
     var rightServer: SSHServerTableViewController? = nil
     
@@ -139,17 +141,7 @@ class DetailViewController: UIViewController, UIPopoverPresentationControllerDel
         super.viewWillDisappear(animated)
         
         if !editorSegue {
-            var count = 50
-            while (self.leftServer?.checkConnecting())! || (self.rightServer?.checkConnecting())! {
-                usleep(100)
-                count -= 1
-                
-                if count == 0 {
-                    break
-                }
-            }
-            leftServer?.stop()
-            rightServer?.stop()
+            self.gracefulStop()
         }
     }
     
@@ -190,11 +182,7 @@ class DetailViewController: UIViewController, UIPopoverPresentationControllerDel
     
     @objc private func exit() {
         DispatchQueue.global().async {
-            while (self.leftServer?.checkConnecting())! || (self.rightServer?.checkConnecting())! {
-                usleep(100)
-            }
-            self.leftServer?.stop()
-            self.rightServer?.stop()
+            self.gracefulStop()
             DispatchQueue.main.async {
                 self.dismiss(animated: true, completion: nil)
             }
@@ -208,6 +196,25 @@ class DetailViewController: UIViewController, UIPopoverPresentationControllerDel
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func gracefulStop() {
+        if grasefulStop {
+            return
+        }
+        grasefulStop = true
+        
+        var count = 50
+        while (self.leftServer?.checkConnecting())! || (self.rightServer?.checkConnecting())! {
+            usleep(100)
+            count -= 1
+            
+            if count == 0 {
+                break
+            }
+        }
+        leftServer?.stop()
+        rightServer?.stop()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
