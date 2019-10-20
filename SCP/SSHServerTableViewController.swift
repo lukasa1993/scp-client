@@ -69,7 +69,6 @@ class SSHServerTableViewController: UIViewController, UITableViewDelegate, UITab
             return
         }
         isConnecting = true
-        self.title = SSHServer?.name
         
         DispatchQueue.main.async {
             self.tableView?.dataSource = self;
@@ -246,8 +245,14 @@ class SSHServerTableViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: isLeft ? "LeftTableCell" : "RightTableCell", for: indexPath)
-        let item = objects[indexPath.row];
+        let item = objects[indexPath.row]
+        var cell:UITableViewCell
+        if(item["name"] == ".." && item["type"] == "folder") {
+            cell = tableView.dequeueReusableCell(withIdentifier: isLeft ? "LeftSubtitleTableCell" : "RightSubtitleTableCell", for: indexPath)
+            cell.detailTextLabel?.text = pwd;
+        } else {
+            cell = tableView.dequeueReusableCell(withIdentifier: isLeft ? "LeftTableCell" : "RightTableCell", for: indexPath)
+        }
         cell.apply(theme: currentTheme)
         
         cell.textLabel?.text = item["name"]
@@ -259,20 +264,27 @@ class SSHServerTableViewController: UIViewController, UITableViewDelegate, UITab
         
         let holdForAction = UILongPressGestureRecognizer(target: self, action: #selector(SSHServerTableViewController.longPressFolder));
         cell.addGestureRecognizer(holdForAction)
+        for view in cell.subviews {
+            for sView in view.subviews {
+                sView.backgroundColor = .clear
+            }
+        }
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let item = objects[indexPath.row];
-        
-        if(item["type"] == "folder") {
-            changeDir(path: item["name"]!)
-        } else if(item["type"] == "file") {
-            handleAction(item, indexPath: indexPath)
+        DispatchQueue.global(qos: .userInitiated).async {
+            if(item["type"] == "folder") {
+                self.changeDir(path: item["name"]!)
+            } else if(item["type"] == "file") {
+                self.handleAction(item, indexPath: indexPath)
+            }
+            DispatchQueue.main.async {
+                tableView.deselectRow(at: indexPath, animated: true)
+            }
         }
-        
-        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     @objc public func longPressFolder(sender: UILongPressGestureRecognizer) {
@@ -291,7 +303,7 @@ class SSHServerTableViewController: UIViewController, UITableViewDelegate, UITab
         let alert = UIAlertController(title: "Action On " + item["name"]!,
                                       message: "Move/Copy to: " + sidePWD,
                                       preferredStyle: .actionSheet)
-
+        
         if let popoverController = alert.popoverPresentationController {
             popoverController.sourceView = tableView?.cellForRow(at: indexPath)
             popoverController.sourceRect = (popoverController.sourceView?.bounds)!
@@ -345,10 +357,10 @@ class SSHServerTableViewController: UIViewController, UITableViewDelegate, UITab
             self.handleView(path: self.pwd + "/" + item["name"]!)
         }))
         
-        alert.addAction(UIAlertAction(title: "Tail", style: .default, handler: { (action) in
-            let payload = (path:self.pwd + "/" + item["name"]!, session:self.SSHSession)
-            self.performParentSegue!( "tail_view", payload)
-        }))
+//        alert.addAction(UIAlertAction(title: "Tail", style: .default, handler: { (action) in
+//            let payload = (path:self.pwd + "/" + item["name"]!, session:self.SSHSession)
+//            self.performParentSegue!( "tail_view", payload)
+//        }))
         
         alert.addAction(UIAlertAction(title: "Stats", style: .default, handler: { (action) in
             self.handleStats(path: self.pwd + "/" + item["name"]!)

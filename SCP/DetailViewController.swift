@@ -43,7 +43,9 @@ class DetailViewController: UIViewController, UIPopoverPresentationControllerDel
                 let jsonDecoder = JSONDecoder()
                 let server = try jsonDecoder.decode(SSHServer.self, from: detail.data(using: .utf8)!)
                 
-                self.title = "Connecting…"
+                DispatchQueue.main.async {
+                    self.title = "Connecting…"
+                }
                 
                 leftServer = SSHServerTableViewController.init(nibName: nil, bundle: nil)
                 rightServer = SSHServerTableViewController.init(nibName: nil, bundle: nil)

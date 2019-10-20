@@ -163,10 +163,17 @@ class MasterViewController: UITableViewController, Themeable {
             let server = try jsonDecoder.decode(SSHServer.self, from: (Value?.data(using: .utf8))!)
             cell.textLabel!.text = server.name
             cell.detailTextLabel!.text = server.host + ":" + String(server.port)            
+            cell.imageView?.image = UIImage.init(icon: .fontAwesome(.globe), size: CGSize(width: 35, height: 35), textColor: currentTheme.cellMainTextColor)
         } catch _ {
             cell.textLabel!.text = "Corrupted!"
             cell.detailTextLabel!.text = Key
         }
+        for view in cell.subviews {
+            for sView in view.subviews {
+                sView.backgroundColor = .clear
+            }
+        }
+        
         return cell
     }
     

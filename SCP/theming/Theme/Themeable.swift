@@ -14,7 +14,8 @@ extension UITableViewCell: Themeable {
         detailTextLabel?.textColor = theme.cellDetailTextColor
 
         for view in [self, textLabel, detailTextLabel] {
-            view?.backgroundColor = theme.cellBackgroundColor
+            view?.backgroundColor = .clear
         }
+        self.backgroundColor = theme.cellBackgroundColor
     }
 }
