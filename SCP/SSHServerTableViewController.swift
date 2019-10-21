@@ -275,7 +275,7 @@ class SSHServerTableViewController: UIViewController, UITableViewDelegate, UITab
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let item = objects[indexPath.row];
-        DispatchQueue.global(qos: .userInitiated).async {
+        DispatchQueue.global(qos: .userInteractive).async {
             if(item["type"] == "folder") {
                 self.changeDir(path: item["name"]!)
             } else if(item["type"] == "file") {
@@ -388,7 +388,9 @@ class SSHServerTableViewController: UIViewController, UITableViewDelegate, UITab
         
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         
-        self.presenter!(alert, true, nil)
+        DispatchQueue.main.async {
+            self.presenter!(alert, true, nil)
+        }
     }
     
     private func handleCopy(from: String, to: String) {

@@ -152,7 +152,7 @@ class DetailViewController: UIViewController, UIPopoverPresentationControllerDel
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        DispatchQueue.global(qos: .userInteractive).async {
+        DispatchQueue.main.async {
             self.configureView()
         }
         
