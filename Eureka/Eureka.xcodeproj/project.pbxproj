@@ -21,6 +21,7 @@
 		287E7D821D74E64C0065F4DE /* RuleURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287E7D811D74E64C0065F4DE /* RuleURL.swift */; };
 		287E7D841D75F9C80065F4DE /* RuleEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287E7D831D75F9C80065F4DE /* RuleEmail.swift */; };
 		287E7D901D7601850065F4DE /* RuleLength.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287E7D8F1D7601850065F4DE /* RuleLength.swift */; };
+		28B12FD51BA0E83C00F27A23 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28B12FD41BA0E83C00F27A23 /* Assets.xcassets */; };
 		28DB37301CE4F864009E46BA /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28DB372F1CE4F864009E46BA /* Protocols.swift */; };
 		28EE0FDE1D5E889F00B91340 /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EE0FDD1D5E889F00B91340 /* Validation.swift */; };
 		28EE46A81C7F5D5200EFF4A2 /* SelectableSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2859CE231C7E141B0002982F /* SelectableSection.swift */; };
@@ -66,9 +67,9 @@
 		28EEC0331C7E64AB00300699 /* PopoverSelectorRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2859CE1D1C7E08300002982F /* PopoverSelectorRow.swift */; };
 		3973000A1DF0E2A000080E4D /* PickerInputRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397300091DF0E2A000080E4D /* PickerInputRow.swift */; };
 		49ADC7F91C8A83240073952B /* StepperRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ADC7F81C8A83240073952B /* StepperRow.swift */; };
+		51729DF61B9A4F5E004A00EB /* Eureka.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51729DEB1B9A4F5E004A00EB /* Eureka.framework */; };
 		51729E671B9A5FA5004A00EB /* Eureka.h in Headers */ = {isa = PBXBuildFile; fileRef = 51729E661B9A5FA5004A00EB /* Eureka.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		798C5ADA1EF1E35600A21F52 /* SwipeActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798C5AD91EF1E35600A21F52 /* SwipeActions.swift */; };
-		8690E4BE1CFDE062004CDB1C /* Eureka.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8690E4BD1CFDE062004CDB1C /* Eureka.bundle */; };
 		8FCCF8EF20A24085004793A0 /* DoublePickerRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FCCF8EE20A24085004793A0 /* DoublePickerRow.swift */; };
 		8FCCF8F120A32613004793A0 /* TriplePickerRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FCCF8F020A32613004793A0 /* TriplePickerRow.swift */; };
 		8FCCF92320A473E7004793A0 /* DoublePickerInputRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FCCF92220A473E7004793A0 /* DoublePickerInputRow.swift */; };
@@ -76,6 +77,16 @@
 		B244E6541FE1C94F0026B944 /* AlertOptionsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B244E6531FE1C94F0026B944 /* AlertOptionsRow.swift */; };
 		FA56B6AF1DBAD38900407C94 /* RuleEqualsToRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56B6AE1DBAD38900407C94 /* RuleEqualsToRow.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		51729DF71B9A4F5E004A00EB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 51729DE21B9A4F5E004A00EB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 51729DEA1B9A4F5E004A00EB;
+			remoteInfo = Eureka;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		280FBE5C1D87360900900064 /* RuleRange.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RuleRange.swift; path = Source/Validations/RuleRange.swift; sourceTree = SOURCE_ROOT; };
@@ -118,25 +129,12 @@
 		2859CE1F1C7E092B0002982F /* MultipleSelectorRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultipleSelectorRow.swift; sourceTree = "<group>"; };
 		2859CE211C7E13470002982F /* GenericMultipleSelectorRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GenericMultipleSelectorRow.swift; path = Common/GenericMultipleSelectorRow.swift; sourceTree = "<group>"; };
 		2859CE231C7E141B0002982F /* SelectableSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectableSection.swift; sourceTree = "<group>"; };
-		285BA4481E81864E0034EE92 /* MultivaluedSectionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MultivaluedSectionTests.swift; path = Tests/MultivaluedSectionTests.swift; sourceTree = SOURCE_ROOT; };
-		287A142A1D89DF1E00FFE6EB /* ValidationsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ValidationsTests.swift; path = Tests/ValidationsTests.swift; sourceTree = SOURCE_ROOT; };
-		287A142D1D8A07B700FFE6EB /* SelectableSectionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SelectableSectionTests.swift; path = Tests/SelectableSectionTests.swift; sourceTree = SOURCE_ROOT; };
 		287E7D7D1D625A260065F4DE /* RuleRequired.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RuleRequired.swift; path = Source/Validations/RuleRequired.swift; sourceTree = SOURCE_ROOT; };
 		287E7D7F1D74E42D0065F4DE /* RuleRegExp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RuleRegExp.swift; path = Source/Validations/RuleRegExp.swift; sourceTree = SOURCE_ROOT; };
 		287E7D811D74E64C0065F4DE /* RuleURL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RuleURL.swift; path = Source/Validations/RuleURL.swift; sourceTree = SOURCE_ROOT; };
 		287E7D831D75F9C80065F4DE /* RuleEmail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RuleEmail.swift; path = Source/Validations/RuleEmail.swift; sourceTree = SOURCE_ROOT; };
 		287E7D8F1D7601850065F4DE /* RuleLength.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RuleLength.swift; path = Source/Validations/RuleLength.swift; sourceTree = SOURCE_ROOT; };
-		28B1D7711C7F90C900605EB3 /* BaseEurekaTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = BaseEurekaTests.swift; path = Tests/BaseEurekaTests.swift; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		28B1D7721C7F90C900605EB3 /* CallbacksTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = CallbacksTests.swift; path = Tests/CallbacksTests.swift; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		28B1D7731C7F90C900605EB3 /* CollectionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CollectionTests.swift; path = Tests/CollectionTests.swift; sourceTree = SOURCE_ROOT; };
-		28B1D7741C7F90C900605EB3 /* DateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateTests.swift; path = Tests/DateTests.swift; sourceTree = SOURCE_ROOT; };
-		28B1D7751C7F90C900605EB3 /* FormValuesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FormValuesTests.swift; path = Tests/FormValuesTests.swift; sourceTree = SOURCE_ROOT; };
-		28B1D7761C7F90C900605EB3 /* HelperMethodTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HelperMethodTests.swift; path = Tests/HelperMethodTests.swift; sourceTree = SOURCE_ROOT; };
-		28B1D7771C7F90C900605EB3 /* HiddenRowsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HiddenRowsTests.swift; path = Tests/HiddenRowsTests.swift; sourceTree = SOURCE_ROOT; };
-		28B1D7781C7F90C900605EB3 /* OperatorsTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OperatorsTest.swift; path = Tests/OperatorsTest.swift; sourceTree = SOURCE_ROOT; };
-		28B1D7791C7F90C900605EB3 /* RowByTagTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RowByTagTests.swift; path = Tests/RowByTagTests.swift; sourceTree = SOURCE_ROOT; };
-		28B1D77A1C7F90C900605EB3 /* RowCallbackTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RowCallbackTests.swift; path = Tests/RowCallbackTests.swift; sourceTree = SOURCE_ROOT; };
-		28B1D77B1C7F90C900605EB3 /* SetValuesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SetValuesTests.swift; path = Tests/SetValuesTests.swift; sourceTree = SOURCE_ROOT; };
+		28B12FD41BA0E83C00F27A23 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Source/Assets.xcassets; sourceTree = SOURCE_ROOT; };
 		28DB372F1CE4F864009E46BA /* Protocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Protocols.swift; path = Common/Protocols.swift; sourceTree = "<group>"; };
 		28EE0FDD1D5E889F00B91340 /* Validation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
 		28EEBFE41C7E1B3B00300699 /* CellType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = CellType.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -153,17 +151,14 @@
 		49ADC7F81C8A83240073952B /* StepperRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StepperRow.swift; sourceTree = "<group>"; };
 		51729DEB1B9A4F5E004A00EB /* Eureka.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Eureka.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		51729DF01B9A4F5E004A00EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		51729DFC1B9A4F5E004A00EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Tests/Info.plist; sourceTree = "<group>"; };
+		51729DF51B9A4F5E004A00EB /* EurekaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EurekaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		51729E661B9A5FA5004A00EB /* Eureka.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Eureka.h; path = Source/Eureka.h; sourceTree = SOURCE_ROOT; };
 		798C5AD91EF1E35600A21F52 /* SwipeActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeActions.swift; sourceTree = "<group>"; };
-		8690E4BD1CFDE062004CDB1C /* Eureka.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Eureka.bundle; sourceTree = "<group>"; };
 		8FCCF8EE20A24085004793A0 /* DoublePickerRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoublePickerRow.swift; sourceTree = "<group>"; };
 		8FCCF8F020A32613004793A0 /* TriplePickerRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriplePickerRow.swift; sourceTree = "<group>"; };
 		8FCCF92220A473E7004793A0 /* DoublePickerInputRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoublePickerInputRow.swift; sourceTree = "<group>"; };
 		8FCCF92420A4794B004793A0 /* TriplePickerInputRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriplePickerInputRow.swift; sourceTree = "<group>"; };
 		B244E6531FE1C94F0026B944 /* AlertOptionsRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AlertOptionsRow.swift; path = Common/AlertOptionsRow.swift; sourceTree = "<group>"; };
-		B257FE2D1EC0F66900043911 /* RowsInsertionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RowsInsertionTests.swift; path = Tests/RowsInsertionTests.swift; sourceTree = SOURCE_ROOT; };
-		B2A401151EC0BA140042EDF0 /* SectionsInsertionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SectionsInsertionTests.swift; path = Tests/SectionsInsertionTests.swift; sourceTree = SOURCE_ROOT; };
 		FA56B6AE1DBAD38900407C94 /* RuleEqualsToRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RuleEqualsToRow.swift; path = Source/Validations/RuleEqualsToRow.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -172,6 +167,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		51729DF21B9A4F5E004A00EB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				51729DF61B9A4F5E004A00EB /* Eureka.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,7 +298,6 @@
 			isa = PBXGroup;
 			children = (
 				51729DED1B9A4F5E004A00EB /* Source */,
-				51729DF91B9A4F5E004A00EB /* Tests */,
 				51729DEC1B9A4F5E004A00EB /* Products */,
 			);
 			sourceTree = "<group>";
@@ -304,6 +306,7 @@
 			isa = PBXGroup;
 			children = (
 				51729DEB1B9A4F5E004A00EB /* Eureka.framework */,
+				51729DF51B9A4F5E004A00EB /* EurekaTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -314,45 +317,12 @@
 				2859CD901C7CF1FD0002982F /* Core */,
 				2859CD971C7CF2020002982F /* Rows */,
 				287E7D7C1D62552C0065F4DE /* Validations */,
-				8690E4BC1CFDE02A004CDB1C /* Resources */,
 				51729E661B9A5FA5004A00EB /* Eureka.h */,
 				51729DF01B9A4F5E004A00EB /* Info.plist */,
+				28B12FD41BA0E83C00F27A23 /* Assets.xcassets */,
 			);
 			path = Source;
 			sourceTree = "<group>";
-		};
-		51729DF91B9A4F5E004A00EB /* Tests */ = {
-			isa = PBXGroup;
-			children = (
-				287A142D1D8A07B700FFE6EB /* SelectableSectionTests.swift */,
-				28B1D7711C7F90C900605EB3 /* BaseEurekaTests.swift */,
-				28B1D7721C7F90C900605EB3 /* CallbacksTests.swift */,
-				28B1D7731C7F90C900605EB3 /* CollectionTests.swift */,
-				28B1D7741C7F90C900605EB3 /* DateTests.swift */,
-				28B1D7751C7F90C900605EB3 /* FormValuesTests.swift */,
-				28B1D7761C7F90C900605EB3 /* HelperMethodTests.swift */,
-				28B1D7771C7F90C900605EB3 /* HiddenRowsTests.swift */,
-				28B1D7781C7F90C900605EB3 /* OperatorsTest.swift */,
-				28B1D7791C7F90C900605EB3 /* RowByTagTests.swift */,
-				28B1D77A1C7F90C900605EB3 /* RowCallbackTests.swift */,
-				28B1D77B1C7F90C900605EB3 /* SetValuesTests.swift */,
-				287A142A1D89DF1E00FFE6EB /* ValidationsTests.swift */,
-				285BA4481E81864E0034EE92 /* MultivaluedSectionTests.swift */,
-				51729DFC1B9A4F5E004A00EB /* Info.plist */,
-				B2A401151EC0BA140042EDF0 /* SectionsInsertionTests.swift */,
-				B257FE2D1EC0F66900043911 /* RowsInsertionTests.swift */,
-			);
-			path = Tests;
-			sourceTree = "<group>";
-		};
-		8690E4BC1CFDE02A004CDB1C /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				8690E4BD1CFDE062004CDB1C /* Eureka.bundle */,
-			);
-			name = Resources;
-			path = Source/Resources;
-			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -386,6 +356,24 @@
 			productReference = 51729DEB1B9A4F5E004A00EB /* Eureka.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		51729DF41B9A4F5E004A00EB /* EurekaTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 51729E021B9A4F5E004A00EB /* Build configuration list for PBXNativeTarget "EurekaTests" */;
+			buildPhases = (
+				51729DF11B9A4F5E004A00EB /* Sources */,
+				51729DF21B9A4F5E004A00EB /* Frameworks */,
+				51729DF31B9A4F5E004A00EB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				51729DF81B9A4F5E004A00EB /* PBXTargetDependency */,
+			);
+			name = EurekaTests;
+			productName = EurekaTests;
+			productReference = 51729DF51B9A4F5E004A00EB /* EurekaTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -393,10 +381,15 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0930;
+				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = Xmartlabs;
 				TargetAttributes = {
 					51729DEA1B9A4F5E004A00EB = {
+						CreatedOnToolsVersion = 7.0;
+						LastSwiftMigration = 1020;
+						ProvisioningStyle = Automatic;
+					};
+					51729DF41B9A4F5E004A00EB = {
 						CreatedOnToolsVersion = 7.0;
 						LastSwiftMigration = 1020;
 						ProvisioningStyle = Automatic;
@@ -405,11 +398,11 @@
 			};
 			buildConfigurationList = 51729DE51B9A4F5E004A00EB /* Build configuration list for PBXProject "Eureka" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				English,
 				en,
+				Base,
 			);
 			mainGroup = 51729DE11B9A4F5E004A00EB;
 			productRefGroup = 51729DEC1B9A4F5E004A00EB /* Products */;
@@ -417,6 +410,7 @@
 			projectRoot = "";
 			targets = (
 				51729DEA1B9A4F5E004A00EB /* Eureka */,
+				51729DF41B9A4F5E004A00EB /* EurekaTests */,
 			);
 		};
 /* End PBXProject section */
@@ -426,7 +420,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8690E4BE1CFDE062004CDB1C /* Eureka.bundle in Resources */,
+				28B12FD51BA0E83C00F27A23 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		51729DF31B9A4F5E004A00EB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -506,13 +507,29 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		51729DF11B9A4F5E004A00EB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		51729DF81B9A4F5E004A00EB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 51729DEA1B9A4F5E004A00EB /* Eureka */;
+			targetProxy = 51729DF71B9A4F5E004A00EB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		51729DFD1B9A4F5E004A00EB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -531,6 +548,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -556,7 +574,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -572,6 +590,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -590,6 +609,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -609,7 +629,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
@@ -635,6 +655,7 @@
 				INFOPLIST_FILE = Source/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MARKETING_VERSION = 5.3.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.xmartlabs.Eureka;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -658,9 +679,41 @@
 				INFOPLIST_FILE = Source/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MARKETING_VERSION = 5.3.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.xmartlabs.Eureka;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		51729E031B9A4F5E004A00EB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.xmartlabs.EurekaTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		51729E041B9A4F5E004A00EB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.xmartlabs.EurekaTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 5.0;
 			};
@@ -683,6 +736,15 @@
 			buildConfigurations = (
 				51729E001B9A4F5E004A00EB /* Debug */,
 				51729E011B9A4F5E004A00EB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		51729E021B9A4F5E004A00EB /* Build configuration list for PBXNativeTarget "EurekaTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				51729E031B9A4F5E004A00EB /* Debug */,
+				51729E041B9A4F5E004A00EB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

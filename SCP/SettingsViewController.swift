@@ -11,6 +11,7 @@ import PasscodeLock
 import StoreKit
 import SwiftyStoreKit
 
+@available(macCatalyst 14.0, *)
 class SettingsViewController: FormViewController, Themeable {
     let premiumId = "com.picktek.sscpclient.premium_access"
     let keychain:Keychain = Keychain(service: "settings");
@@ -263,6 +264,7 @@ class SettingsViewController: FormViewController, Themeable {
 }
 
 // MARK: User facing alerts
+@available(macCatalyst 14.0, *)
 extension SettingsViewController {
     
     func alertWithTitle(_ title: String, message: String) -> UIAlertController {

@@ -74,8 +74,13 @@ open class BaseRow: BaseRowType {
         get { return nil }
     }
 
-    public func validate() -> [ValidationError] {
+    open func validate(quietly: Bool = false) -> [ValidationError] {
         return []
+    }
+
+    // Reset validation
+    open func cleanValidationErrors() {
+        validationErrors = []
     }
 
     public static var estimatedRowHeight: CGFloat = 44.0
@@ -101,10 +106,10 @@ open class BaseRow: BaseRowType {
     /// The section to which this row belongs.
     open weak var section: Section?
 	
-    public lazy var trailingSwipe = SwipeConfiguration(self)
+    public lazy var trailingSwipe = {[unowned self] in SwipeConfiguration(self)}()
 	
     //needs the accessor because if marked directly this throws "Stored properties cannot be marked potentially unavailable with '@available'"
-    private lazy var _leadingSwipe = SwipeConfiguration(self)
+    private lazy var _leadingSwipe = {[unowned self] in SwipeConfiguration(self)}()
 
     @available(iOS 11,*)
     public var leadingSwipe: SwipeConfiguration{
@@ -131,7 +136,7 @@ open class BaseRow: BaseRowType {
     /**
      Helps to pick destination part of the cell after scrolling
      */
-    open var destinationScrollPosition = UITableView.ScrollPosition.bottom
+    open var destinationScrollPosition: UITableView.ScrollPosition? = UITableView.ScrollPosition.bottom
 
     /**
      Returns the IndexPath where this row is in the current form.
@@ -148,13 +153,6 @@ open class BaseRow: BaseRowType {
                 baseCell.cellResignFirstResponder()
             }
         }
-    }
-}
-
-extension BaseRow {
-    // Reset validation
-    public func cleanValidationErrors(){
-        validationErrors = []
     }
 }
 

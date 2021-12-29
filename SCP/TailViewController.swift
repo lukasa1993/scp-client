@@ -124,7 +124,7 @@ class TailViewController: FormViewController, Themeable  {
     func startTail() {
         DispatchQueue.global().async {
             do {
-                let result = try self.session!.channel.execute("tail -n \(self.lineCount) \(self.path)")
+                let result = try self.session!.channel.execute("tail -n \(self.lineCount) \(self.path)", error: nil)
                 let before = self.textUnique.count
                 self.textUnique.insert(result)
                 let after = self.textUnique.count

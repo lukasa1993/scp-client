@@ -74,6 +74,9 @@ open class PhoneCell: _FieldCell<String>, CellType {
     open override func setup() {
         super.setup()
         textField.keyboardType = .phonePad
+        if #available(iOS 10,*) {
+            textField.textContentType = .telephoneNumber
+        }
     }
 }
 
@@ -92,6 +95,9 @@ open class NameCell: _FieldCell<String>, CellType {
         textField.autocorrectionType = .no
         textField.autocapitalizationType = .words
         textField.keyboardType = .asciiCapable
+        if #available(iOS 10,*) {
+            textField.textContentType = .name
+        }
     }
 }
 
@@ -132,6 +138,9 @@ open class PasswordCell: _FieldCell<String>, CellType {
         textField.autocapitalizationType = .none
         textField.keyboardType = .asciiCapable
         textField.isSecureTextEntry = true
+        if let textLabel = textLabel {
+            textField.setContentHuggingPriority(textLabel.contentHuggingPriority(for: .horizontal) - 1, for: .horizontal)
+        }
         if #available(iOS 11,*) {
             textField.textContentType = .password
         }
@@ -230,6 +239,9 @@ open class ZipCodeCell: _FieldCell<String>, CellType {
         textField.autocorrectionType = .no
         textField.autocapitalizationType = .allCharacters
         textField.keyboardType = .numbersAndPunctuation
+        if #available(iOS 10,*) {
+            textField.textContentType = .postalCode
+        }
     }
 }
 

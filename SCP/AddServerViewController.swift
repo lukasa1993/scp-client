@@ -9,6 +9,7 @@
 import Eureka
 import GenericPasswordRow
 
+@available(macCatalyst 14.0, *)
 class AddServerViewController: FormViewController, Themeable {
     
     var serverForm: Form? = nil

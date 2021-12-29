@@ -85,14 +85,14 @@ class SSHServerTableViewController: UIViewController, UITableViewDelegate, UITab
             pwd = (UserDefaults.standard.object(forKey: self.serverUUID + "_last_path_right") as? String) ?? ""
         }
         
-        SSHSession = NMSSHSession.connect(toHost: SSHServer?.host, port: (SSHServer?.port)!, withUsername: SSHServer?.user)
+        SSHSession = NMSSHSession.connect(toHost: SSHServer!.host, port: SSHServer!.port, withUsername: SSHServer!.user)
         if (SSHSession?.isConnected)! {
             if (SSHServer?.pass.count)! > 0 {
-                SSHSession?.authenticate(byPassword: SSHServer?.pass)
+                SSHSession?.authenticate(byPassword: SSHServer!.pass)
             }
             
             if(checkAuth() == false) {
-                SSHSession?.authenticateBy(inMemoryPublicKey: SSHServer?.pubkey, privateKey: SSHServer?.privkey, andPassword: SSHServer?.prase)
+                SSHSession?.authenticateBy(inMemoryPublicKey: SSHServer?.pubkey, privateKey: SSHServer!.privkey, andPassword: SSHServer?.prase)
                 if(checkAuth() == false) {
                     if self.self.isLeft {
                         print("Left Cant Connect")
@@ -159,8 +159,8 @@ class SSHServerTableViewController: UIViewController, UITableViewDelegate, UITab
                 listCMD = "cd \"" + pwd + "\" && ls -a1";
                 dirsCMD = "cd \"" + pwd + "\" && ls -d1 */ && ls -d1 .*/";
             }
-            let list = try SSHSession?.channel.execute(listCMD)
-            let dirs = try SSHSession?.channel.execute(dirsCMD)
+            let list = try SSHSession?.channel.execute(listCMD, error: nil)
+            let dirs = try SSHSession?.channel.execute(dirsCMD, error: nil)
             parseListing(all: list!, dirs: dirs!);
             DispatchQueue.main.async {
                 self.tableView?.reloadData()
@@ -215,7 +215,7 @@ class SSHServerTableViewController: UIViewController, UITableViewDelegate, UITab
     
     private func changeDir(path:String) {
         do {
-            pwd = (try SSHSession?.channel.execute("cd \""  + pwd + "\" && cd \"" + path + "\" && pwd"))!
+            pwd = (try SSHSession?.channel.execute("cd \""  + pwd + "\" && cd \"" + path + "\" && pwd", error: nil))!
             pwd = pwd.trimmingCharacters(in: .whitespacesAndNewlines)
             if(isLeft) {
                 UserDefaults.standard.set(pwd, forKey: self.serverUUID + "_last_path_left")
@@ -395,7 +395,7 @@ class SSHServerTableViewController: UIViewController, UITableViewDelegate, UITab
     
     private func handleCopy(from: String, to: String) {
         do {
-            try SSHSession?.channel.execute("cp -rf \"" + from + "\" \"" + to + "\"")
+            try SSHSession?.channel.execute("cp -rf \"" + from + "\" \"" + to + "\"", error: nil)
         } catch let error {
             print("error: \(error)")
         }
@@ -406,7 +406,7 @@ class SSHServerTableViewController: UIViewController, UITableViewDelegate, UITab
     
     private func handleMove(from: String, to: String) {
         do {
-            try SSHSession?.channel.execute("mv -f \"" + from + "\" \"" + to + "\"")
+            try SSHSession?.channel.execute("mv -f \"" + from + "\" \"" + to + "\"", error: nil)
         } catch let error {
             print("error: \(error)")
         }
@@ -417,7 +417,7 @@ class SSHServerTableViewController: UIViewController, UITableViewDelegate, UITab
     
     private func handleDelete(path: String) {
         do {
-            try SSHSession?.channel.execute("rm -rf \"" + path + "\"")
+            try SSHSession?.channel.execute("rm -rf \"" + path + "\"", error: nil)
         } catch let error {
             print("error: \(error)")
         }
@@ -436,7 +436,7 @@ class SSHServerTableViewController: UIViewController, UITableViewDelegate, UITab
     
     private func handleView(path: String) {
         do {
-            let cat = try SSHSession?.channel.execute("cat \"" + path + "\"")
+            let cat = try SSHSession?.channel.execute("cat \"" + path + "\"", error: nil)
             
             let viewAlert = UIAlertController(title: "Viewing " + path, message: cat, preferredStyle: .alert)
             viewAlert.addAction(UIAlertAction(title: "Done", style: .default))
@@ -449,7 +449,7 @@ class SSHServerTableViewController: UIViewController, UITableViewDelegate, UITab
     
     private func handleTail(path: String) {
         do {
-            let cat = try SSHSession?.channel.execute("tail -f \"" + path + "\"")
+            let cat = try SSHSession?.channel.execute("tail -f \"" + path + "\"", error: nil)
             
             let viewAlert = UIAlertController(title: "Viewing " + path, message: cat, preferredStyle: .alert)
             viewAlert.addAction(UIAlertAction(title: "Done", style: .default))
@@ -462,7 +462,7 @@ class SSHServerTableViewController: UIViewController, UITableViewDelegate, UITab
     
     private func handleStats(path: String) {
         do {
-            let cat = try SSHSession?.channel.execute("ls -alh \"" + path + "\"")
+            let cat = try SSHSession?.channel.execute("ls -alh \"" + path + "\"", error: nil)
             
             let viewAlert = UIAlertController(title: "Stats " + path, message: cat, preferredStyle: .alert)
             viewAlert.addAction(UIAlertAction(title: "Done", style: .default))
@@ -594,7 +594,7 @@ class SSHServerTableViewController: UIViewController, UITableViewDelegate, UITab
             alertView.view.addSubview(progressView)
             
             DispatchQueue.global(qos: .background).async {
-                self.SSHSession?.channel.uploadFile(tempFile.path, to: path, progress: {(uploaded:UInt) -> (Bool) in
+                self.SSHSession?.channel.uploadFile(tempFile.path!, to: path, progress: {(uploaded:UInt) -> (Bool) in
                     DispatchQueue.main.async {
                         progressView.setProgress(Float(Float(uploaded)  / Float(total)), animated: true)
                     }
