@@ -27,7 +27,7 @@
         <!--Master-->
         <scene sceneID="pY4-Hu-kfo">
             <objects>
-                <navigationController title="Master" id="RMx-3f-FxP" sceneMemberID="viewController">
+                <navigationController title="Master" id="RMx-3f-FxP" customClass="ThemedNavicationController" customModule="SCP" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" systemItem="favorites" id="46F-BJ-642"/>
                     <navigationBar key="navigationBar" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="Pmd-2v-anx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -359,10 +359,10 @@
             </objects>
             <point key="canvasLocation" x="3628" y="125"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Themed Navication Controller-->
         <scene sceneID="r7l-gg-dq7">
             <objects>
-                <navigationController modalPresentationStyle="fullScreen" id="vC3-pB-5Vb" sceneMemberID="viewController">
+                <navigationController modalPresentationStyle="fullScreen" id="vC3-pB-5Vb" customClass="ThemedNavicationController" customModule="SCP" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="NGW-tr-5bm"/>
                     <navigationBar key="navigationBar" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="DjV-YW-jjY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -395,10 +395,10 @@
             </objects>
             <point key="canvasLocation" x="-17" y="-699"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Themed Navication Controller-->
         <scene sceneID="Qaz-Cf-dE7">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zpn-ck-T5D" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zpn-ck-T5D" customClass="ThemedNavicationController" customModule="SCP" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" systemItem="more" id="zXa-fx-mr0"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="926-l8-3kG">

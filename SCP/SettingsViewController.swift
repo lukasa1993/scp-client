@@ -41,6 +41,8 @@ class SettingsViewController: FormViewController, Themeable {
         
         setNeedsStatusBarAppearanceUpdate()
         tableView.reloadData()
+        
+    
     }
     
     override func viewDidLoad() {
@@ -176,9 +178,10 @@ class SettingsViewController: FormViewController, Themeable {
     }
     
     func apply(theme: Theme) {
-        let navigationBar = navigationController?.navigationBar
-        navigationBar?.barTintColor = theme.navigationBarColor
-        navigationBar?.titleTextAttributes = [.foregroundColor: theme.navigationTextColor]
+        let navigationController:ThemedNavicationController = navigationController as! ThemedNavicationController;
+        let navigationBar = navigationController.navigationBar
+        navigationBar.barTintColor = theme.navigationBarColor
+        navigationBar.titleTextAttributes = [.foregroundColor: theme.navigationTextColor]
         
         tabBarController?.tabBar.barTintColor = theme.navigationBarColor
         
@@ -189,7 +192,7 @@ class SettingsViewController: FormViewController, Themeable {
             cell.apply(theme: currentTheme)
         }
         
-        setNeedsStatusBarAppearanceUpdate()
+        navigationController.currentTheme = currentTheme
     }
     
     

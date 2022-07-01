@@ -23,6 +23,7 @@
 		0B4D325C222A68E000C0A8A5 /* GenericPasswordRow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B4D3257222A68D100C0A8A5 /* GenericPasswordRow.framework */; };
 		0B4D325D222A68E000C0A8A5 /* GenericPasswordRow.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0B4D3257222A68D100C0A8A5 /* GenericPasswordRow.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0B556E87224FAF39001781A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B556E86224FAF39001781A7 /* Assets.xcassets */; };
+		0BDB1970286F03F200217A5E /* ThemedNavicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BDB196F286F03F200217A5E /* ThemedNavicationController.swift */; };
 		0BDFC256286EDBDD00856A12 /* PasscodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BDFC255286EDBDD00856A12 /* PasscodeViewController.swift */; };
 		6B24E8F820777084005B33A5 /* NMSSH.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B24E8F72077707F005B33A5 /* NMSSH.framework */; };
 		6B24E8F920777084005B33A5 /* NMSSH.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6B24E8F72077707F005B33A5 /* NMSSH.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -198,6 +199,7 @@
 		0B414CC6222AC4CC00E392C2 /* SSHServer_legacy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSHServer_legacy.swift; sourceTree = "<group>"; };
 		0B4D3250222A68D100C0A8A5 /* GenericPasswordRow.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GenericPasswordRow.xcodeproj; path = GenericPasswordRow/GenericPasswordRow.xcodeproj; sourceTree = SOURCE_ROOT; };
 		0B556E86224FAF39001781A7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0BDB196F286F03F200217A5E /* ThemedNavicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemedNavicationController.swift; sourceTree = "<group>"; };
 		0BDFC255286EDBDD00856A12 /* PasscodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasscodeViewController.swift; sourceTree = "<group>"; };
 		6B24E8EE2077707F005B33A5 /* NMSSH-iOS.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "NMSSH-iOS.xcodeproj"; path = "NMSSH/NMSSH-iOS.xcodeproj"; sourceTree = SOURCE_ROOT; };
 		6B24E8FC207770AB005B33A5 /* SCP-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "SCP-Bridging-Header.h"; path = "../SCP-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -445,6 +447,7 @@
 			isa = PBXGroup;
 			children = (
 				0B281807224FAA250032D963 /* SCP.entitlements */,
+				0BDB196F286F03F200217A5E /* ThemedNavicationController.swift */,
 				0B2817EB224F94300032D963 /* NetworkActivityIndicatorManager.swift */,
 				6BEB47EB224E4E79003FB71E /* LockSplashView.swift */,
 				6BEB47E9224E4E56003FB71E /* CustomPasscodeLockPresenter.swift */,
@@ -797,6 +800,7 @@
 				6BEB47E8224E4912003FB71E /* UserDefaultsPasscodeRepository.swift in Sources */,
 				6BC17E83207766C400E2A999 /* SSHServer.swift in Sources */,
 				6B34A4072261C34C00D147EC /* TailViewController.swift in Sources */,
+				0BDB1970286F03F200217A5E /* ThemedNavicationController.swift in Sources */,
 				6B24E91520778093005B33A5 /* SwiftIcons.swift in Sources */,
 				0B281789224F52480032D963 /* Themeable.swift in Sources */,
 				0B281788224F52480032D963 /* Theme.swift in Sources */,
@@ -1106,7 +1110,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = SCP/SCP.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 370;
+				CURRENT_PROJECT_VERSION = 380;
 				DEVELOPMENT_TEAM = N43S8JF6JT;
 				INFOPLIST_FILE = SCP/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
@@ -1133,7 +1137,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = SCP/SCP.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 370;
+				CURRENT_PROJECT_VERSION = 380;
 				DEVELOPMENT_TEAM = N43S8JF6JT;
 				INFOPLIST_FILE = SCP/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
