@@ -24,8 +24,8 @@ class CustomPasscodeLockPresenter: PasscodeLockPresenter {
         splashView = LockSplashView()
         
         // TIP: you can set your custom viewController that has added functionality in a custom .xib too
-        let passcodeLockVC = PasscodeLockViewController(state: .enterPasscode, configuration: configuration)
-        
+        let passcodeLockVC = PasscodeViewController(state: .enterPasscode, configuration: configuration)
+
         super.init(mainWindow: window, configuration: configuration, viewController: passcodeLockVC)
         
         // add notifications observers

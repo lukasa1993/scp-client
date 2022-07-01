@@ -342,9 +342,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 51729DFF1B9A4F5E004A00EB /* Build configuration list for PBXNativeTarget "Eureka" */;
 			buildPhases = (
+				51729DE81B9A4F5E004A00EB /* Headers */,
 				51729DE61B9A4F5E004A00EB /* Sources */,
 				51729DE71B9A4F5E004A00EB /* Frameworks */,
-				51729DE81B9A4F5E004A00EB /* Headers */,
 				51729DE91B9A4F5E004A00EB /* Resources */,
 			);
 			buildRules = (

@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -369,7 +367,7 @@
                         <action selector="passcodeSignButtonTap:" destination="-1" eventType="touchUpInside" id="lGc-z4-PyQ"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="etg-x7-Mx1">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="etg-x7-Mx1">
                     <rect key="frame" x="109" y="595" width="56" height="26"/>
                     <inset key="contentEdgeInsets" minX="4" minY="4" maxX="4" maxY="4"/>
                     <state key="normal" title="Cancel">
@@ -379,7 +377,7 @@
                         <action selector="cancelButtonTap:" destination="-1" eventType="touchUpInside" id="zLU-i4-B3I"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H78-kl-y6L">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H78-kl-y6L">
                     <rect key="frame" x="250.5" y="595" width="53" height="26"/>
                     <inset key="contentEdgeInsets" minX="4" minY="4" maxX="4" maxY="4"/>
                     <state key="normal" title="Delete">
@@ -392,7 +390,7 @@
                         <action selector="deleteSignButtonTap:" destination="-1" eventType="touchUpInside" id="uXY-lj-GdX"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Ph-dj-v7R" userLabel="TouchID Button">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Ph-dj-v7R" userLabel="TouchID Button">
                     <rect key="frame" x="155" y="770" width="104" height="26"/>
                     <inset key="contentEdgeInsets" minX="4" minY="4" maxX="4" maxY="4"/>
                     <state key="normal" title="Use Biometric">
@@ -451,4 +449,48 @@
             <point key="canvasLocation" x="-349" y="311"/>
         </imageView>
     </objects>
+    <designables>
+        <designable name="0CR-0R-0Nr">
+            <size key="intrinsicContentSize" width="60" height="60"/>
+        </designable>
+        <designable name="9Tg-dE-gH4">
+            <size key="intrinsicContentSize" width="16" height="16"/>
+        </designable>
+        <designable name="C9Z-3u-ohd">
+            <size key="intrinsicContentSize" width="60" height="60"/>
+        </designable>
+        <designable name="CGh-ph-49t">
+            <size key="intrinsicContentSize" width="60" height="60"/>
+        </designable>
+        <designable name="EUD-XB-0CR">
+            <size key="intrinsicContentSize" width="60" height="60"/>
+        </designable>
+        <designable name="Fhs-1e-Ysl">
+            <size key="intrinsicContentSize" width="16" height="16"/>
+        </designable>
+        <designable name="OSf-H5-f20">
+            <size key="intrinsicContentSize" width="16" height="16"/>
+        </designable>
+        <designable name="PbJ-Y8-MMf">
+            <size key="intrinsicContentSize" width="60" height="60"/>
+        </designable>
+        <designable name="RA8-jd-dag">
+            <size key="intrinsicContentSize" width="60" height="60"/>
+        </designable>
+        <designable name="RR4-5o-pli">
+            <size key="intrinsicContentSize" width="60" height="60"/>
+        </designable>
+        <designable name="WDx-aD-wJK">
+            <size key="intrinsicContentSize" width="60" height="60"/>
+        </designable>
+        <designable name="cuq-ue-Jyj">
+            <size key="intrinsicContentSize" width="60" height="60"/>
+        </designable>
+        <designable name="pLy-90-g1a">
+            <size key="intrinsicContentSize" width="60" height="60"/>
+        </designable>
+        <designable name="w14-Kb-Jnf">
+            <size key="intrinsicContentSize" width="16" height="16"/>
+        </designable>
+    </designables>
 </document>

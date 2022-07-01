@@ -23,6 +23,7 @@
 		0B4D325C222A68E000C0A8A5 /* GenericPasswordRow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B4D3257222A68D100C0A8A5 /* GenericPasswordRow.framework */; };
 		0B4D325D222A68E000C0A8A5 /* GenericPasswordRow.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0B4D3257222A68D100C0A8A5 /* GenericPasswordRow.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0B556E87224FAF39001781A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B556E86224FAF39001781A7 /* Assets.xcassets */; };
+		0BDFC256286EDBDD00856A12 /* PasscodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BDFC255286EDBDD00856A12 /* PasscodeViewController.swift */; };
 		6B24E8F820777084005B33A5 /* NMSSH.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B24E8F72077707F005B33A5 /* NMSSH.framework */; };
 		6B24E8F920777084005B33A5 /* NMSSH.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6B24E8F72077707F005B33A5 /* NMSSH.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6B24E90C20778093005B33A5 /* Icofont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6B24E90020778093005B33A5 /* Icofont.ttf */; };
@@ -197,6 +198,7 @@
 		0B414CC6222AC4CC00E392C2 /* SSHServer_legacy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSHServer_legacy.swift; sourceTree = "<group>"; };
 		0B4D3250222A68D100C0A8A5 /* GenericPasswordRow.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GenericPasswordRow.xcodeproj; path = GenericPasswordRow/GenericPasswordRow.xcodeproj; sourceTree = SOURCE_ROOT; };
 		0B556E86224FAF39001781A7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0BDFC255286EDBDD00856A12 /* PasscodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasscodeViewController.swift; sourceTree = "<group>"; };
 		6B24E8EE2077707F005B33A5 /* NMSSH-iOS.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "NMSSH-iOS.xcodeproj"; path = "NMSSH/NMSSH-iOS.xcodeproj"; sourceTree = SOURCE_ROOT; };
 		6B24E8FC207770AB005B33A5 /* SCP-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "SCP-Bridging-Header.h"; path = "../SCP-Bridging-Header.h"; sourceTree = "<group>"; };
 		6B24E90020778093005B33A5 /* Icofont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Icofont.ttf; sourceTree = "<group>"; };
@@ -447,6 +449,7 @@
 				6BEB47EB224E4E79003FB71E /* LockSplashView.swift */,
 				6BEB47E9224E4E56003FB71E /* CustomPasscodeLockPresenter.swift */,
 				6BEB47E7224E4912003FB71E /* UserDefaultsPasscodeRepository.swift */,
+				0BDFC255286EDBDD00856A12 /* PasscodeViewController.swift */,
 				6BEB47E5224E485A003FB71E /* PasscodeLockConfiguration.swift */,
 				0B414CC6222AC4CC00E392C2 /* SSHServer_legacy.swift */,
 				6BEB47BF224E3DA3003FB71E /* SettingsViewController.swift */,
@@ -550,10 +553,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6BC17E6920774D6300E2A999 /* Build configuration list for PBXNativeTarget "SCP" */;
 			buildPhases = (
+				6BC17E7E2077602000E2A999 /* Embed Frameworks */,
 				6BC17E5120774D6300E2A999 /* Sources */,
 				6BC17E5220774D6300E2A999 /* Frameworks */,
 				6BC17E5320774D6300E2A999 /* Resources */,
-				6BC17E7E2077602000E2A999 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -781,6 +784,7 @@
 				6BC17E5D20774D6300E2A999 /* DetailViewController.swift in Sources */,
 				0B281786224F52480032D963 /* CGPoint+centerPointAndRadius.swift in Sources */,
 				6BEB47E6224E485A003FB71E /* PasscodeLockConfiguration.swift in Sources */,
+				0BDFC256286EDBDD00856A12 /* PasscodeViewController.swift in Sources */,
 				0B281787224F52480032D963 /* UINavigationController+preferredStatusBarStyle.swift in Sources */,
 				6BC17E802077605300E2A999 /* AddServerViewController.swift in Sources */,
 				6BEB47C0224E3DA3003FB71E /* SettingsViewController.swift in Sources */,
@@ -1102,23 +1106,22 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = SCP/SCP.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 359;
+				CURRENT_PROJECT_VERSION = 370;
 				DEVELOPMENT_TEAM = N43S8JF6JT;
 				INFOPLIST_FILE = SCP/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx*]" = 14.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.7;
+				MARKETING_VERSION = 1.8;
 				PRODUCT_BUNDLE_IDENTIFIER = com.picktek.sscpclient;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "SCP-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,6";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -1130,22 +1133,21 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = SCP/SCP.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 359;
+				CURRENT_PROJECT_VERSION = 370;
 				DEVELOPMENT_TEAM = N43S8JF6JT;
 				INFOPLIST_FILE = SCP/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx*]" = 14.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.7;
+				MARKETING_VERSION = 1.8;
 				PRODUCT_BUNDLE_IDENTIFIER = com.picktek.sscpclient;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "SCP-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,6";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

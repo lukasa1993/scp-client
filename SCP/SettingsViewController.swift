@@ -33,6 +33,16 @@ class SettingsViewController: FormViewController, Themeable {
         return premium_access
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let dark_mode = (UserDefaults.standard.object(forKey: "dark_mode") as? Bool) ?? false
+        currentTheme  = dark_mode ? .dark : .light
+        
+        setNeedsStatusBarAppearanceUpdate()
+        tableView.reloadData()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -143,11 +153,10 @@ class SettingsViewController: FormViewController, Themeable {
                 }
         }
     }
-    
+        
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        cell.apply(theme: currentTheme)
-    }
-    
+           cell.apply(theme: currentTheme)
+   }
     
     func version() -> String {
         let dictionary = Bundle.main.infoDictionary!
@@ -180,9 +189,12 @@ class SettingsViewController: FormViewController, Themeable {
             cell.apply(theme: currentTheme)
         }
         
+        setNeedsStatusBarAppearanceUpdate()
     }
     
+    
     override var preferredStatusBarStyle: UIStatusBarStyle {
+        print("preferredStatusBarStyle, ", currentTheme.statusBarStyle)
         return currentTheme.statusBarStyle
     }
     

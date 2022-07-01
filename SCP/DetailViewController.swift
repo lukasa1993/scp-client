@@ -103,6 +103,7 @@ class DetailViewController: UIViewController, UIPopoverPresentationControllerDel
         currentTheme  = dark_mode ? .dark : .light
         
         self.view.backgroundColor = currentTheme.backgroundColor
+        setNeedsStatusBarAppearanceUpdate()
     }
     
     var currentTheme: Theme = .light {

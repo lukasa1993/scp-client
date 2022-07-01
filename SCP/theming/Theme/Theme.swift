@@ -16,15 +16,27 @@ struct Theme {
     let statusBarStyle: UIStatusBarStyle
 
     static var light: Theme {
-        return Theme(accentColor: UIColor(red: 0.00, green: 0.45, blue: 1.00, alpha: 1.00),
-                     backgroundColor: UIColor(red: 0.93, green: 0.93, blue: 0.95, alpha: 1.00),
-                     navigationBarColor: UIColor(red: 0.969, green: 0.969, blue: 0.969, alpha: 1.00),
-                     navigationTextColor: UIColor(red: 0.00, green: 0.00, blue: 0.00, alpha: 1.00),
-                     cellBackgroundColor: UIColor(white: 1, alpha: 1),
-                     cellMainTextColor: UIColor(red: 0.08, green: 0.08, blue: 0.08, alpha: 1.00),
-                     cellDetailTextColor: UIColor(red: 0.53, green: 0.53, blue: 0.55, alpha: 1.00),
-                     cellSeparatorColor: UIColor(red: 0.88, green: 0.88, blue: 0.90, alpha: 1.00),
-                     statusBarStyle: .default)
+        if #available(iOS 13.0, *) {
+            return Theme(accentColor: UIColor(red: 0.00, green: 0.45, blue: 1.00, alpha: 1.00),
+                         backgroundColor: UIColor(red: 0.93, green: 0.93, blue: 0.95, alpha: 1.00),
+                         navigationBarColor: UIColor(red: 0.969, green: 0.969, blue: 0.969, alpha: 1.00),
+                         navigationTextColor: UIColor(red: 0.00, green: 0.00, blue: 0.00, alpha: 1.00),
+                         cellBackgroundColor: UIColor(white: 1, alpha: 1),
+                         cellMainTextColor: UIColor(red: 0.08, green: 0.08, blue: 0.08, alpha: 1.00),
+                         cellDetailTextColor: UIColor(red: 0.53, green: 0.53, blue: 0.55, alpha: 1.00),
+                         cellSeparatorColor: UIColor(red: 0.88, green: 0.88, blue: 0.90, alpha: 1.00),
+                         statusBarStyle: .darkContent)
+        } else {
+            return Theme(accentColor: UIColor(red: 0.00, green: 0.45, blue: 1.00, alpha: 1.00),
+                         backgroundColor: UIColor(red: 0.93, green: 0.93, blue: 0.95, alpha: 1.00),
+                         navigationBarColor: UIColor(red: 0.969, green: 0.969, blue: 0.969, alpha: 1.00),
+                         navigationTextColor: UIColor(red: 0.00, green: 0.00, blue: 0.00, alpha: 1.00),
+                         cellBackgroundColor: UIColor(white: 1, alpha: 1),
+                         cellMainTextColor: UIColor(red: 0.08, green: 0.08, blue: 0.08, alpha: 1.00),
+                         cellDetailTextColor: UIColor(red: 0.53, green: 0.53, blue: 0.55, alpha: 1.00),
+                         cellSeparatorColor: UIColor(red: 0.88, green: 0.88, blue: 0.90, alpha: 1.00),
+                         statusBarStyle: .default)
+        }
     }
 
     static var dark: Theme {

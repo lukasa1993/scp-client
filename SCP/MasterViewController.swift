@@ -91,6 +91,7 @@ class MasterViewController: UITableViewController, Themeable {
         for cell in tableView.visibleCells {
             cell.apply(theme: currentTheme)
         }
+                
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
